@@ -1,0 +1,87 @@
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.55rem 1.4rem;
+  background: linear-gradient(to top, rgba(244, 236, 210, 0.97) 55%, transparent);
+  border-top: 1px solid rgba(139, 105, 20, 0.35);
+  pointer-events: none;
+}
+
+.status-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.status-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2e3a;
+  letter-spacing: 0.04em;
+  font-family: Georgia, serif;
+}
+
+.status-date {
+  font-size: 0.82rem;
+  color: #5a4a2a;
+  font-family: Georgia, serif;
+}
+
+.status-weather {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #3a2e1a;
+}
+
+.status-wx-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.status-temp {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a2e3a;
+}
+
+.status-wx-divider {
+  color: #8b6914;
+}
+
+.status-wx-detail {
+  color: #4a3820;
+}
+
+.status-live {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4a3820;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+}
+
+.status-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22cc66;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}

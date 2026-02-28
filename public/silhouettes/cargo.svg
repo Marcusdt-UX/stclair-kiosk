@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="#aabbcc">
+  <!-- Simple bulk freighter silhouette -->
+  <rect x="5" y="18" width="100" height="12" rx="2"/>
+  <rect x="10" y="10" width="20" height="10"/>
+  <rect x="55" y="8" width="12" height="12"/>
+  <polygon points="5,30 0,30 5,18"/>
+  <polygon points="115,24 105,18 105,30"/>
+</svg>

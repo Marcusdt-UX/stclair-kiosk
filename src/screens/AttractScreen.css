@@ -1,0 +1,189 @@
+/* ── Attract / Screensaver overlay ── */
+.attract-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: row;
+  background: #0d1a22;
+  overflow: hidden;
+}
+
+/* ── Photo side (left ~55%) ── */
+.attract-photo-wrap {
+  position: relative;
+  width: 55%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.attract-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Gradient bleed into info panel */
+.attract-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 55%, #0d1a22 100%);
+}
+
+/* Vignette top and bottom for drama */
+.attract-photo-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(13, 26, 34, 0.55) 0%, transparent 20%),
+    linear-gradient(to top, rgba(13, 26, 34, 0.55) 0%, transparent 18%);
+}
+
+/* ── Info side (right ~45%) ── */
+.attract-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3rem 5rem 2rem;
+  background: #0d1a22;
+  position: relative;
+}
+
+/* Header lozenge */
+.attract-header {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8b6914;
+  border: 1px solid rgba(139, 105, 20, 0.45);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+  margin-bottom: 1.8rem;
+  font-family: Georgia, serif;
+  width: fit-content;
+}
+
+/* Ship name */
+.attract-name {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: #e8dfc0;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+  margin: 0 0 0.6rem 0;
+}
+
+/* Divider */
+.attract-divider {
+  height: 1px;
+  background: #8b6914;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* Descriptor line (type • length • tonnage • year) */
+.attract-desc {
+  font-size: 0.95rem;
+  color: #9ab0b8;
+  margin: 0 0 1.4rem 0;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* History rows */
+.attract-history {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.attract-history-row {
+  display: contents;
+}
+
+.attract-history-label {
+  font-size: 0.75rem;
+  color: #8b6914;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+  font-style: italic;
+  align-self: baseline;
+}
+
+.attract-history-value {
+  font-size: 0.9rem;
+  color: #e8dfc0;
+  font-family: Georgia, serif;
+  font-weight: 600;
+  align-self: baseline;
+}
+
+/* Curator note */
+.attract-note {
+  font-size: 0.85rem;
+  color: #9ab0b8;
+  border-left: 2px solid #8b2020;
+  padding-left: 0.75rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 auto 0;
+}
+
+/* Slide counter */
+.attract-counter {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 0.72rem;
+  color: rgba(139, 105, 20, 0.6);
+  letter-spacing: 0.1em;
+  font-family: Georgia, serif;
+}
+
+/* ── Progress bar ── */
+.attract-progress-wrap {
+  margin-top: 2rem;
+}
+
+.attract-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.attract-progress-label {
+  font-size: 0.72rem;
+  color: rgba(139, 105, 20, 0.65);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+}
+
+.attract-progress-secs {
+  font-size: 0.78rem;
+  color: rgba(232, 223, 192, 0.45);
+}
+
+.attract-progress-track {
+  height: 2px;
+  background: rgba(139, 105, 20, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.attract-progress-bar {
+  height: 100%;
+  background: #8b2020;
+  border-radius: 2px;
+  transition: width 0.25s linear;
+}
+
+/* ── Fade animation (handled by Framer Motion) ── */

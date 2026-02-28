@@ -1,0 +1,210 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 20, 10, 0.35);
+  z-index: 900;
+  pointer-events: none;
+}
+
+.popup-card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 62vh;
+  display: flex;
+  flex-direction: row;
+  background: #f4ecd2;
+  z-index: 1000;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  border-top: 2px solid #8b6914;
+  box-shadow: 0 -6px 32px rgba(26, 20, 10, 0.45);
+}
+
+/* ── Photo side ── */
+.popup-photo-wrap {
+  position: relative;
+  width: 40%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.popup-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.popup-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, #f4ecd2 100%);
+}
+
+/* ── Info side ── */
+.popup-info {
+  flex: 1;
+  padding: 2rem 2rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(139, 105, 20, 0.12);
+  border: 1px solid rgba(139, 105, 20, 0.4);
+  color: #4a3820;
+  font-size: 1.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.popup-close:hover { background: rgba(139, 105, 20, 0.25); }
+
+.popup-name {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #1a2e3a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  margin: 0 0 0.75rem 0;
+  padding-right: 2.5rem;
+  font-family: Georgia, serif;
+}
+
+.popup-divider {
+  height: 1px;
+  background: #8b6914;
+  margin-bottom: 0.75rem;
+  opacity: 0.45;
+}
+
+.popup-desc {
+  font-size: 1rem;
+  color: #5a4a2a;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
+/* ── Historical details ── */
+.popup-history {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 0.9rem;
+  align-items: baseline;
+}
+
+.popup-history-row {
+  display: contents;
+}
+
+.popup-history-label {
+  font-size: 0.78rem;
+  color: #7a5c2a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.popup-history-value {
+  font-size: 0.88rem;
+  color: #1a2e3a;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+/* ── Route ── */
+.popup-route {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.popup-route-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.popup-route-icon {
+  font-size: 1.1rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+.popup-route-label {
+  color: #7a5c2a;
+  min-width: 3.5rem;
+  font-style: italic;
+}
+
+.popup-route-value {
+  color: #1a2e3a;
+  font-weight: 700;
+  font-family: Georgia, serif;
+}
+
+/* ── Note ── */
+.popup-note {
+  font-size: 0.82rem;
+  color: #4a3820;
+  border-left: 2px solid #8b2020;
+  padding-left: 0.6rem;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Progress bar ── */
+.popup-progress-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 0.3rem;
+}
+
+.popup-progress-label {
+  font-size: 0.75rem;
+  color: #7a5c2a;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+}
+
+.popup-progress-secs {
+  font-size: 0.82rem;
+  color: #5a4a2a;
+}
+
+.popup-progress-track {
+  height: 3px;
+  background: rgba(139, 105, 20, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.popup-progress-bar {
+  height: 100%;
+  background: #8b2020;
+  border-radius: 2px;
+  transition: width 0.2s linear;
+}
