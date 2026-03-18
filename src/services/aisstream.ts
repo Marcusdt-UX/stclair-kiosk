@@ -7,7 +7,7 @@ const PROXY_BASE = import.meta.env.VITE_PROXY_URL
   || (import.meta.env.DEV ? 'http://localhost:2610' : '')
 const WS_URL = PROXY_BASE
   ? PROXY_BASE.replace(/^http/, 'ws')
-  : `ws://${window.location.host}`
+  : `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}`
 const LOOKUP_URL = `${PROXY_BASE}/vessel`
 
 // Fetch cached vessel data from the proxy and push it into the store.
