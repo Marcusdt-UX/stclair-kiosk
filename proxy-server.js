@@ -41,7 +41,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolv
 const BOUNDING_BOX = [[[42.85, -82.55], [43.05, -82.35]]]
 
 if (!AIS_KEY || AIS_KEY === 'your_aisstream_key_here') {
-  console.error('[Proxy] ERROR: VITE_AISSTREAM_API_KEY is not set in .env')
+  console.error('[Proxy] ERROR: VITE_AISSTREAM_API_KEY is not set in .env or environment variables')
   process.exit(1)
 }
 
