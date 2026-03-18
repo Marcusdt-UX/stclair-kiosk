@@ -32,7 +32,11 @@ function loadEnv() {
 }
 
 const env = loadEnv()
-const AIS_KEY = env.VITE_AISSTREAM_API_KEY || process.env.VITE_AISSTREAM_API_KEY || ''
+const AIS_KEY =
+  env.VITE_AISSTREAM_API_KEY ||
+  process.env.VITE_AISSTREAM_API_KEY ||
+  process.env.AISSTREAM_API_KEY ||
+  ''
 const PROXY_PORT = parseInt(process.env.PORT || '2610', 10)
 const AIS_URL = 'wss://stream.aisstream.io/v0/stream'
 const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolve(__dirname, 'dist', 'index.html'))
@@ -40,8 +44,11 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolv
 // Bounding box: full St. Clair River corridor
 const BOUNDING_BOX = [[[42.85, -82.55], [43.05, -82.35]]]
 
+console.log(`[Proxy] NODE_ENV=${process.env.NODE_ENV}, IS_PRODUCTION=${IS_PRODUCTION}, PORT=${PROXY_PORT}`)
+console.log(`[Proxy] AIS_KEY present: ${!!AIS_KEY && AIS_KEY !== 'your_aisstream_key_here'}`)
+
 if (!AIS_KEY || AIS_KEY === 'your_aisstream_key_here') {
-  console.error('[Proxy] ERROR: VITE_AISSTREAM_API_KEY is not set in .env or environment variables')
+  console.error('[Proxy] ERROR: AIS API key not found. Set VITE_AISSTREAM_API_KEY or AISSTREAM_API_KEY in your environment variables.')
   process.exit(1)
 }
 
