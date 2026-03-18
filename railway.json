@@ -6,7 +6,6 @@
   },
   "deploy": {
     "startCommand": "node proxy-server.js",
-    "healthcheckPath": "/vessels",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
