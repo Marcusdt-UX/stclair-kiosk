@@ -48,4 +48,10 @@ export interface ShipDbEntry {
   imo?: string
   builder?: string     // shipyard name
   homeport?: string
+  boatnerd?: string    // link to boatnerd.com vessel page
+  capacity?: string    // cargo capacity from ship particulars
+  enginePower?: string // engine power description
+  lengthDetail?: string // detailed length (e.g. "1000' 00\" (304.8m)")
+  beamDetail?: string   // detailed beam
+  formerNames?: string[]
 }

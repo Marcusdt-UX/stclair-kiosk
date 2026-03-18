@@ -15,6 +15,9 @@ dist-ssr
 # Auto-generated vessel data (built from live AIS traffic, not source code)
 vessel-cache.json
 
+# Scraper output (large, regenerable)
+scripts/boatnerd-raw.json
+
 # Environment variables — never commit real keys
 .env
 .env.local

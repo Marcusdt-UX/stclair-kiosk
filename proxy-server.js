@@ -7,7 +7,7 @@
 
 import { WebSocketServer, WebSocket } from 'ws'
 import { createServer } from 'http'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -32,9 +32,10 @@ function loadEnv() {
 }
 
 const env = loadEnv()
-const AIS_KEY = env.VITE_AISSTREAM_API_KEY || ''
-const PROXY_PORT = 2610
+const AIS_KEY = env.VITE_AISSTREAM_API_KEY || process.env.VITE_AISSTREAM_API_KEY || ''
+const PROXY_PORT = parseInt(process.env.PORT || '2610', 10)
 const AIS_URL = 'wss://stream.aisstream.io/v0/stream'
+const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolve(__dirname, 'dist', 'index.html'))
 
 // Bounding box: full St. Clair River corridor
 const BOUNDING_BOX = [[[42.85, -82.55], [43.05, -82.35]]]
@@ -125,12 +126,48 @@ const httpServer = createServer((req, res) => {
     return
   }
 
+  // ── Production: serve built frontend from dist/ ──────────────────
+  if (IS_PRODUCTION) {
+    const distDir = resolve(__dirname, 'dist')
+    const url = req.url === '/' ? '/index.html' : req.url
+    const filePath = resolve(distDir, url.replace(/^\//, ''))
+
+    // Only serve files under dist/ (basic path-traversal guard)
+    if (filePath.startsWith(distDir)) {
+      try {
+        const content = readFileSync(filePath)
+        const ext = filePath.split('.').pop()
+        const mimeTypes = {
+          html: 'text/html', js: 'application/javascript', css: 'text/css',
+          json: 'application/json', svg: 'image/svg+xml', png: 'image/png',
+          ico: 'image/x-icon', webmanifest: 'application/manifest+json',
+          woff2: 'font/woff2', woff: 'font/woff',
+        }
+        res.setHeader('Content-Type', mimeTypes[ext] || 'application/octet-stream')
+        res.writeHead(200)
+        res.end(content)
+        return
+      } catch {
+        // File not found — fall through to SPA fallback
+      }
+    }
+
+    // SPA fallback: serve index.html for client-side routes
+    try {
+      const index = readFileSync(resolve(distDir, 'index.html'))
+      res.setHeader('Content-Type', 'text/html')
+      res.writeHead(200)
+      res.end(index)
+      return
+    } catch { /* dist not built yet */ }
+  }
+
   res.writeHead(404)
   res.end(JSON.stringify({ error: 'Not found' }))
 })
 
-httpServer.listen(PROXY_PORT, () => {
-  console.log(`[Proxy] HTTP + WebSocket listening on port ${PROXY_PORT}`)
+httpServer.listen(PROXY_PORT, '0.0.0.0', () => {
+  console.log(`[Proxy] HTTP + WebSocket listening on port ${PROXY_PORT}${IS_PRODUCTION ? ' (production)' : ''}`)
 })
 
 // ── WebSocket server (reuses the HTTP server) ────────────────────────────────

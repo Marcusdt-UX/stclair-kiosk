@@ -1,8 +1,14 @@
 import type { Vessel } from '../types'
 import { TRIGGER_ZONE } from '../constants/bounds'
 
-const WS_URL = 'ws://localhost:2610'
-const LOOKUP_URL = 'http://localhost:2610/vessel'
+// In production the proxy lives at the same origin (empty base = relative URLs);
+// in dev Vite runs separately so we hit localhost:2610.
+const PROXY_BASE = import.meta.env.VITE_PROXY_URL
+  || (import.meta.env.DEV ? 'http://localhost:2610' : '')
+const WS_URL = PROXY_BASE
+  ? PROXY_BASE.replace(/^http/, 'ws')
+  : `ws://${window.location.host}`
+const LOOKUP_URL = `${PROXY_BASE}/vessel`
 
 // Fetch cached vessel data from the proxy and push it into the store.
 // Called once per MMSI on first position report so the popup has a name

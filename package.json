@@ -7,9 +7,11 @@
     "dev": "concurrently -k -n PROXY,VITE -c cyan,green \"node proxy-server.js\" \"vite\"",
     "proxy": "node proxy-server.js",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node proxy-server.js"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "concurrently": "^9.2.1",
     "framer-motion": "^11.3.19",
     "leaflet": "^1.9.4",
