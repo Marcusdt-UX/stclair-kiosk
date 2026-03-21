@@ -41,8 +41,9 @@ const PROXY_PORT = parseInt(process.env.PORT || '2610', 10)
 const AIS_URL = 'wss://stream.aisstream.io/v0/stream'
 const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolve(__dirname, 'dist', 'index.html'))
 
-// Bounding box: full St. Clair River corridor
-const BOUNDING_BOX = [[[42.85, -82.55], [43.05, -82.35]]]
+// Bounding box: wider Great Lakes corridor (St. Clair River + approaches)
+// Expanded from the tight corridor to catch vessels in Lake Huron/St. Clair approaches
+const BOUNDING_BOX = [[[42.5, -83.0], [43.3, -82.0]]]
 
 console.log(`[Proxy] NODE_ENV=${process.env.NODE_ENV}, IS_PRODUCTION=${IS_PRODUCTION}, PORT=${PROXY_PORT}`)
 console.log(`[Proxy] AIS_KEY present: ${!!AIS_KEY && AIS_KEY !== 'your_aisstream_key_here'}`)
@@ -211,8 +212,10 @@ function connectToAIS() {
   let msgCount = 0
   aisWs.on('message', (data) => {
     msgCount++
-    if (msgCount <= 3 || msgCount % 100 === 0) {
-      console.log(`[Proxy] AIS message #${msgCount}: ${data.toString().slice(0, 120)}...`)
+    const preview = data.toString().slice(0, 200)
+    if (msgCount <= 5 || msgCount % 50 === 0) {
+      console.log(`[Proxy] AIS msg #${msgCount}: ${preview}`)
+    }
     }
     const raw = data.toString()
     // Update vessel cache from every AIS message
