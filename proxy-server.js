@@ -216,7 +216,6 @@ function connectToAIS() {
     if (msgCount <= 5 || msgCount % 50 === 0) {
       console.log(`[Proxy] AIS msg #${msgCount}: ${preview}`)
     }
-    }
     const raw = data.toString()
     // Update vessel cache from every AIS message
     try {
