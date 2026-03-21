@@ -59,3 +59,51 @@
 .home-btn-label {
   line-height: 1;
 }
+
+/* ── No Vessels Overlay ── */
+.no-vessels-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 600;
+  pointer-events: none;
+}
+
+.no-vessels-card {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(139, 105, 20, 0.4);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 340px;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.no-vessels-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.no-vessels-text {
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  color: #f4ecd2;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+}
+
+.no-vessels-sub {
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  color: rgba(244, 236, 210, 0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 105, 20, 0.15); }
+  50% { box-shadow: 0 0 30px rgba(139, 105, 20, 0.35); }
+}

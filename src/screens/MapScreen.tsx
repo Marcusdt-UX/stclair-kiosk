@@ -145,6 +145,20 @@ export function MapScreen() {
         ))}
       </MapContainer>
 
+      {/* Empty state — when no live vessels are in the area */}
+      {vesselList.length === 0 && !attract && (
+        <div className="no-vessels-overlay">
+          <div className="no-vessels-card">
+            <span className="no-vessels-icon">🔭</span>
+            <p className="no-vessels-text">Scanning for vessels…</p>
+            <p className="no-vessels-sub">
+              No ships currently detected in the St.&nbsp;Clair River corridor.
+              Vessels will appear automatically when they enter the area.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Popup — always use live vessel from store so name/data updates reactively */}
       <VesselPopup
         vessel={activePopup ? (vessels[activePopup.mmsi] ?? activePopup) : null}

@@ -10,13 +10,13 @@ export const CORRIDOR_BOUNDS = {
 export const MAP_CENTER: [number, number] = [42.975, -82.42]
 export const MAP_ZOOM = 12
 
-// Trigger zone: ~2-mile stretch of river directly visible from 100 McMorran Blvd
-// Covers from south of the Blue Water Bridge down through downtown Port Huron
+// Trigger zone: full St. Clair River corridor
+// Expanded to catch vessels anywhere on the river
 export const TRIGGER_ZONE = {
-  south: 42.960,
-  west: -82.430,
-  north: 42.998,
-  east: -82.405,
+  south: 42.85,
+  west: -82.55,
+  north: 43.05,
+  east: -82.35,
 } as const
 
 // Port Huron coordinates for weather API

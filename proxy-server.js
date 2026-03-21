@@ -41,9 +41,9 @@ const PROXY_PORT = parseInt(process.env.PORT || '2610', 10)
 const AIS_URL = 'wss://stream.aisstream.io/v0/stream'
 const IS_PRODUCTION = process.env.NODE_ENV === 'production' || existsSync(resolve(__dirname, 'dist', 'index.html'))
 
-// Bounding box: wider Great Lakes corridor (St. Clair River + approaches)
-// Expanded from the tight corridor to catch vessels in Lake Huron/St. Clair approaches
-const BOUNDING_BOX = [[[42.5, -83.0], [43.3, -82.0]]]
+// Bounding box: full shipping corridor — Detroit River through Lake Huron south
+// Covers: Detroit, Lake St. Clair, St. Clair River, southern Lake Huron
+const BOUNDING_BOX = [[[42.0, -83.5], [44.0, -81.5]]]
 
 console.log(`[Proxy] NODE_ENV=${process.env.NODE_ENV}, IS_PRODUCTION=${IS_PRODUCTION}, PORT=${PROXY_PORT}`)
 console.log(`[Proxy] AIS_KEY present: ${!!AIS_KEY && AIS_KEY !== 'your_aisstream_key_here'}`)
