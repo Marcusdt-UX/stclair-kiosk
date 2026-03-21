@@ -192,14 +192,28 @@ function connectToAIS() {
   aisWs.on('open', () => {
     reconnectDelay = 3000
     console.log('[Proxy] AISStream connected. Subscribing...')
-    aisWs.send(JSON.stringify({
+    const sub = JSON.stringify({
       APIKey: AIS_KEY,
       BoundingBoxes: BOUNDING_BOX,
       FilterMessageTypes: ['PositionReport', 'ShipStaticData'],
-    }))
+    })
+    console.log('[Proxy] Subscription payload:', sub.replace(AIS_KEY, '***'))
+    aisWs.send(sub)
+
+    // Keep connection alive — ping every 30s
+    aisWs._pingInterval = setInterval(() => {
+      if (aisWs.readyState === WebSocket.OPEN) {
+        aisWs.ping()
+      }
+    }, 30_000)
   })
 
+  let msgCount = 0
   aisWs.on('message', (data) => {
+    msgCount++
+    if (msgCount <= 3 || msgCount % 100 === 0) {
+      console.log(`[Proxy] AIS message #${msgCount}: ${data.toString().slice(0, 120)}...`)
+    }
     const raw = data.toString()
     // Update vessel cache from every AIS message
     try {
@@ -301,8 +315,9 @@ function connectToAIS() {
     console.error('[Proxy] AISStream error:', err.message)
   })
 
-  aisWs.on('close', () => {
-    console.warn(`[Proxy] AISStream disconnected. Reconnecting in ${reconnectDelay / 1000}s...`)
+  aisWs.on('close', (code, reason) => {
+    if (aisWs._pingInterval) clearInterval(aisWs._pingInterval)
+    console.warn(`[Proxy] AISStream disconnected. Code: ${code}, Reason: "${reason?.toString() || ''}", Messages received: ${msgCount}. Reconnecting in ${reconnectDelay / 1000}s...`)
     reconnectTimer = setTimeout(() => {
       reconnectDelay = Math.min(reconnectDelay * 2, 60_000)
       connectToAIS()
