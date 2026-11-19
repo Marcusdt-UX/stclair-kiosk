@@ -1,12 +1,14 @@
 # Disable Caddy — proxy-server.js handles HTTP + WebSocket directly
 [phases.setup]
-nixPkgs = ["nodejs_18", "npm-9_x"]
+nixPkgs = ["nodejs_20"]
 
+# Railway sets NODE_ENV=production, which makes a plain `npm ci` skip
+# devDependencies (TypeScript, Vite) and the build fails. Install them anyway.
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["npm ci --include=dev"]
 
 [phases.build]
-cmds = ["npm install && npm run build"]
+cmds = ["npm run build"]
 
 [start]
 cmd = "node proxy-server.js"
