@@ -187,12 +187,14 @@ export function startAISStream(
           const crossed = crossedZone(prevPos.get(mmsi), lat, lon, TRIGGER_ZONE)
           const moving = (pos.Sog ?? 0) >= TRIGGER_MIN_SPEED_KN
 
+          // TrueHeading 511 = "not available" → use course over ground
+          const heading = (pos.TrueHeading != null && pos.TrueHeading < 360) ? pos.TrueHeading : (pos.Cog ?? 0)
           const partial: Partial<Vessel> = {
             mmsi,
             lat,
             lon,
             speed: pos.Sog ?? 0,
-            heading: pos.TrueHeading ?? pos.Cog ?? 0,
+            heading,
             course: pos.Cog ?? 0,
             lastUpdated: Date.now(),
             inTriggerZone: inZone,

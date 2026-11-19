@@ -10,6 +10,10 @@ import { createServer } from 'http'
 import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { createDashboard } from './server/dashboard.js'
+
+// Dates on the dashboard (calendar days, "today") are Port Huron local time
+process.env.TZ = process.env.KIOSK_TZ || 'America/Detroit'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -66,6 +70,8 @@ const BOUNDING_BOX = [[[42.0, -83.5], [44.0, -81.5]]]
 const CORRIDOR = { south: 42.85, west: -82.55, north: 43.05, east: -82.35 }
 // Stretch of river visible from the MOC (100 McMorran Blvd) — the "outside her window" zone
 const WINDOW_ZONE = { south: 42.955, west: -82.432, north: 43.003, east: -82.398 }
+// AIS TrueHeading 511 means "not available" — fall back to course over ground
+const headingOf = pos => (pos?.TrueHeading != null && pos.TrueHeading < 360) ? pos.TrueHeading : (pos?.Cog ?? 0)
 const inBox = (lat, lon, b) => lat >= b.south && lat <= b.north && lon >= b.west && lon <= b.east
 
 // Weather location (the MOC)
@@ -308,6 +314,7 @@ function recordCoverage(msg) {
     hour.windowPasses.push(name)
     lifetime.windowPasses++
     console.log(`[Coverage] 🚢 ${name} passing the MOC`)
+    try { dash?.recordPass(mmsi, { heading: headingOf(pos), speed: pos.Sog ?? 0 }) } catch {}
   }
 }
 
@@ -352,8 +359,16 @@ function buildSnapshot() {
   return out
 }
 
+// ── Dashboard panels (ship's log, ETAs, conditions, bridge, calendar, photos, ask)
+const dash = createDashboard({ dataDir: DATA_DIR, vesselCache, vesselInfo, wxKey: WX_KEY })
+
 // ── HTTP server (handles both HTTP requests and WebSocket upgrades) ──────────
-const httpServer = createServer((req, res) => {
+const httpServer = createServer(async (req, res) => {
+  if (req.url?.startsWith('/dash/') || req.url === '/admin' || req.url?.startsWith('/admin/')) {
+    const handled = await dash(req, res)
+    if (handled !== false) return
+  }
+
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
   res.setHeader('Content-Type', 'application/json')
@@ -545,7 +560,7 @@ function connectToAIS() {
             lastLat: meta.latitude ?? pos.Latitude,
             lastLon: meta.longitude ?? pos.Longitude,
             lastSpeed: pos.Sog ?? existing.lastSpeed,
-            lastHeading: pos.TrueHeading ?? pos.Cog ?? existing.lastHeading,
+            lastHeading: headingOf(pos) ?? existing.lastHeading,
             positionCount: (existing.positionCount ?? 0) + 1,
           }
 

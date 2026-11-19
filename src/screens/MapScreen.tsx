@@ -13,6 +13,9 @@ import { VesselPopup } from '../components/VesselPopup'
 import { StatusBar } from '../components/StatusBar'
 import { AttractScreen } from './AttractScreen'
 import { useKioskMode } from '../services/kioskMode'
+import { Sidebar } from '../dashboard/Sidebar'
+import { AskCaptain } from '../dashboard/AskCaptain'
+import { dashGet, type DashStatus } from '../dashboard/api'
 import {
   MAP_CENTER,
   MAP_ZOOM,
@@ -65,10 +68,32 @@ function MapSetup({ mapRef }: { mapRef: MutableRefObject<LeafletMap | null> }) {
   return null
 }
 
+// Tablet in landscape → map + instrument sidebar. Phones keep the full-screen map.
+const SIDEBAR_QUERY = '(min-width: 900px) and (orientation: landscape)'
+function useMediaQuery(q: string) {
+  const [match, setMatch] = useState(() => window.matchMedia?.(q).matches ?? false)
+  useEffect(() => {
+    const m = window.matchMedia?.(q)
+    if (!m) return
+    const on = () => setMatch(m.matches)
+    m.addEventListener?.('change', on)
+    return () => m.removeEventListener?.('change', on)
+  }, [q])
+  return match
+}
+
 export function MapScreen() {
   const { vessels, activePopup, updateVessel, hydrateVessels, pruneStale, triggerPopup, dismissPopup, setWeather } =
     useKioskStore()
   useKioskMode()
+  const showSidebar = useMediaQuery(SIDEBAR_QUERY)
+  const [dashStatus, setDashStatus] = useState<DashStatus | null>(null)
+  useEffect(() => {
+    const load = () => dashGet<DashStatus>('/dash/status').then(setDashStatus).catch(() => {})
+    load()
+    const t = setInterval(load, 10 * 60_000)
+    return () => clearInterval(t)
+  }, [])
   const lastActivityAt = useKioskStore(s => s.lastActivityAt)
   const stopRef = useRef<(() => void) | null>(null)
   const mapRef = useRef<LeafletMap | null>(null)
@@ -136,7 +161,7 @@ export function MapScreen() {
   const vesselList = Object.values(vessels).filter(v => v.lat != null && v.lon != null)
 
   return (
-    <div className="map-screen">
+    <div className={`map-screen${showSidebar ? ' with-sidebar' : ''}`}>
       <MapContainer
         center={MAP_CENTER}
         zoom={MAP_ZOOM}
@@ -216,6 +241,12 @@ export function MapScreen() {
       <AnimatePresence>
         {(attract || forceAttract) && <AttractScreen key="attract" />}
       </AnimatePresence>
+
+      {/* Dashboard instruments (tablet landscape) */}
+      {showSidebar && <Sidebar status={dashStatus} />}
+
+      {/* Tap-to-talk — only on an unlocked device with a Gemini key configured */}
+      {dashStatus?.unlocked && dashStatus.features.ask && !attract && <AskCaptain />}
 
       {/* Status bar — rendered above attract overlay (z-index 1200) */}
       <StatusBar />
