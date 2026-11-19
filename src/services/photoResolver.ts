@@ -22,10 +22,14 @@ function silhouetteForType(shipType: number): string {
 
 /**
  * Returns the best photo URL for a vessel.
- * Order: local DB → MarineTraffic thumbnail → ship-type silhouette
+ * Order: precached/fleet photo from the proxy → curated DB → MarineTraffic
+ * thumbnail → (img onError) ship-type silhouette
  */
-export function resolvePhoto(mmsi: string, _shipType = 0): string {
-  // 1. Local database
+export function resolvePhoto(mmsi: string, _shipType = 0, knownPhoto?: string): string {
+  // 1. Photo the proxy resolved (local /ships/ copy when precached)
+  if (knownPhoto) return knownPhoto
+
+  // 2. Curated database
   if (db[mmsi]?.photo) return db[mmsi].photo
 
   // 2. MarineTraffic publicly accessible photo (may 404 for unknown vessels)

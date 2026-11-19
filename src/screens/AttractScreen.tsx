@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useKioskStore } from '../store/kioskStore'
 import { getSilhouette } from '../services/photoResolver'
 import { ATTRACT_SLIDE_MS } from '../constants/bounds'
+import { PROXY_BASE } from '../services/aisstream'
 import type { ShipDbEntry } from '../types'
 import shipsDb from '../data/ships-db.json'
 import './AttractScreen.css'
@@ -11,13 +12,11 @@ import './AttractScreen.css'
 
 interface SlideEntry extends ShipDbEntry {
   mmsi: string
+  photoCredit?: string
+  capacity?: string
 }
 
-function buildSlides(): SlideEntry[] {
-  const all: SlideEntry[] = Object.entries(shipsDb as unknown as Record<string, ShipDbEntry>)
-    .filter(([key, v]) => !key.startsWith('__') && v.photo)
-    .map(([mmsi, v]) => ({ mmsi, ...v }))
-
+function shuffle<T>(all: T[]): T[] {
   // Fisher-Yates shuffle so order is different each session
   for (let i = all.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -26,11 +25,41 @@ function buildSlides(): SlideEntry[] {
   return all
 }
 
+// Fallback: the curated ships bundled with the app
+function buildSlides(): SlideEntry[] {
+  return shuffle(Object.entries(shipsDb as unknown as Record<string, ShipDbEntry>)
+    .filter(([key, v]) => !key.startsWith('__') && v.photo)
+    .map(([mmsi, v]) => ({ mmsi, ...v })))
+}
+
+// Full fleet from the proxy (~240 Great Lakes vessels). Precached local
+// photos (/ships/...) go first so the slideshow never waits on the network.
+let fleetSlidesCache: SlideEntry[] | null = null
+async function loadFleetSlides(): Promise<SlideEntry[] | null> {
+  if (fleetSlidesCache) return fleetSlidesCache
+  try {
+    const res = await fetch(`${PROXY_BASE}/fleet`)
+    if (!res.ok) return null
+    const list = (await res.json()) as SlideEntry[]
+    const local = shuffle(list.filter(s => s.photo?.startsWith('/ships/')))
+    const remote = shuffle(list.filter(s => s.photo && !s.photo.startsWith('/ships/')))
+    fleetSlidesCache = local.length >= 20 ? local : [...local, ...remote]
+    return fleetSlidesCache.length ? fleetSlidesCache : null
+  } catch {
+    return null
+  }
+}
+
 // ── Component ────────────────────────────────────────────────────────────────
 
 export function AttractScreen() {
   const weather = useKioskStore(s => s.weather)
-  const [slides] = useState<SlideEntry[]>(buildSlides)
+  const [slides, setSlides] = useState<SlideEntry[]>(() => fleetSlidesCache ?? buildSlides())
+
+  useEffect(() => {
+    if (fleetSlidesCache) return
+    loadFleetSlides().then(list => { if (list) setSlides(list) })
+  }, [])
   const [idx, setIdx] = useState(0)
   const [progress, setProgress] = useState(100)
   const [imgSrc, setImgSrc] = useState<string>('')
@@ -65,7 +94,8 @@ export function AttractScreen() {
       if (progressRef.current)  clearInterval(progressRef.current)
       if (intervalRef.current)  clearTimeout(intervalRef.current)
     }
-  }, [idx]) // eslint-disable-line react-hooks/exhaustive-deps
+  // also re-run when the slide list is swapped (bundled list → full fleet)
+  }, [idx, slide?.mmsi]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!slide) return null
 
@@ -95,7 +125,7 @@ export function AttractScreen() {
           key={slide.mmsi}
           src={imgSrc}
           alt={slide.name}
-          className="attract-photo"
+          className={`attract-photo${imgSrc.startsWith('/silhouettes/') ? ' is-silhouette' : ''}`}
           initial={{ scale: 1.04 }}
           animate={{ scale: 1 }}
           transition={{ duration: ATTRACT_SLIDE_MS / 1000, ease: 'linear' }}
@@ -103,6 +133,9 @@ export function AttractScreen() {
         />
         <div className="attract-photo-gradient" />
         <div className="attract-photo-vignette" />
+        {slide.photoCredit && !imgSrc.startsWith('/silhouettes/') && (
+          <span className="attract-photo-credit">Photo: {slide.photoCredit}</span>
+        )}
       </div>
 
       {/* ── Right: info ── */}
@@ -164,6 +197,18 @@ export function AttractScreen() {
             <div className="attract-history-row">
               <span className="attract-history-label">Home Port</span>
               <span className="attract-history-value">{slide.homeport}</span>
+            </div>
+          )}
+          {slide.capacity && (
+            <div className="attract-history-row">
+              <span className="attract-history-label">Capacity</span>
+              <span className="attract-history-value">{slide.capacity}</span>
+            </div>
+          )}
+          {slide.formerNames && slide.formerNames.length > 0 && (
+            <div className="attract-history-row">
+              <span className="attract-history-label">Also Sailed As</span>
+              <span className="attract-history-value">{slide.formerNames.slice(0, 3).join(', ')}</span>
             </div>
           )}
           {slide.imo && (

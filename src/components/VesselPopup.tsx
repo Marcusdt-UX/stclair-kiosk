@@ -41,8 +41,6 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
   useEffect(() => {
     if (!vessel) return
 
-    const photo = resolvePhoto(vessel.mmsi, vessel.shipType)
-    setImgSrc(photo)
     setProgress(100)
 
     const startTime = Date.now()
@@ -60,7 +58,15 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
       if (intervalRef.current) clearInterval(intervalRef.current)
       if (timerRef.current) clearTimeout(timerRef.current)
     }
-  }, [vessel, onDismiss])
+  // only restart the countdown when a different ship is shown
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [vessel?.mmsi, onDismiss])
+
+  // Photo can arrive late (fleet match after AIS static data) — update in place
+  useEffect(() => {
+    if (!vessel) return
+    setImgSrc(resolvePhoto(vessel.mmsi, vessel.shipType, vessel.photo))
+  }, [vessel?.mmsi, vessel?.photo]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const dbEntry = vessel ? getDbEntry(vessel.mmsi) : null
   const displayName = vessel
@@ -75,6 +81,9 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
   const builder      = dbEntry?.builder     ?? vessel?.builder
   const homeport     = dbEntry?.homeport    ?? vessel?.homeport
   const operator     = dbEntry?.operator    ?? vessel?.operator
+  const note         = dbEntry?.note        ?? vessel?.note
+  const formerNames  = dbEntry?.formerNames ?? vessel?.formerNames
+  const capacity     = dbEntry?.capacity    ?? vessel?.capacity
   const grossTonnage = vessel?.grossTonnage
   const flagDisplay  = formatFlag(flag ?? flagCode)
 
@@ -116,10 +125,13 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
                 key={vessel.mmsi}
                 src={imgSrc}
                 alt={displayName}
-                className="popup-photo"
+                className={`popup-photo${imgSrc.startsWith('/silhouettes/') ? ' is-silhouette' : ''}`}
                 onError={() => setImgSrc(getSilhouette(vessel.shipType))}
               />
               <div className="popup-photo-gradient" />
+              {vessel.photoCredit && !imgSrc.startsWith('/silhouettes/') && (
+                <span className="popup-photo-credit">Photo: {vessel.photoCredit}</span>
+              )}
             </div>
 
             {/* Right: info */}
@@ -157,6 +169,18 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
                     <span className="popup-history-value">{homeport}</span>
                   </div>
                 )}
+                {capacity && (
+                  <div className="popup-history-row">
+                    <span className="popup-history-label">Capacity:</span>
+                    <span className="popup-history-value">{capacity}</span>
+                  </div>
+                )}
+                {formerNames && formerNames.length > 0 && (
+                  <div className="popup-history-row">
+                    <span className="popup-history-label">Also Sailed As:</span>
+                    <span className="popup-history-value">{formerNames.slice(0, 3).join(', ')}</span>
+                  </div>
+                )}
                 {imo && (
                   <div className="popup-history-row">
                     <span className="popup-history-label">IMO:</span>
@@ -178,8 +202,8 @@ export function VesselPopup({ vessel, onDismiss }: Props) {
                 </div>
               </div>
 
-              {dbEntry?.note && (
-                <p className="popup-note">{dbEntry.note}</p>
+              {note && (
+                <p className="popup-note">{note}</p>
               )}
 
               {/* Progress bar */}

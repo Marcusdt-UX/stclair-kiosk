@@ -23,6 +23,13 @@ export interface Vessel {
   grossTonnage?: number
   deadWeight?: number
   formerNames?: string[]
+  // From the fleet database (scripts/build-fleet-db.mjs) via the proxy
+  photo?: string        // local /ships/<slug>.jpg when precached
+  photoCredit?: string
+  note?: string
+  capacity?: string
+  lengthDetail?: string
+  fleetSlug?: string
   lastUpdated: number // unix ms
   inTriggerZone: boolean
 }

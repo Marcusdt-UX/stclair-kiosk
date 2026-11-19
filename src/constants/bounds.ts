@@ -6,20 +6,42 @@ export const CORRIDOR_BOUNDS = {
   east: -82.35,
 } as const
 
-// Approximate center of the map view
-export const MAP_CENTER: [number, number] = [42.975, -82.42]
+// Approximate center of the map view (initial render only)
+export const MAP_CENTER: [number, number] = [42.99, -82.42]
 export const MAP_ZOOM = 12
 
-// Trigger zone: full St. Clair River corridor
-// Expanded to catch vessels anywhere on the river
+// Home view: the map fits this box on load and when "Home" is tapped, so it
+// adapts to any screen (phone portrait/landscape, tablet). Covers the river
+// from the MOC up through the bridge to the Lake Huron approach, where
+// downbound ships are first seen.
+export const HOME_VIEW: [[number, number], [number, number]] = [
+  [42.955, -82.44],   // south-west
+  [43.055, -82.395],  // north-east
+]
+
+// "You are here" — Port Huron Municipal Office Center (100 McMorran Blvd),
+// Jazmyn's office, looking out over the St. Clair River.
+export const HOME_POINT: [number, number] = [42.9788, -82.4197]
+export const HOME_LABEL = 'You are here'
+
+// Trigger zone: the stretch of river visible from the MOC windows —
+// roughly the Blue Water Bridge (north) down past the Seaway Terminal (south),
+// shore to shore. A moving ship entering this box (or jumping across it between
+// AIS reports) gets the full-screen popup. Keep in sync with proxy-server.js.
 export const TRIGGER_ZONE = {
-  south: 42.85,
-  west: -82.55,
-  north: 43.05,
-  east: -82.35,
+  south: 42.955,
+  west: -82.432,
+  north: 43.003,
+  east: -82.398,
 } as const
 
-// Port Huron coordinates for weather API
+// Ships slower than this are docked or anchored — no popup for them
+export const TRIGGER_MIN_SPEED_KN = 1
+
+// Drop vessels from the map if we haven't heard from them in this long
+export const VESSEL_STALE_MS = 30 * 60 * 1000
+
+// Port Huron coordinates for weather API (the MOC)
 export const PORT_HURON_LAT = 42.9788
 export const PORT_HURON_LON = -82.4197
 

@@ -38,22 +38,22 @@ export function StatusBar() {
       {/* Clock + Date */}
       <div className="status-clock">
         <span className="status-time">{timeStr}</span>
-        <span className="status-date">{dateStr}</span>
+        <span className="status-date status-hide-sm">{dateStr}</span>
       </div>
 
       {/* Weather */}
       {weather && (
         <div className="status-weather">
           {weatherIcon && (
-            <img src={weatherIcon} alt={weather.description} className="status-wx-icon" />
+            <img src={weatherIcon} alt="" className="status-wx-icon" onError={e => { e.currentTarget.style.display = 'none' }} />
           )}
           <span className="status-temp">{weather.tempF}°F</span>
           <span className="status-wx-divider">|</span>
           <span className="status-wx-detail">
             {windDirArrow(weather.windDeg)} {weather.windDir} {weather.windSpeed} mph
           </span>
-          <span className="status-wx-divider">|</span>
-          <span className="status-wx-detail">Vis {weather.visibility} mi</span>
+          <span className="status-wx-divider status-hide-sm">|</span>
+          <span className="status-wx-detail status-hide-sm">Vis {weather.visibility} mi</span>
         </div>
       )}
 

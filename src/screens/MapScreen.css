@@ -12,16 +12,23 @@
   filter: sepia(18%) contrast(96%) brightness(97%);
 }
 
-/* Hide default Leaflet attribution */
+/* Map credit (Esri requires it) — tiny, tucked above the status bar */
 .leaflet-control-attribution {
-  display: none !important;
+  margin-bottom: calc(var(--status-h) + var(--safe-b)) !important;
+  background: rgba(244, 236, 210, 0.7) !important;
+  font-size: 9px !important;
+  color: #5a4a2a !important;
+  padding: 0 4px !important;
 }
+.leaflet-control-attribution a { color: #5a4a2a !important; }
+.leaflet-control-attribution .leaflet-attribution-flag { display: none !important; }
 
 /* ── Home Button ── */
 .home-btn {
   position: fixed;
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.5rem);
-  right: 1.5rem;
+  /* sits just above the status bar */
+  bottom: calc(var(--safe-b) + var(--status-h) + 0.75rem);
+  right: 1.25rem;
   z-index: 800;
   display: flex;
   align-items: center;
@@ -106,4 +113,21 @@
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(139, 105, 20, 0.15); }
   50% { box-shadow: 0 0 30px rgba(139, 105, 20, 0.35); }
+}
+
+/* ── Phones / small screens ── */
+@media (max-width: 700px), (max-height: 500px) {
+  .home-btn {
+    right: 0.75rem;
+    bottom: calc(var(--safe-b) + var(--status-h) + 0.5rem);
+    padding: 0.45rem 0.85rem 0.45rem 0.65rem;
+    font-size: 0.85rem;
+  }
+  .no-vessels-card {
+    padding: 1.25rem 1.4rem;
+    max-width: min(300px, calc(100vw - 2rem));
+  }
+  .no-vessels-icon { font-size: 1.9rem; margin-bottom: 0.5rem; }
+  .no-vessels-text { font-size: 1rem; }
+  .no-vessels-sub { font-size: 0.75rem; }
 }

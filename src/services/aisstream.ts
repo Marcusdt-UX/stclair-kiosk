@@ -1,9 +1,9 @@
 import type { Vessel } from '../types'
-import { TRIGGER_ZONE } from '../constants/bounds'
+import { TRIGGER_ZONE, TRIGGER_MIN_SPEED_KN } from '../constants/bounds'
 
 // In production the proxy lives at the same origin (empty base = relative URLs);
 // in dev Vite runs separately so we hit localhost:2610.
-const PROXY_BASE = import.meta.env.VITE_PROXY_URL
+export const PROXY_BASE: string = import.meta.env.VITE_PROXY_URL
   || (import.meta.env.DEV ? 'http://localhost:2610' : '')
 const WS_URL = PROXY_BASE
   ? PROXY_BASE.replace(/^http/, 'ws')
@@ -21,8 +21,8 @@ async function hydratFromCache(
     const res = await fetch(`${LOOKUP_URL}/${mmsi}`)
     if (!res.ok) return
     const data = await res.json() as Partial<Vessel> & { destinations?: string[] }
-    // Only push if there's actually useful data (name or IMO)
-    if (!data.name && !data.imo) return
+    // Only push if there's actually useful data
+    if (!data.name && !data.imo && !data.photo) return
     const partial: Partial<Vessel> = {
       mmsi,
       ...(data.name        ? { name: data.name }             : {}),
@@ -38,6 +38,13 @@ async function hydratFromCache(
       ...(data.homeport    ? { homeport: data.homeport }     : {}),
       ...(data.grossTonnage ? { grossTonnage: data.grossTonnage } : {}),
       ...(data.deadWeight  ? { deadWeight: data.deadWeight } : {}),
+      ...(data.photo       ? { photo: data.photo }           : {}),
+      ...(data.photoCredit ? { photoCredit: data.photoCredit } : {}),
+      ...(data.note        ? { note: data.note }             : {}),
+      ...(data.capacity    ? { capacity: data.capacity }     : {}),
+      ...(data.lengthDetail ? { lengthDetail: data.lengthDetail } : {}),
+      ...(data.formerNames?.length ? { formerNames: data.formerNames } : {}),
+      ...(data.fleetSlug   ? { fleetSlug: data.fleetSlug }   : {}),
       // Use most recent destination from accumulated history if available
       ...(data.destinations?.length
         ? { destination: data.destinations[data.destinations.length - 1] }
@@ -72,20 +79,52 @@ function isInZone(lat: number, lon: number, zone: typeof TRIGGER_ZONE): boolean 
   )
 }
 
+// Did the ship jump clean across the zone between two reports?
+// (AIS coverage can be sparse, so a fast ship may never report from inside it.)
+function crossedZone(
+  prev: { lat: number; lon: number } | undefined,
+  lat: number,
+  lon: number,
+  zone: typeof TRIGGER_ZONE,
+): boolean {
+  if (!prev) return false
+  if (lon < zone.west || lon > zone.east) return false
+  return (prev.lat > zone.north && lat < zone.south) ||
+         (prev.lat < zone.south && lat > zone.north)
+}
+
+export interface SnapshotVessel {
+  mmsi: string
+  name?: string
+  lat: number
+  lon: number
+  speed?: number
+  heading?: number
+  shipType?: number
+  length?: number
+  imo?: string
+  callSign?: string
+  destination?: string
+  lastSeen: number
+}
+
 export function startAISStream(
-  _apiKey: string,
   onVesselUpdate: (vessel: Vessel) => void,
   onVesselEntered: (vessel: Vessel) => void,
+  onSnapshot?: (vessels: Vessel[]) => void,
 ): () => void {
   let ws: WebSocket | null = null
   let stopped = false
   let reconnectTimer: ReturnType<typeof setTimeout> | null = null
   let reconnectDelay = 3000
 
-  // Track previous in-zone state to detect entries
+  // Track previous in-zone state + position to detect entries
   const prevInZone = new Map<string, boolean>()
+  const prevPos = new Map<string, { lat: number; lon: number }>()
   // MMSIs we've already fetched from cache this session
   const hydratedMmsi = new Set<string>()
+  // MMSIs whose name we've seen in ShipStaticData this session
+  const namedMmsi = new Set<string>()
 
   function connect() {
     if (stopped) return
@@ -101,6 +140,40 @@ export function startAISStream(
         const msg = JSON.parse(event.data as string)
         const msgType: string = msg.MessageType
 
+        // Recently-seen ships from the proxy's cache, sent once on connect.
+        // Shown on the map but never trigger a popup.
+        if (msgType === 'Snapshot') {
+          const list = (msg.Vessels ?? []) as SnapshotVessel[]
+          const vessels: Vessel[] = []
+          for (const s of list) {
+            const inZone = isInZone(s.lat, s.lon, TRIGGER_ZONE)
+            prevInZone.set(s.mmsi, inZone)
+            prevPos.set(s.mmsi, { lat: s.lat, lon: s.lon })
+            vessels.push({
+              mmsi: s.mmsi,
+              name: s.name ?? '',
+              lat: s.lat,
+              lon: s.lon,
+              speed: s.speed ?? 0,
+              heading: s.heading ?? 0,
+              course: s.heading ?? 0,
+              shipType: s.shipType ?? 0,
+              length: s.length,
+              imo: s.imo,
+              callSign: s.callSign,
+              destination: s.destination,
+              lastUpdated: s.lastSeen,
+              inTriggerZone: inZone,
+            })
+            if (!hydratedMmsi.has(s.mmsi)) {
+              hydratedMmsi.add(s.mmsi)
+              hydratFromCache(s.mmsi, onVesselUpdate)
+            }
+          }
+          onSnapshot?.(vessels)
+          return
+        }
+
         if (msgType === 'PositionReport') {
           const pos = msg.Message?.PositionReport
           const meta = msg.MetaData
@@ -111,6 +184,8 @@ export function startAISStream(
           const lon: number = meta.longitude ?? pos.Longitude
           const inZone = isInZone(lat, lon, TRIGGER_ZONE)
           const wasInZone = prevInZone.get(mmsi) ?? false
+          const crossed = crossedZone(prevPos.get(mmsi), lat, lon, TRIGGER_ZONE)
+          const moving = (pos.Sog ?? 0) >= TRIGGER_MIN_SPEED_KN
 
           const partial: Partial<Vessel> = {
             mmsi,
@@ -119,7 +194,6 @@ export function startAISStream(
             speed: pos.Sog ?? 0,
             heading: pos.TrueHeading ?? pos.Cog ?? 0,
             course: pos.Cog ?? 0,
-            shipType: pos.ShipType ?? 0,
             lastUpdated: Date.now(),
             inTriggerZone: inZone,
           }
@@ -132,11 +206,13 @@ export function startAISStream(
             hydratFromCache(mmsi, onVesselUpdate)
           }
 
-          if (inZone && !wasInZone) {
-            // Brief delay so static data can arrive first
-            setTimeout(() => onVesselEntered(partial as Vessel), 500)
+          // Popup only for moving ships passing the window — docked/anchored ships stay quiet
+          if (moving && ((inZone && !wasInZone) || crossed)) {
+            // Brief delay so static data / cache hydration can arrive first
+            setTimeout(() => onVesselEntered(partial as Vessel), 1500)
           }
           prevInZone.set(mmsi, inZone)
+          prevPos.set(mmsi, { lat, lon })
         }
 
         if (msgType === 'ShipStaticData') {
@@ -147,7 +223,7 @@ export function startAISStream(
           const mmsi = String(meta.MMSI)
           const partial: Partial<Vessel> = {
             mmsi,
-            name: stat.Name?.trim() || '',
+            ...(stat.Name?.trim() ? { name: stat.Name.trim() } : {}),
             flag: stat.Flag ?? '',
             callSign: stat.CallSign?.trim() ?? '',
             imo: stat.ImoNumber ? String(stat.ImoNumber) : undefined,
@@ -163,6 +239,13 @@ export function startAISStream(
             lastUpdated: Date.now(),
           }
           onVesselUpdate(partial as Vessel)
+
+          // First time we learn this ship's name: ask the proxy again — it can
+          // now match the name against the fleet database (photo, history).
+          if (stat.Name?.trim() && !namedMmsi.has(mmsi)) {
+            namedMmsi.add(mmsi)
+            setTimeout(() => hydratFromCache(mmsi, onVesselUpdate), 300)
+          }
         }
       } catch {
         // ignore parse errors

@@ -37,3 +37,32 @@ body {
 .leaflet-tooltip-top::before {
   border-top-color: #8b6914 !important;
 }
+
+/* Shared layout values (phone + tablet kiosk) */
+:root {
+  --status-h: 3.1rem;           /* height of the bottom status bar */
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+@media (max-width: 700px), (max-height: 500px) {
+  :root { --status-h: 2.5rem; }
+}
+
+/* "You are here" pin for the MOC */
+.home-pin {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(139, 32, 32, 0.18);
+  border: 2px solid #8b2020;
+  display: flex; align-items: center; justify-content: center;
+  animation: home-pin-pulse 2.4s ease-in-out infinite;
+}
+.home-pin-dot { width: 8px; height: 8px; border-radius: 50%; background: #8b2020; }
+@keyframes home-pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 32, 32, 0.35); }
+  50% { box-shadow: 0 0 0 8px rgba(139, 32, 32, 0); }
+}
+.leaflet-tooltip.home-pin-label {
+  font-size: 0.75rem !important;
+  font-style: italic;
+  padding: 2px 8px !important;
+}
+.leaflet-tooltip.home-pin-label::before { display: none; }

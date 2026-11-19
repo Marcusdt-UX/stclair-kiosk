@@ -1,0 +1,2796 @@
+{
+  "algoma-buffalo": {
+    "name": "Algoma Buffalo",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Buffalo"
+    ],
+    "yearBuilt": 1978,
+    "lengthDetail": "634′ 10″ (193.5m)",
+    "beamDetail": "68′ 00″ (20.73m)",
+    "capacity": "24,300 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "The self-unloading bulk freighter Buffalo was built in 1978 by Bay Shipbuilding Co., Sturgeon Bay, WI at a cost of $25 million as Hull #721.",
+    "photo": "/ships/algoma-buffalo.jpg",
+    "photoCaption": "Algoma Buffalo approaching the piers",
+    "photoCredit": "Scott Best / Boatnerd.com"
+  },
+  "algoma-compass-2": {
+    "name": "Algoma Compass",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Roger M. Kyes",
+      "Adam E. Cornelius"
+    ],
+    "yearBuilt": 1973,
+    "lengthDetail": "680′ 00″ (207.27m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "29,200 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "Launched March 31, 1973 for the American Steamship Co, Williamsville, NY; this Great Lakes self-unloading bulk carrier was built as hull # 200 by the American Ship Building Co., Toledo, OH at an approximate cost of $14 million. Christened as the R…",
+    "photo": "/ships/algoma-compass-2.jpg",
+    "photoCaption": "Algoma Compass upbound on the St. Clair River, reportedly en route to Sarnia for lay-up (June 20, 2025)",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "algoma-conveyor": {
+    "name": "Algoma Conveyor",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2019,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,367 tons",
+    "enginePower": "11,144 bhp diesel",
+    "note": "During construction, Nantong Mingde Heavy Industry Co. Ltd. in Nantong City, China went out of business. Algoma acquired the Conveyor at auction from the failed shipyard in 2017. The ship was then tanken to Jiangsu New Yangzijiang Shipbuilding in …",
+    "photo": "/ships/algoma-conveyor.jpg",
+    "photoCaption": "Algoma Conveyor downbound in the St Clair River. August 16 2025.",
+    "photoCredit": "Terry McCullough photo / Boatnerd.com"
+  },
+  "algoma-discovery": {
+    "name": "Algoma Discovery",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Malinska",
+      "Daviken"
+    ],
+    "lengthDetail": "729′ 00″ (222.2m)",
+    "beamDetail": "75′ 09″ (23.09m)",
+    "capacity": "35,542 tons",
+    "enginePower": "15,499 bhp diesel",
+    "note": "The Algoma Central Corp. bulk carrier Algoma Discovery was launched as hull number 642 at the 3 Maj Brodogradiliste d.d. shipyard, Rijeka, Croatia on November 25, 1986 as Malinska. Built to 729 feet in length and to the width of 75 feet and 9 inch…",
+    "photo": "/ships/algoma-discovery.jpg",
+    "photoCaption": "ALGOMA DISCOVERY – Upbound Port Huron, Michigan 4-10-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoma-equinox": {
+    "name": "Algoma Equinox",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2012,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,064 tons",
+    "enginePower": "11,863 bhp diesel",
+    "note": "The Algoma Central Corporation has been engaged in an ambitious fleet renewal program. The fleet has ordered five new ships capable of Great Lakes service and will manage two others of this Equinox Class for the Canadian Wheat Board. All are being…",
+    "photo": "/ships/algoma-equinox.jpg",
+    "photoCaption": "Algoma Equinox downbound on the St. Marys River 6-25-2025",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "algoma-guardian": {
+    "name": "Algoma Guardian",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Omisalj",
+      "Goviken",
+      "Algoma Discovery"
+    ],
+    "yearBuilt": 1987,
+    "lengthDetail": "729′ 00″ (222.2m)",
+    "beamDetail": "75′ 09″ (23.09m)",
+    "capacity": "35,542 tons",
+    "enginePower": "15,499 bhp diesel",
+    "note": "Omisalj was constructed in 1987 by 3 Maj Brodogradiliste d.d. Shipyard of Rijeka, Croatia, as an ocean-going bulk carrier. She was constructed to maximum Seaway dimensions at 729’ long, 75’09’’ wide, and 48’05’’ deep, and was fitted with 3 large d…",
+    "photo": "/ships/algoma-guardian.jpg",
+    "photoCaption": "Algoma Guardian headed up the St. Clair River on a warm Summer afternoon – July 24, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "algoma-harvester": {
+    "name": "Algoma Harvester",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2013,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,064 tons",
+    "enginePower": "11,863 bhp diesel",
+    "note": "Algoma Harvester became the second of the new Equinox Class of Great Lakes freighters to join the Algoma Central Corporation fleet. It was built by Nantong Mingde Heavy Industries Stock Co. of Nantong City, China, and shares the similar 740 foot l…",
+    "photo": "/ships/algoma-harvester.jpg",
+    "photoCaption": "Algoma Harvester upbound in the Soo Lock Canal early this morning. 8-14-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "algoma-innovator": {
+    "name": "Algoma Innovator",
+    "operator": "Algoma Central Corporation",
+    "lengthDetail": "650′ 09″ (198.35m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "25,054 tons",
+    "enginePower": "11,144 bhp diesel",
+    "note": "Algoma Innovator, the first of the fleet’s two new Equinox-class 650-foot-long self-unloading dry-bulk freighters, departed the 3 Maj Shipyard in Rijeka, Croatia on Feb. 23, 2018 en route to Canada. She was expected to arrive in mid-March carrying…",
+    "photo": "/ships/algoma-innovator.jpg",
+    "photoCaption": "ALGOMA INNOVATOR – Upbound Port Huron, Michigan 4-8-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoma-intrepid": {
+    "name": "Algoma Intrepid",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2017,
+    "note": "The keel for Algoma Intrepid was laid in late 2016 as the Algoma Endurance, being launched on June 8, 2017. Algoma Central cancelled the construction contract for the Intrepid and three other 740′ Equinox Class ships, due to delays and the shipyar…",
+    "photo": "/ships/algoma-intrepid.jpg",
+    "photoCaption": "ALGOMA INTREPID – Upbound Port Huron, Michigan 1-30-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoma-mariner": {
+    "name": "Algoma Mariner",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Canadian Mariner"
+    ],
+    "yearBuilt": 2009,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "77′ 11″ (23.75m)",
+    "capacity": "37,162 tons",
+    "enginePower": "9,792 bhp diesel",
+    "note": "Algoma Mariner was constructed by the Chengxi Shipyard in Jiangyin, Jiangsu, China as hull number CX0324, it was the second vessel constructed in Algoma Central Corporation’s bulk fleet renewal program (beginning in 2008 with the Algobay /Radcliff…",
+    "photo": "/ships/algoma-mariner.jpg",
+    "photoCaption": "Algoma Mariner inbound the Burlington Canal in Hamilton. Neil Pichora image, September 17",
+    "photoCredit": "Boatnerd.com"
+  },
+  "algoma-niagara": {
+    "name": "Algoma Niagara",
+    "operator": "Algoma Central Corporation",
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,367 tons",
+    "enginePower": "11,144 bhp diesel",
+    "note": "In early September 2017, Algoma Central Corporation took delivery of Algoma Niagara, the first of two new Equinox-class self-unloading lake bulk carriers built at Yangzijiang Shipbuilding Group Limited, Jingjiang City, China. The ship quickly depa…",
+    "photo": "/ships/algoma-niagara.jpg",
+    "photoCaption": "ALGOMA NIAGARA – Upbound Port Huron, Michigan 3-28-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoma-sault-2": {
+    "name": "Algoma Sault",
+    "operator": "Algoma Central Corporation",
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,367 tons",
+    "enginePower": "11,144 bhp diesel",
+    "note": "In early 2018, Algoma Central Corporation took delivery of Algoma Sault, the second of two new Equinox-class self-unloading lake bulk carriers built at Yangzijiang Shipbuilding Group Limited, Jingjiang City, China. The vessel departed the shipyard…",
+    "photo": "/ships/algoma-sault-2.jpg",
+    "photoCaption": "Algoma Sault downbound on Lake Huron above Point Edward. July 11 2025",
+    "photoCredit": "Terry McCullough / Boatnerd.com"
+  },
+  "algoma-strongfield": {
+    "name": "Algoma Strongfield",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "CWB Strongfield"
+    ],
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,064 tons",
+    "enginePower": "11,863 bhp diesel",
+    "note": "Algoma Strongfield was built at Nantong Mingde Heavy Industry Co., Ltd., Nantong City, China, in 2015 as CWB Strongfield for the Canadian Wheat Board. However during the construction process the shipyard went into bankruptcy, leaving the CWB Stron…",
+    "photo": "/ships/algoma-strongfield.jpg",
+    "photoCaption": "Algoma Strongfield was downbound for Baie Comeau at sunrise in Marine City this morning",
+    "photoCredit": "Lori Hannon / Boatnerd.com"
+  },
+  "algoma-transport-2": {
+    "name": "Algoma Transport",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Canadian Transport"
+    ],
+    "yearBuilt": 1979,
+    "lengthDetail": "730′ 00″ (222.51m)",
+    "beamDetail": "75′ 11″ (23.14m)",
+    "capacity": "32,678 tons",
+    "enginePower": "10,000 bhp diesel",
+    "note": "Built by Port Weller Dry Docks, St. Catharines, ON; the Canadian Transport (2) was launched April 17, 1979 for Upper Lakes Group, Inc., Toronto, ON. This Great Lakes self-unloading bulk carrier is powered by twin M.A.N. type 8L40/54A 8-cylinder di…",
+    "photo": "/ships/algoma-transport-2.jpg",
+    "photoCaption": "Algoma Transport arrives",
+    "photoCredit": "Barry Andersen / Boatnerd.com"
+  },
+  "captain-henry-jackman": {
+    "name": "Captain Henry Jackman",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2020,
+    "note": "Lake and ocean bulk carrier built by Jiangsu Yangzi-Mitsui Shipbuilding Co., Jingjiang, China as hull 2015-1244. Tenth of 10 Equinox class vessels ordered by Algoma Central Corporation in 2010. Her design, described as Equinox 3.0, incorporated im…",
+    "photo": "/ships/captain-henry-jackman.jpg",
+    "photoCaption": "CAPTAIN HENRY JACKMAN – Upbound Port Huron, Michigan 4-11-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "john-d-leitch": {
+    "name": "John D. Leitch",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Canadian Century"
+    ],
+    "lengthDetail": "730′ 00″ (222.51m)",
+    "beamDetail": "77′ 11″ (23.75m)",
+    "capacity": "34,127 tons",
+    "enginePower": "7,500 bhp diesel",
+    "note": "This unique Great Lakes self-unloading bulk carrier was built by Port Weller Dry Docks, St. Catharines, Ont., as Hull #41. She was christened Canadian Century for Upper Lakes Group, Inc., Toronto, Ont., on April 15, 1967 by Mrs. G. E. Gathercole, …",
+    "photo": "/ships/john-d-leitch.jpg",
+    "photoCaption": "John D Leitch downbound in the Soo heading for Algoma Steel 9-4-2025",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "radcliffe-r-latimer": {
+    "name": "Radcliffe R. Latimer",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Algobay",
+      "Atlantic Trader",
+      "Algobay"
+    ],
+    "yearBuilt": 1978,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "77′ 11″ (23.75m)",
+    "capacity": "36,668 tons",
+    "enginePower": "10,442 bhp diesel",
+    "note": "In 1977, various Canadian fleets including Sault Ste. Marie, Ontario’s Algoma Central Corp. were requested to bid on the movement of western coal for Ontario Hydro. Algoma responded quickly to the request also realizing that they would need anothe…",
+    "photo": "/ships/radcliffe-r-latimer.jpg",
+    "photoCaption": "Radcliffe R. Latimer, sporting fresh paint after winter work, downbound on the St. Clair River – April 24, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "tim-s-dool": {
+    "name": "Tim S. Dool",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Senneville",
+      "Algoville"
+    ],
+    "yearBuilt": 1967,
+    "lengthDetail": "730′ 00″ (222.51m)",
+    "beamDetail": "77′ 11″ (23.75m)",
+    "capacity": "31,054 tons",
+    "enginePower": "10,750 bhp diesel",
+    "note": "One of very few vessels built for Great Lakes service by the Saint John Shipbuilding and Dry Dock Co., Saint John, NB, the Seaway sized gearless bulk carrier was built as the yard’s hull #1084 and launched October 15, 1967 as the Senneville for th…",
+    "photo": "/ships/tim-s-dool.jpg",
+    "photoCaption": "Tim S. Dool downbound on the St. Clair River at Marine City, MI. Dool’s destination is Quebec City, QC. – Oct 14, 2024",
+    "photoCredit": "Don Detloff / Boatnerd.com"
+  },
+  "algocanada": {
+    "name": "Algocanada",
+    "operator": "Algoma Central Corporation",
+    "yearBuilt": 2008,
+    "lengthDetail": "426′ 01″ (129.87m)",
+    "beamDetail": "65′ 00″ (19.81m)",
+    "capacity": "11,453 tons",
+    "enginePower": "6,118 bhp diesel",
+    "note": "Constructed by MedMarine Group’s Eregli Shipyard, Zonguldak, Turkey, this vessel was built at a cost of approximately $43 million (including the 25% Canadian import duty in force at the time) in conjunction with her close sister Algonova (2) for s…",
+    "photo": "/ships/algocanada.jpg",
+    "photoCaption": "ALGOCANADA – Upbound Port Huron, Michigan 3-19-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoma-hansa": {
+    "name": "Algoma Hansa",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Amalienborg"
+    ],
+    "yearBuilt": 1998,
+    "lengthDetail": "472′ 07″ (144.05m)",
+    "beamDetail": "76′ 05″ (23.3m)",
+    "capacity": "16,775 tons",
+    "enginePower": "6,525 bhp diesel",
+    "note": "Algoma Hansa joined the Algoma Tankers Ltd. Deep-sea fleet as Amalienborg in April 2006. The ship had been built by the Alabama Shipyard Inc., in Mobile, Alabama, and completed in March 1998. It originally sailed for Danneborg Rederi A/S (Borg Tan…",
+    "photo": "/ships/algoma-hansa.jpg",
+    "photoCaption": "Algoma Hansa on the St. Clair River. Feb. 6, 2022. Donnie Falk.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "algonorth-2": {
+    "name": "Algonorth",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Gan-Gesture",
+      "Ramira"
+    ],
+    "yearBuilt": 2008,
+    "lengthDetail": "472′ 07″ (144.05m)",
+    "beamDetail": "76′ 05″ (23.3m)",
+    "capacity": "16,979 tons",
+    "enginePower": "8,448 bhp diesel",
+    "note": "he tanker Algonorth (IMO 9362152) was built in 2008 at Tuzla Shipbuilding Industry Co. Inc., Tuzla, Bosnia and Herzegovina, as Ramira for Ramira Maritime LLC, Dubai, United Arab Emirates. She measures 493 feet long, 75.04 feet wide and 40.6 feet d…",
+    "photo": "/ships/algonorth-2.jpg",
+    "photoCaption": "Algonorth upbound st clair river 2 22 22. Kathy Doetsch",
+    "photoCredit": "Boatnerd.com"
+  },
+  "algonova-2": {
+    "name": "Algonova",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Eregli 04"
+    ],
+    "yearBuilt": 2008,
+    "lengthDetail": "426′ 01″ (129.87m)",
+    "beamDetail": "65′ 00″ (19.81m)",
+    "capacity": "11,453 tons tons",
+    "enginePower": "6,118 bhp diesel",
+    "note": "Laid down as Eregli 04 in late 2007 by MedMarine Group’s Eregli Shipyard, Zonguldak, Turkey, this vessel was purchased on the stocks by Algoma Central Corporation along with a sistership for service as part of their Algoma Tankers domestic product…",
+    "photo": "/ships/algonova-2.jpg",
+    "photoCaption": "ALGONOVA – Upbound Port Huron, Michigan 3-12-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "algoscotia-2": {
+    "name": "Algoscotia",
+    "operator": "Algoma Central Corporation",
+    "lengthDetail": "488′ 03″ (148.82m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "19,160 tons",
+    "enginePower": "8,445 bhp diesel",
+    "note": "On July 24, 2002, Algoma Central Corp., St. Catharines, ON announced an agreement to construct a double-hulled OPA-90 compliant petroleum-product/chemical tanker at an approximate cost of $47 million (CN). In keeping with Algoma’s program of repla…",
+    "photo": "/ships/algoscotia-2.jpg",
+    "photoCaption": "Algoscotia",
+    "photoCredit": "NL Maritime Network / Boatnerd.com"
+  },
+  "algosea-3": {
+    "name": "Algosea",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Aggersborg"
+    ],
+    "yearBuilt": 1998,
+    "lengthDetail": "472′ 07″ (144.05m)",
+    "beamDetail": "75′ 04″ (22.96m)",
+    "capacity": "16,635 tons",
+    "enginePower": "8,207 bhp diesel",
+    "note": "Algosea was built in 1998 by Alabama Shipyard of Mobile, Alabama, as Aggersborg for Dannenborg Rederi A/S (Borg Tankers Ltd.), of Norway, registered in Bermuda. She is 472′ 07″ long, 75′ 04″ wide, and 40′ 08″ deep, capable of carrying 17,258 tons …",
+    "photo": "/ships/algosea-3.jpg",
+    "photoCaption": "Algosea and CSL Assiniboine in winter layup at Sarnia. Feb. 4, 2022.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "algoterra": {
+    "name": "Algoterra",
+    "operator": "Algoma Central Corporation",
+    "formerNames": [
+      "Louise Knutsen",
+      "Louise K."
+    ],
+    "yearBuilt": 2010,
+    "lengthDetail": "472′ 07″ (144.05m)",
+    "beamDetail": "75′ 06″ (23.3m)",
+    "capacity": "16,635 tons",
+    "enginePower": "8,207 bhp diesel",
+    "note": "The oil/chemical tanker Algoterra (IMO 9442249) was built in 2010 at Jiangnan Shipyard Corp. Shanghai, China, as Louise Knutsen for the Knutsen Tanker Group, Haugesund, Norway. The vessel measures 473 feet in length, 75 feet in width and has a dep…",
+    "photo": "/ships/algoterra.jpg",
+    "photoCaption": "Algoterra passes Windsor, ON, on her journey to the St. Clair River. Earl Minnis image, February 13",
+    "photoCredit": "Boatnerd.com"
+  },
+  "g3-marquis": {
+    "name": "G3 Marquis",
+    "operator": "G3 Canada Ltd.",
+    "formerNames": [
+      "CWB Marquis"
+    ],
+    "yearBuilt": 2014,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,483 tons",
+    "enginePower": "9,100 bhp diesel",
+    "note": "Originally named CWB Marquis, this vessel sailed from Nantong Mingde Heavy Industries Stock Co., Nantong, China, on Oct. 31, 2014. The 740-foot-long by 78-foot-wide bulk carrier arrived at Montreal on Jan. 8, 2015.",
+    "photo": "/ships/g3-marquis.jpg",
+    "photoCaption": "G3 MARQUIS – Upbound Port Huron, Michigan 10-31-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "american-century": {
+    "name": "American Century",
+    "operator": "American Steamship Company",
+    "formerNames": [
+      "Columbia Star"
+    ],
+    "yearBuilt": 1980,
+    "lengthDetail": "1000′ 00″ (304.8m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "80,900 tons",
+    "enginePower": "14,400 bhp diesel",
+    "note": "The self-unloading bulk carrier American Century was built by Bay Shipbuilding Co., Sturgeon Bay, WI, and was launched as Columbia Star on November 8, 1980 for Columbia Transportation Division, Oglebay Norton Co., Cleveland, OH. She is powered by …",
+    "photo": "/ships/american-century.jpg",
+    "photoCaption": "American Century arriving at the Bulk Terminal in Cleveland 8-29-2025",
+    "photoCredit": "Bill Kloss / Boatnerd.com"
+  },
+  "american-integrity": {
+    "name": "American Integrity",
+    "operator": "American Steamship Company",
+    "yearBuilt": 1977,
+    "note": "This Great Lakes self unloading bulk carrier was built in two sections as hull #717 by Bay Shipbuilding and Dry Dock co., Sturgeon Bay, WI. The keel for the 660′ bow section was laid on October 6, 1976 and was launched April 28, 1977. The complete…",
+    "photo": "/ships/american-integrity.jpg",
+    "photoCaption": "AMERICAN INTEGRITY – Upbound Port Huron, Michigan 4-12-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "american-spirit": {
+    "name": "American Spirit",
+    "operator": "American Steamship Company",
+    "formerNames": [
+      "George A. Stinson"
+    ],
+    "yearBuilt": 1978,
+    "lengthDetail": "1,004′ 00″ (306.02m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "62,400 tons",
+    "enginePower": "16,000 bhp diesel",
+    "note": "The seventh of 13 self-unloading 1,000-footers built on the Great Lakes was launched as George A. Stinson for the National Steel Corp., Cleveland, OH. The bow and stern sections were completed at American Ship Building Co., Lorain, OH, as hull #90…",
+    "photo": "/ships/american-spirit.jpg",
+    "photoCaption": "AMERICAN SPIRIT – Upbound Port Huron, Michigan 4-17-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "burns-harbor": {
+    "name": "Burns Harbor",
+    "operator": "American Steamship Company",
+    "lengthDetail": "1000′ 00″ (304.8m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "80,900 tons",
+    "enginePower": "14,400 bhp diesel",
+    "note": "The keel was laid on April 16, 1979 for this self-unloading bulk freighter at Bay Shipbuilding Co., Sturgeon Bay, WI, as their hull # 720. The new 1,000-footer was launched Oct. 28, 1979 and christened Burns Harbor on May 24, 1980 for Wilmington T…",
+    "photo": "/ships/burns-harbor.jpg",
+    "photoCaption": "Burns Harbor in ice approaching the Poe Lock.",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "indiana-harbor": {
+    "name": "Indiana Harbor",
+    "operator": "American Steamship Company",
+    "yearBuilt": 1979,
+    "lengthDetail": "1000′ 00″ (304.8m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "89,900 tons",
+    "enginePower": "14,000 bhp diesel",
+    "note": "The Indiana Harbor was constructed in 1979 as a self-unloading bulk carrier for American Steamship Company. She was the ninth 1,000-Footer to be constructed and was the second built for American Steamship Company, being constructed under Title XI …",
+    "photo": "/ships/indiana-harbor.jpg",
+    "photoCaption": "INDIANA HARBOR – Downbound Port Huron, Michigan 11-1-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "walter-j-mccarthy-jr": {
+    "name": "Walter J. McCarthy Jr.",
+    "operator": "American Steamship Company",
+    "formerNames": [
+      "Belle River"
+    ],
+    "yearBuilt": 1976,
+    "lengthDetail": "1000′ 00″ (304.8m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "89,900 tons",
+    "enginePower": "14,000 bhp diesel",
+    "note": "The Belle River was constructed in two sections, with her 660′ bow section being built first and side launched at Sturgeon Bay on September 30, 1976, while her 340′ stern section was under construction in the large graving dock. The sections were …",
+    "photo": "/ships/walter-j-mccarthy-jr.jpg",
+    "photoCaption": "Walter J. McCarthy Jr, arrives under the Duluth Aerial Bridge Friday night headed for the SMET dock.",
+    "photoCredit": "Roger LeLievre / Boatnerd.com"
+  },
+  "a-390-barge": {
+    "name": "A-390 (barge)",
+    "kind": "barge",
+    "operator": "Andrie Inc."
+  },
+  "a-397-barge": {
+    "name": "A-397 (barge)",
+    "kind": "barge",
+    "operator": "Andrie Inc."
+  },
+  "a-410-barge": {
+    "name": "A-410 (barge)",
+    "kind": "barge",
+    "operator": "Andrie Inc."
+  },
+  "barbara-andrie": {
+    "name": "Barbara Andrie",
+    "operator": "Andrie Inc.",
+    "photo": "/ships/barbara-andrie.jpg",
+    "photoCaption": "Barbara Andrie",
+    "photoCredit": "Boatnerd.com"
+  },
+  "endeavour-barge": {
+    "name": "Endeavour (barge)",
+    "kind": "barge",
+    "operator": "Andrie Inc."
+  },
+  "karen-andrie-2": {
+    "name": "Karen Andrie",
+    "operator": "Andrie Inc.",
+    "photo": "/ships/karen-andrie-2.jpg",
+    "photoCaption": "KAREN ANDRIE ENDEVOUR – Downbound Port Huron, Michigan 3-23-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "meredith-ashton-tug": {
+    "name": "Meredith Ashton (tug)",
+    "kind": "tug",
+    "operator": "Andrie Inc.",
+    "photo": "/ships/meredith-ashton-tug.jpg",
+    "photoCaption": "Tug Meredith Ashton and barge AM 3600 downbound on the St. Clair River at Marine City, MI. Oct 24, 2021. Don Detloff",
+    "photoCredit": "Boatnerd.com"
+  },
+  "rebecca-lynn": {
+    "name": "Rebecca Lynn",
+    "operator": "Andrie Inc.",
+    "photo": "/ships/rebecca-lynn.jpg",
+    "photoCaption": "Rebecca Lynn & Endurance 2-18-2024",
+    "photoCredit": "Paul R. Murray / Boatnerd.com"
+  },
+  "atlantic-huron": {
+    "name": "Atlantic Huron",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1983,
+    "lengthDetail": "736’06”",
+    "beamDetail": "75’10”",
+    "capacity": "34,600 tons",
+    "note": "Launched October 18, 1983 as the Prairie Harvest for CSL Group Inc. (Canada Steamship Lines, Inc.), Montreal, PQ; this vessel was built as a “Caribbean Class” lake bulk freighter by Collingwood Shipyards Ltd., Collingwood, ON at a cost of approxim…",
+    "photo": "/ships/atlantic-huron.jpg",
+    "photoCaption": "Atlantic Huron sailing upbound the Detroit River with Coal from Sandusky for The Algoma Steel Mill in the Soo. ~ July 5, 2025",
+    "photoCredit": "Carson Last / Boatnerd.com"
+  },
+  "baie-comeau-2": {
+    "name": "Baie Comeau",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1960,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,690 tons",
+    "enginePower": "10,680 bhp diesel",
+    "note": "In October 2010, the Government of Canada elected to remove a long standing 25% import duty on vessels built in foreign yards and brought under Canadian flag. This duty had been put in place to protect Canadian shipyards from foreign competition b…",
+    "photo": "/ships/baie-comeau-2.jpg",
+    "photoCaption": "Baie Comeau heading into lake Huron.",
+    "photoCredit": "Robert Leadbetter / Boatnerd.com"
+  },
+  "baie-st-paul-2": {
+    "name": "Baie St. Paul",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1960,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,690 tons",
+    "enginePower": "10,680 bhp diesel",
+    "note": "In October 2010, the Government of Canada elected to remove a long standing 25% import duty on vessels built in foreign yards and brought under Canadian flag. This duty had been put in place to protect Canadian shipyards from foreign competition b…",
+    "photo": "/ships/baie-st-paul-2.jpg",
+    "photoCaption": "Baie St. Paul upbound at Port Huron, MI. April 2, 2022. Paul R Murray.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "csl-assiniboine": {
+    "name": "CSL Assiniboine",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1977,
+    "lengthDetail": "739′ 10″ (225.50m)",
+    "beamDetail": "78′ 00″ (23.76m)",
+    "capacity": "36,768 tons (37,358 mt)\nat a draft of 30′ 04″ (9.25m)",
+    "enginePower": "9,000 b.h.p.",
+    "note": "This Great Lakes self-unloading bulk carrier was built by Davie Shipbuilding Ltd., Lauzon, QC as their hull # 684 for the Power Corp. of Canada, Montreal, QC (Canada Steamship Lines, managers). Christened the Jean Parisien, the vessel was launched…",
+    "photo": "/ships/csl-assiniboine.jpg",
+    "photoCaption": "CSL ASSINIBOINE – Downbound Port Huron, Michigan 1-1-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "csl-laurentien": {
+    "name": "CSL Laurentien",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1977,
+    "lengthDetail": "739’10”",
+    "beamDetail": "78’00”",
+    "capacity": "37,797",
+    "note": "Built by Collingwood Shipyards, Collingwood, ON; the self-unloading bulk freighter CSL Laurentien was side launched July 8, 1977 for Canada Steamship Lines Ltd., Montreal, PQ. as the Louis R. Desmarais. She is powered by 2 Pielstick V-10 cylinder …",
+    "photo": "/ships/csl-laurentien.jpg",
+    "photoCaption": "CSL Laurentien upbound leaving the Soo Locks and heading for Algoma Steel. 7-27-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "csl-niagara": {
+    "name": "CSL Niagara",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1971,
+    "lengthDetail": "739′ 10″ (225.50m)",
+    "beamDetail": "78′ 00″ (23.76m)",
+    "capacity": "30,223 tons (30,708 mt) – CSL data\nat Seaway draft of 26′ 06″ (8.08m)",
+    "enginePower": "9,000 b.h.p. (6,620 kW)",
+    "note": "From the time of her building, the CSL Niagara has been unique in setting fleet standards for her owners. The self-unloading bulk carrier was launched December 16, 1971 and christened April 11, 1972 as the J.W. McGiffin for Canada Steamship Lines …",
+    "photo": "/ships/csl-niagara.jpg",
+    "photoCaption": "CSL Niagara headed down the St. Clair River on a late Spring morning – June 14, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "csl-spirit": {
+    "name": "CSL Spirit",
+    "operator": "Canada Steamship Lines"
+  },
+  "csl-st-laurent": {
+    "name": "CSL St-Laurent",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 2014,
+    "note": "CSL St-Laurent (C838039) was the final Trillium Class bulk carrier to join the Canada Steamship Lines fleet. It appeared on the Great Lakes for the first time in April 2015.",
+    "photo": "/ships/csl-st-laurent.jpg",
+    "photoCaption": "CSL ST – LAURENT – Upbound Port Huron, Michigan 12-31-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "csl-tadoussac": {
+    "name": "CSL Tadoussac",
+    "operator": "Canada Steamship Lines",
+    "formerNames": [
+      "Tadoussac"
+    ],
+    "yearBuilt": 1969,
+    "lengthDetail": "730′ 00″ (222.51m)",
+    "beamDetail": "77′ 11″ (23.75m)",
+    "capacity": "30,051 tons",
+    "enginePower": "9,600 bhp diesel",
+    "note": "Her keel being laid June 25, 1968, this traditional styled self-unloading bulk carrier was built as hull # 192 by Collingwood Shipyards division, Canadian Shipbuilding & Engineering Ltd., Collingwood and launched May 29, 1969 as the Tadoussac for …",
+    "photo": "/ships/csl-tadoussac.jpg",
+    "photoCaption": "The CSL Tadoussac passing White Sands Beach at Boblo Island.",
+    "photoCredit": "Michael Chase / Boatnerd.com"
+  },
+  "csl-welland": {
+    "name": "CSL Welland",
+    "operator": "Canada Steamship Lines",
+    "note": "CSL Welland arrived at Montreal on Jan. 2, 2015. The new addition to the Canada Steamship Lines fleet, part of their new Trillium Class of bulk carriers, was built at the Yangfan Shipyard and launched at Zhoushan, China, on Jan. 25, 2014. The ship…",
+    "photo": "/ships/csl-welland.jpg",
+    "photoCaption": "CSL Welland (Canada Steamship Lines) enters the St. Clair River, passing the Blue Water Bridge, under a smoky sky. June 08, 2025.",
+    "photoCredit": "Tom Shields [1 / Boatnerd.com"
+  },
+  "ferbec-2": {
+    "name": "Ferbec",
+    "operator": "Canada Steamship Lines",
+    "formerNames": [
+      "Orientor 2",
+      "CSL Melbourne"
+    ],
+    "yearBuilt": 2002,
+    "lengthDetail": "615′ 02″ (187.5m)",
+    "beamDetail": "101′ 08″ (31.0m)",
+    "capacity": "48,910 tons",
+    "enginePower": "9,354 bhp diesel",
+    "note": "n 2017, Canada Steamship Lines welcomed the motor vessel Ferbec, a 49,910 DWT conventional geared bulk carrier equipped with four 30 ton cranes with grabs. The vessel, which previously operated in CSL’s Australian fleet as CSL Melbourne, is the la…",
+    "photo": "/ships/ferbec-2.jpg",
+    "photoCaption": "Ferbec 8-4-2024",
+    "photoCredit": "Lorraine Morrill / Boatnerd.com"
+  },
+  "frontenac": {
+    "name": "Frontenac",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1967,
+    "lengthDetail": "729′ 10″ (222.44m)",
+    "beamDetail": "75′ 04″ (22.97m)",
+    "capacity": "26,822 tons (27,251 mt)\n at draft of 27′ 08″ (8.44m)",
+    "enginePower": "9,600 b.h.p. (7,061 kW)",
+    "note": "The keel was laid May 17, 1967 at Davie Shipbuilding Ltd., Lauzon, QC for their hull # 661 which has proven to be the last classic straight deck bulk carrier (wheelhouse forward) built for the Canada Steamship Lines fleet of Montreal, QC. The vess…",
+    "photo": "/ships/frontenac.jpg",
+    "photoCaption": "Frontenac downbound on the St. Clair River at Marine City, MI. Her destination is Port Colborne, ON. – Oct 10- 2024",
+    "photoCredit": "Don Detloff / Boatnerd.com"
+  },
+  "nukumi": {
+    "name": "Nukumi",
+    "operator": "Canada Steamship Lines",
+    "note": "M/V Nukumi, Canada Steamship Lines is a purpose-designed self-unloading ship built to service Windsor Salt. Built by Chengxi Shipyard in China, the 26,000 dwt vessel was delivered to its owner in January 2022. The cutting-edge vessel with a deadwe…",
+    "photo": "/ships/nukumi.jpg",
+    "photoCaption": "Nukumi",
+    "photoCredit": "Carson Last / Boatnerd.com"
+  },
+  "oakglen-3": {
+    "name": "Oakglen",
+    "operator": "Canada Steamship Lines",
+    "formerNames": [
+      "Federal Danube",
+      "Lake Ontario"
+    ],
+    "yearBuilt": 1980,
+    "lengthDetail": "729′ 11″ (222.48m)",
+    "beamDetail": "75′ 10″ (23.11m)",
+    "capacity": "35,067 tons",
+    "enginePower": "11,600 bhp diesel",
+    "note": "Federal Danube was constructed in 1980 by N. V. Cockerill Yards of Hoboken Belgium, as a gearless bulk carrier for Fednav LTD. She was one of several sister ships constructed of the same design at that time. She is 729’11’’ long, 76’07’’ wide, and…",
+    "photo": "/ships/oakglen-3.jpg",
+    "photoCaption": "Oakglen loading at CN 6. Chris Mazzella (Nov 2021)",
+    "photoCredit": "Boatnerd.com"
+  },
+  "rt-hon-paul-j-martin": {
+    "name": "Rt. Hon. Paul J. Martin",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1973,
+    "lengthDetail": "739’07”",
+    "beamDetail": "78’00”",
+    "capacity": "37,696 tons",
+    "note": "This ship was built at Collingwood, Ont., and launched on July 12, 1973 as the H.M. GRIFFITH. It left in late October to load iron ore at Thunder Bay for the Steel Company of Canada plant at Hamilton.\nThe 730 foot long by 75 foot wide freighter wa…",
+    "photo": "/ships/rt-hon-paul-j-martin.jpg",
+    "photoCaption": "RT. HON. PAUL J. MARTIN – Upbound Port Huron, Michigan 10-24-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "spruceglen": {
+    "name": "Spruceglen",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1983,
+    "lengthDetail": "730′ 01″ (222.54m)",
+    "beamDetail": "75′ 09″ (23.08m)",
+    "capacity": "33,824 tons (34,167 mt)\n at a draft of 32′ 08″ (9.962m)",
+    "enginePower": "10,880 b.h.p. (8,098 kW)",
+    "note": "The first of three sister ships to be constructed for Misener Transportation Ltd., St. Catharines, ON; this Great Lakes and ocean gearless bulk carrier was built as hull # 256 by Govan Shipbuilders Ltd., Govan, Scotland. The new bulk carrier was l…",
+    "photo": "/ships/spruceglen.jpg",
+    "photoCaption": "Spruceglen upbound leaving the Soo Locks. 7-12-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "thunder-bay-3": {
+    "name": "Thunder Bay",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1960,
+    "lengthDetail": "740′",
+    "beamDetail": "78′",
+    "capacity": "37,690 tons",
+    "enginePower": "10,680 bhp",
+    "note": "In October 2010, the Government of Canada elected to remove a long standing 25% import duty on vessels built in foreign yards and brought under Canadian flag. This duty had been put in place to protect Canadian shipyards from foreign competition b…",
+    "photo": "/ships/thunder-bay-3.jpg",
+    "photoCaption": "Thunder Bay upbound leaving the Soo Locks and heading for Superior, WI. 8-5-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "whitefish-bay-2": {
+    "name": "Whitefish Bay",
+    "operator": "Canada Steamship Lines",
+    "yearBuilt": 1960,
+    "lengthDetail": "740′",
+    "beamDetail": "78′",
+    "capacity": "37,690 tons",
+    "enginePower": "10,680 bhp",
+    "note": "In October 2010, the Government of Canada elected to remove a long standing 25% import duty on vessels built in foreign yards and brought under Canadian flag. This duty had been put in place to protect Canadian shipyards from foreign competition b…",
+    "photo": "/ships/whitefish-bay-2.jpg",
+    "photoCaption": "Whitefish Bay upbound on the St. Clair River at Marine City, MI.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "amundsen": {
+    "name": "Amundsen",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/amundsen.jpg",
+    "photoCaption": "CCGS Amundsen in the Poe Lock [Soo Locks Visitor Center",
+    "photoCredit": "Boatnerd.com"
+  },
+  "caribou-isle": {
+    "name": "Caribou Isle",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/caribou-isle.jpg",
+    "photoCaption": "CCGS Caribou Isle",
+    "photoCredit": "Shipseeker Photography / Boatnerd.com"
+  },
+  "constable-carricre": {
+    "name": "Constable Carričre",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "corporal-teather-c-v": {
+    "name": "Corporal Teather C. V.",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "cove-isle": {
+    "name": "Cove Isle",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "des-groseilliers": {
+    "name": "Des Groseilliers",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/des-groseilliers.jpg",
+    "photoCaption": "Des Groseilliers at Montreal in 2019. René Beauchamp",
+    "photoCredit": "Boatnerd.com"
+  },
+  "f-c-g-smith": {
+    "name": "F. C. G. Smith",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "griffon": {
+    "name": "Griffon",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/griffon.jpg",
+    "photoCaption": "CCGS Griffon, sunrise view, ice breaking operations on the St. Clair River. March 4, 2022. Rod Burdick.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "kelso": {
+    "name": "Kelso",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "limnos": {
+    "name": "Limnos",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "martha-l-black": {
+    "name": "Martha L. Black",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/martha-l-black.jpg",
+    "photoCaption": "Martha L. Black arriving in Johnstown to load buoys. March 30, 2022. Port of Johnstown.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "pierre-radisson": {
+    "name": "Pierre Radisson",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/pierre-radisson.jpg",
+    "photoCaption": "CCGS Pierre Radisson at the Port of Trois-Rivieres. Feb. 9, 2022. Gary Waters.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "private-robertson-v-c": {
+    "name": "Private Robertson V. C.",
+    "operator": "Canadian Coast Guard Great Lakes"
+  },
+  "samuel-risley": {
+    "name": "Samuel Risley",
+    "operator": "Canadian Coast Guard Great Lakes",
+    "photo": "/ships/samuel-risley.jpg",
+    "photoCaption": "CCGC Samuel Risley downbound on the St. Clair River for Windsor, ON. Don Detloff image, January 16",
+    "photoCredit": "Boatnerd.com"
+  },
+  "edward-l-ryerson": {
+    "name": "Edward L. Ryerson",
+    "operator": "Cleveland-Cliffs Inc",
+    "yearBuilt": 1959,
+    "lengthDetail": "730′ 00″ (222.50m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "139,128 gal. (526,655 l) – 69,564 gal. (263,328 l) port side\n– 69,564 gal. (263,328 l) starboard side",
+    "enginePower": "9,900 maximum s.h.p. (7,385.4 kW)",
+    "note": "The Edward L. Ryerson, is one of only two remaining straight-deck bulk carriers still part of the American fleet on the Great Lakes; the other being the John Sherwin (2). Built as hull # 425 by Manitowoc Shipbuilding Co., Inc. of Manitowoc, WI; th…",
+    "photo": "/ships/edward-l-ryerson.jpg",
+    "photoCaption": "Edward L. Ryerson departing the MacArthur Lock. Fred Miller II photo",
+    "photoCredit": "Boatnerd.com"
+  },
+  "joseph-l-block": {
+    "name": "Joseph L. Block",
+    "operator": "Cleveland-Cliffs Inc",
+    "yearBuilt": 1976,
+    "lengthDetail": "728′ 00″",
+    "beamDetail": "78’00”",
+    "capacity": "37,200",
+    "enginePower": "7,000",
+    "note": "With the keel being laid down in July of 1975, this Great Lakes self unloading bulk carrier was built by Bay Shipbuilding Co., Sturgeon Bay, WI as hull #715. The new hull was launched February 26th, 1976 and was christened June 29th, 1976 as the J…",
+    "photo": "/ships/joseph-l-block.jpg",
+    "photoCaption": "Joseph L Block downbound leaving the Soo. 8-26-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "wilfred-sykes": {
+    "name": "Wilfred Sykes",
+    "operator": "Cleveland-Cliffs Inc",
+    "lengthDetail": "678′ 00″ (206.66m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "21,500 tons",
+    "enginePower": "7,700 shp steam turbine",
+    "note": "Built by American Shipbuilding Co., Lorain, OH in 1949 for Inland Steel Co., the streamlined bulk freighter Wilfred Sykes was the first new American-built Great Lakes vessel constructed after World War II. At the time of her launch, she was the la…",
+    "photo": "/ships/wilfred-sykes.jpg",
+    "photoCaption": "Wilfred Sykes downbound on Lake Huron above Point Edward. August 16 2025.",
+    "photoCredit": "Terry McCullough photo / Boatnerd.com"
+  },
+  "hamburg": {
+    "name": "Hamburg",
+    "operator": "Conti Group",
+    "formerNames": [
+      "c. Columbus"
+    ],
+    "yearBuilt": 1997,
+    "lengthDetail": "472′ 10″ (245.67m)",
+    "beamDetail": "70′ 06″ (144.12m)",
+    "capacity": "420 passengers",
+    "enginePower": "14,161 bhp diesel",
+    "note": "M/S Hamburg is a 15,000-ton, 420-passenger luxury cruise ship owned by the Conti Group and operated by Plantours Kreuzfahrten. She was built in 1997 in Wismar, Germany. Her relative small size (overall length 472 feet) allowed her to transit the G…",
+    "photo": "/ships/hamburg.jpg",
+    "photoCaption": "MV Hamburg 9-7-2024",
+    "photoCredit": "Todd Shorkey / Boatnerd.com"
+  },
+  "arthur-m-anderson": {
+    "name": "Arthur M. Anderson",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1951,
+    "lengthDetail": "767′ 00″ (233.78m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "25,300 tons",
+    "enginePower": "7,700 shp steam turbine",
+    "note": "One of the better-known lakers is the Arthur M. Anderson. Renowned for her role involving the loss of the Edmund Fitzgerald on Nov. 10, 1975, the Arthur M. Anderson was the last vessel to have had visual, radio and radar contact with the Edmund Fi…",
+    "photo": "/ships/arthur-m-anderson.jpg",
+    "photoCaption": "Arthur M Anderson leaving Buffalo 11-9-2024",
+    "photoCredit": "Brian Wroblewski / Boatnerd.com"
+  },
+  "cason-j-callaway": {
+    "name": "Cason J. Callaway",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "lengthDetail": "767′ 00″ (233.78m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "25,300 tons (25,706 tonnes)",
+    "enginePower": "7,700 s.h.p.",
+    "note": "The Cason J. Callaway was one of the eight “AAA” class vessels which entered service during 1952 and 1953. She was the last of the trio of vessels in this class (the Philip R. Clarke and Arthur M. Anderson were the first two) built for Pittsburgh …",
+    "photo": "/ships/cason-j-callaway.jpg",
+    "photoCaption": "CasonJCallawayDec66-tn",
+    "photoCredit": "Boatnerd.com"
+  },
+  "edgar-b-speer": {
+    "name": "Edgar B. Speer",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "lengthDetail": "1004’00”",
+    "beamDetail": "105’00”",
+    "capacity": "73,700",
+    "enginePower": "19,600",
+    "note": "With the Edgar B. Speer entering service in 1980, seven smaller lakeboats were sent to the scrap yards. These were the Eugene J. Buffington, D. M. Clemson, Thomas F. Cole, Alva C. Dinkey, D. G. Kerr, Governor Miller, and the J. P. Morgan Jr. The S…",
+    "photo": "/ships/edgar-b-speer.jpg",
+    "photoCaption": "Edgar B Speer upbound in the Soo this morning. 7-24-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "edwin-h-gott": {
+    "name": "Edwin H. Gott",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1980,
+    "lengthDetail": "1004′",
+    "beamDetail": "105′",
+    "capacity": "74,100 ton",
+    "enginePower": "19,500 (largest on the lakes)",
+    "note": "At the end of the 1995 shipping season, Gott returned to her builders yard for lay-up and to receive a new self-unloading boom. Her shuttle boom was replaced with a traditional, long tubular boom. Her conversion is significant not only because she…",
+    "photo": "/ships/edwin-h-gott.jpg",
+    "photoCaption": "Edwin H Gott upbound to Duluth in Marine City July 20, 2025.",
+    "photoCredit": "Heidi Schmidt / Boatnerd.com"
+  },
+  "great-republic": {
+    "name": "Great Republic",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "lengthDetail": "634’10” (193.50m)",
+    "beamDetail": "68’00” (20.73m)",
+    "capacity": "24,800 tons (25,198.39 tonnes)",
+    "enginePower": "7,200 b.h.p.",
+    "note": "LTV Steel was purchased by ISG in 2002. The Cleveland Mill reopened and the Republic spent most of the season working the lakes in other trades. The Republic’s high capacity for her size should guarantee many more successful seasons for the unique…",
+    "photo": "/ships/great-republic.jpg",
+    "photoCaption": "GREAT REPUBLIC – Downbound Port Huron, Michigan 1-2-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "john-g-munson-2": {
+    "name": "John G. Munson",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1952,
+    "lengthDetail": "768′ 03″ (234.17m)",
+    "beamDetail": "72′ 00″ (21.95m)",
+    "capacity": "25,550 tons",
+    "enginePower": "7,000 bhp diesel",
+    "note": "The self-unloading bulk freighter John G. Munson (2) was built in 1952 as hull # 415 by Manitowoc Shipbuilding, Inc., Manitowoc, WI. The construction was a result of a contract awarded to Manitowoc Shipbuilding by Irvin L. Clymer, president of Bra…",
+    "photo": "/ships/john-g-munson-2.jpg",
+    "photoCaption": "John G Munson downbound St Clair river 7-11-2025",
+    "photoCredit": "Evan Rood / Boatnerd.com"
+  },
+  "philip-r-clarke": {
+    "name": "Philip R. Clarke",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1951,
+    "lengthDetail": "767′",
+    "beamDetail": "70′",
+    "capacity": "25,300",
+    "enginePower": "7,000",
+    "note": "The steamer Philip R. Clarke was the first of three AAA class vessels built for the Pittsburgh Steamship Company in the early 1950s. The vessel namesake is Mr. Philip Ream Clarke. Mr. Clarke was a lifelong banker and served on the Board of Directo…",
+    "photo": "/ships/philip-r-clarke.jpg",
+    "photoCaption": "Steamer Philip R. Clarke, downbound, St. Clair River, passage at sunrise – January 17, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "presque-isle-barge": {
+    "name": "Presque Isle (barge)",
+    "kind": "barge",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "lengthDetail": "1000′ 00″ (304.8m) (with tug)",
+    "beamDetail": "104′ 07″ (31.88m)",
+    "capacity": "57,500",
+    "note": "Presque Isle was constructed as a self-unloading integrated tug/barge unit for Litton Great Lakes Corporation. The tug/barge unit was intended to operate as part of Litton’s Wilson Transit Company, but Litton sold Wilson before the barge was compl…"
+  },
+  "presque-isle-tug": {
+    "name": "Presque Isle (tug)",
+    "kind": "tug",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1972,
+    "lengthDetail": "153′ 03″ (46.71m)",
+    "beamDetail": "54′ 00″ (16.46m)",
+    "note": "The Presque Isle was constructed as a self-unloading integrated tug/barge unit for Litton Great Lakes Corporation. The tug/barge unit was intended to operate as part of Litton’s Wilson Transit Company, but Litton sold Wilson before the barge was c…"
+  },
+  "roger-blough": {
+    "name": "Roger Blough",
+    "operator": "Great Lakes Fleet (Key Lakes)",
+    "yearBuilt": 1968,
+    "lengthDetail": "858′ 00″ (261.52m)",
+    "beamDetail": "105′ 00″ (32.0m)",
+    "capacity": "43,900 tons",
+    "enginePower": "14,200 bhp diesel",
+    "note": "The self-unloading bulk carrier Roger Blough, sailing for the Duluth-based Great Lakes Fleet, was built in two sections as hull #900 by the American Shipbuilding Co., Lorain, OH, for the USS Great Lakes Fleet, Duluth, MN, at a cost of approximatel…",
+    "photo": "/ships/roger-blough.jpg",
+    "photoCaption": "RogerBloughsketch-PWorden",
+    "photoCredit": "Boatnerd.com"
+  },
+  "acadia-desgagnes": {
+    "name": "Acadia Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Montelema",
+      "BBT Ocean",
+      "Sider Tis"
+    ],
+    "yearBuilt": 2013,
+    "lengthDetail": "393′ 00″ (119.79m)",
+    "beamDetail": "59′ 09″ (18.21m)",
+    "capacity": "7,875 tons",
+    "enginePower": "5,362 bhp diesel",
+    "note": "Acadia Desgagnes was constructed in 2013 by Shandong Baibuting Shipbuilding Co. of Shandong, China, as the general cargo vessel Montelema. She is 393′ 00″ long, 59′ 09″ wide, and 34′ 05″ deep, capable of carrying 7,875 tons, and equipped with a pa…"
+  },
+  "argentia-desgagnes": {
+    "name": "Argentia Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Ofmar"
+    ],
+    "yearBuilt": 2007,
+    "lengthDetail": "391′ 09″ (119.41m)",
+    "beamDetail": "60′ 04″ (18.39m)",
+    "capacity": "6,369 tons",
+    "enginePower": "5,362 bhp diesel",
+    "note": "Argentia Desgagnes was constructed in 2007 by Ustaoglu Shipyard of Zonguldak, Turkey as Ofmar. She is 391′ 09″ long, 60′ 04″ wide, and 32′ 10″ deep, capable of carrying 6,369 tons, and equipped with a pair of 35 metric ton deck cranes. She is powe…",
+    "photo": "/ships/argentia-desgagnes.jpg",
+    "photoCaption": "Argentia Desgagnes arriving pier 20 Port colborne. April 12, 2022. Dan Thomas.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "claude-a-desgagnes": {
+    "name": "Claude A. Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Elsborg"
+    ],
+    "yearBuilt": 2011,
+    "lengthDetail": "454′ 05″ (138.5m)",
+    "beamDetail": "68′ 11″ (21.0m)",
+    "capacity": "12,767 tons",
+    "enginePower": "7,345 bhp diesel",
+    "note": "Claude A. Desgagnes was added to the fleet in July 2012. It had been built by Taizhou Sanfu Ship Engineering Co. Ltd., at Taizhou, China in 2011 and first sailed as Elsborg under Panamanian registry."
+  },
+  "miena-desgagnes": {
+    "name": "Miena Desgagnes",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Jan"
+    ],
+    "yearBuilt": 2017,
+    "lengthDetail": "482′ 04″ (147.01m)",
+    "beamDetail": "74′ 10″ (22.8m)",
+    "capacity": "11,492 tons",
+    "enginePower": "6,437 bhp diesel",
+    "note": "Miena Desgagnes was constructed in 2017 by Jiangzhou Union Shipbuilding of Ruichang, China as Jan. She is 482′ 04″ long, 71′ 10″ wide, and 37′ 01″ deep, capable of carrying 11,492 tons, and equipped with a pair of 250 metric ton deck cranes. She i…",
+    "photo": "/ships/miena-desgagnes.jpg",
+    "photoCaption": "Miena Desgagnes Seaway RJD",
+    "photoCredit": "Boatnerd.com"
+  },
+  "rosaire-a-desgagnes": {
+    "name": "Rosaire A. Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Beluga Fortification"
+    ],
+    "yearBuilt": 2007,
+    "lengthDetail": "452′ 11″ (138.05m)",
+    "beamDetail": "68′ 11″ (21.0m)",
+    "capacity": "12,777 tons",
+    "enginePower": "7,345 bhp diesel",
+    "note": "Rosaire A. Desgagnés (C831580) is the first of three new Beluga type E/F-240 multi-purpose dry cargo ships to join the Desgagnés fleet. This vessel was built as Hull J2/001 by the Jiangzhou Union Shipyard at Ruichang, China, and completed in July …"
+  },
+  "sarah-desgagnes": {
+    "name": "Sarah Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Besiktas Greenland"
+    ],
+    "lengthDetail": "483′ 11″ (147.5m)",
+    "beamDetail": "73′ 06″ (22.4m)",
+    "capacity": "18,000 tons",
+    "enginePower": "9,517 bhp diesel",
+    "note": "Sarah Desgagnés (C832488) is a double-hulled Type II product tanker. It was built by the Gisan Shipyard at Tuzla, Turkey, as Besiktas Greenland in 2007. The ship has an overall length of 483 feet, 11 inches, a beam of 73 feet 6 inches and a molded…",
+    "photo": "/ships/sarah-desgagnes.jpg",
+    "photoCaption": "Tanker Sarah Desgagnes returning down the St. Clair River after visiting Sarnia, Ontario – June 4, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "sedna-desgagnes": {
+    "name": "Sedna Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Beluga Festivity"
+    ],
+    "yearBuilt": 2009,
+    "lengthDetail": "455′ 10″ (138.94m)",
+    "beamDetail": "68′ 11″ (21.0m)",
+    "capacity": "12,638 tons",
+    "enginePower": "7,345 bhp diesel",
+    "note": "Sedna Desgagnés (C833433) was built by the Qingshan Shipyard at Wuhan, China. It was completed as Beluga Festivity in February 2009 and is one of three Beluga E/F type dry cargo vessels to join the Desgagnés fleet to this date."
+  },
+  "taiga-desgagnes": {
+    "name": "Taiga Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "BBC Amazon"
+    ],
+    "yearBuilt": 2007,
+    "lengthDetail": "469′ 07″ (143.13m)",
+    "beamDetail": "74′ 10″ (22.81m)",
+    "capacity": "12,936 tons",
+    "enginePower": "9,482 bhp diesel",
+    "note": "Taiga Desgagnes was constructed in 2007 by Tianjin Xingang Shipyard of Tianjin, China as BBC Amazon for Briese Schiffahrts GMBH & Co. KG of Leer, Germany. She is 469′ 07″ long, 74′ 10″ wide, and 43′ 08″ deep, capable of carrying 12,936 tons, and e…"
+  },
+  "zelada-desgagnes": {
+    "name": "Zélada Desgagnés",
+    "operator": "Groupe Desgagnés Inc",
+    "formerNames": [
+      "Beluga Freedom"
+    ],
+    "lengthDetail": "455′ 10″ (138.94m)",
+    "beamDetail": "68′ 11″ (21.0m)",
+    "capacity": "12,638 tons",
+    "enginePower": "7,345 bhp diesel",
+    "note": "At a christening ceremony at Quebec City on June 29, 2009, Transport Desgagnés Inc. formally introduced their latest two additions to the fleet. These were the Beluga E/F 240 sisterships Sedna Desgagnés and Zelada Desgagnés. These heavy-lift, mult…",
+    "photo": "/ships/zelada-desgagnes.jpg",
+    "photoCaption": "Saltie Zélada Desgagnés heads for the MacArthur Lock while downbound in the Soo. David Kaye, July 3",
+    "photoCredit": "Boatnerd.com"
+  },
+  "damia-desgagnes": {
+    "name": "Damia Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "yearBuilt": 2016,
+    "lengthDetail": "442′ 11″ (135.0m)",
+    "beamDetail": "77′ 01″ (23.5m)",
+    "capacity": "12,061 tons",
+    "enginePower": "7,305 bhp diesel",
+    "note": "Damia Desgagnes was constructed in 2016 by Besiktas Gemi Insa A.S. of Istanbul, Turkey, as a double-hull oil/chemical/asphalt carrier for the Groupe Desgagnes subsidiary Petro-Nav. She is the first of four new state-of-the-art dual-fuel powered as…",
+    "photo": "/ships/damia-desgagnes.jpg",
+    "photoCaption": "Damia Desgagnes 8-21-2024",
+    "photoCredit": "Russ Hill / Boatnerd.com"
+  },
+  "dara-desgagnes": {
+    "name": "Dara Desgagnés",
+    "formerNames": [
+      "Elbestern",
+      "Diamond Star"
+    ],
+    "lengthDetail": "405′ 10″ (123.71m)",
+    "beamDetail": "58′ 01″ (17.7m)",
+    "capacity": "6,262 tons",
+    "enginePower": "5,032 bhp diesel",
+    "note": "The name Dara Desgagnés was new to the Desgagnés fleet in 2010, although this tanker had seen previous company service for their Petro-Nav subsidiary as Diamond Star. This double-hulled petroleum tanker was built by MTW Schiffswerft G.m.b.H. of Wi…"
+  },
+  "espada-desgagnes": {
+    "name": "Espada Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "formerNames": [
+      "Stena Poseidon"
+    ],
+    "yearBuilt": 2006,
+    "lengthDetail": "750′ 00″ (228.6m)",
+    "beamDetail": "105′ 09″ (32.24m)",
+    "capacity": "74,927 tons",
+    "enginePower": "18,422 bhp diesel",
+    "note": "Espada Desgagnés was another 2014 addition to the Transport Desgagnés fleet. Like her sistership Laurentia Desgagnés, she is too large for the Seaway. At 750 feet long by 106 feet at the beam, the vessel is too long and too wide for the locks lead…"
+  },
+  "jana-desgagnes": {
+    "name": "Jana Desgagnés",
+    "formerNames": [
+      "Jadestern",
+      "Jade Star"
+    ],
+    "lengthDetail": "405′ 10″ (123.71m)",
+    "beamDetail": "58′ 01″ (17.7m)",
+    "capacity": "6,262 tons",
+    "enginePower": "5,032 bhp diesel",
+    "note": "Jana Desgagnés was built as the double-hulled chemical and petroleum tanker Jadestern. It was constructed by MTW Schiffahrts G.m.b.H. at Wismar, Germany, in 1993 for Rigel Schiffswerft G.m.b.H. of Bremen, Germany."
+  },
+  "laurentia-desgagnes": {
+    "name": "Laurentia Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "formerNames": [
+      "Nesté Polaris",
+      "Palva"
+    ],
+    "lengthDetail": "750′ 00″ (228.6m)",
+    "beamDetail": "105′ 09″ (32.24m)",
+    "capacity": "74,927 tons",
+    "enginePower": "18,422 bhp diesel",
+    "note": "The tanker Laurentia Desgagnés is too large for the locks of the St. Lawrence Seaway but was purchased by Desgagnés for service on the St. Lawrence between Levis, Quebec, and Montreal. The vessel was built by Brodosplit at Split, Croatia, and laun…"
+  },
+  "mia-desgagnes": {
+    "name": "Mia Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "yearBuilt": 2017,
+    "lengthDetail": "442′ 11″ (135.0m)",
+    "beamDetail": "77′ 01″ (23.5m)",
+    "capacity": "12,061 tons",
+    "enginePower": "7,305 bhp diesel",
+    "note": "Mia Desgagnes was constructed in 2017 by Besiktas Gemi Insa A.S. of Istanbul, Turkey, as a double-hull oil/chemical/asphalt carrier for the Groupe Desgagnes subsidiary Petro-Nav. She is the second of four new state-of-the-art dual-fuel powered asp…",
+    "photo": "/ships/mia-desgagnes.jpg",
+    "photoCaption": "MIA DESGAGNES – Downbound Port Huron, Michigan 10-24-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "paul-a-desgagnes": {
+    "name": "Paul A. Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "yearBuilt": 2018,
+    "lengthDetail": "442′ 11″ (135.0m)",
+    "beamDetail": "77′ 01″ (23.5m)",
+    "capacity": "12,061 tons",
+    "enginePower": "7,305 bhp diesel",
+    "note": "Paul A. Desgagnes was constructed in 2018 by Besiktas Gemi Insa A.S. of Istanbul, Turkey, as a double-hull oil/chemical/asphalt carrier for the Groupe Desgagnes subsidiary Petro-Nav. She is the third of four new state-of-the-art dual-fuel powered …",
+    "photo": "/ships/paul-a-desgagnes.jpg",
+    "photoCaption": "Paul A Desgagnes 8-24-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "rossi-a-desgagnes": {
+    "name": "Rossi A. Desgagnés",
+    "operator": "Petro-Nav, Inc.",
+    "yearBuilt": 2018,
+    "lengthDetail": "442′ 11″ (135.0m)",
+    "beamDetail": "77′ 01″ (23.5m)",
+    "capacity": "12,061 tons",
+    "enginePower": "7,305 bhp diesel",
+    "note": "Rossi A. Desgagnes was constructed in 2018 by Besiktas Gemi Insa A.S. of Istanbul, Turkey, as a double-hull oil/chemical/asphalt carrier for the Groupe Desgagnes subsidiary Petro-Nav. She is the final of four new state-of-the-art dual-fuel powered…",
+    "photo": "/ships/rossi-a-desgagnes.jpg",
+    "photoCaption": "Rossi A Desgagnes upbound to Sarnia in St.Clair October 11, 2024.",
+    "photoCredit": "Heidi Schmidt / Boatnerd.com"
+  },
+  "bella-desgagnes": {
+    "name": "Bella Desgagnés",
+    "operator": "Relais Nordic Inc.",
+    "lengthDetail": "312′ 00″ (95.1m)",
+    "beamDetail": "63′ 06″ (19.36m)",
+    "capacity": "1,054 tons",
+    "enginePower": "8,320 bhp diesel",
+    "note": "Transport Desgagnes Inc. contracted with the shipbuilding firm of Kraljevica in Croatia, for the construction of a new passenger / vehicle / container vessel to replace the aging Nordik Express. The new ship was christened Bella Desgagnes at the l…"
+  },
+  "nordik-express": {
+    "name": "Nordik Express",
+    "operator": "Relais Nordic Inc.",
+    "formerNames": [
+      "Theriot Offshore IV",
+      "Scotoil 4",
+      "Tartan Sea"
+    ],
+    "yearBuilt": 1974,
+    "lengthDetail": "228′ 00″ (69.5m)",
+    "beamDetail": "44′ 00″ (13.4m)",
+    "capacity": "1,697 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "Nordik Express (C364084), a passenger and cargo vessel, serves Desgagnes through Relais Nordik Inc. The vessel was originally constructed for the oil industry as an offshore supply and support ship."
+  },
+  "hamilton-energy": {
+    "name": "Hamilton Energy",
+    "operator": "Heddle Marine Service Inc",
+    "yearBuilt": 1965,
+    "lengthDetail": "201′ 05″ (61.39m)",
+    "beamDetail": "34′ 01″ (10.39m)",
+    "capacity": "1,260 tons (1,280 mt)\nat a draft of 13′ 10″ (4.21m)",
+    "enginePower": "1,500 b.h.p.(1,104 KW)",
+    "note": "Launched as the small coastal tanker Partington; this vessel was built in 1965 by Grangemouth Dockyard Co. Ltd., Grangemouth, Scotland as their hull # 535 for Shell Mex and B.P. Ltd., London, UK entering service in December of that year.  She sail…"
+  },
+  "provmar-terminal-storage-barge": {
+    "name": "Provmar Terminal (storage barge)",
+    "kind": "storage barge",
+    "operator": "Heddle Marine Service Inc"
+  },
+  "alpena-2": {
+    "name": "Alpena",
+    "operator": "Inland Lakes Management Inc.",
+    "formerNames": [
+      "Leon Fraser"
+    ],
+    "yearBuilt": 1942,
+    "lengthDetail": "519′ 06″ (158.35m)",
+    "beamDetail": "67′ 00″ (20.42m)",
+    "capacity": "13,900 tons",
+    "enginePower": "4,000 shp steam turbine",
+    "note": "Constructed as a Great Lakes bulk freighter, this vessel was built by Great Lakes Engineering Works, Rouge River, MI. She was launched Feb. 28, 1942 as the steamer Leon Fraser for the Pittsburgh Steamship Co., Cleveland, OH. The Leon Fraser was th…",
+    "photo": "/ships/alpena-2.jpg",
+    "photoCaption": "Steamer Alpena, first trip of the 2025 shipping season, downbound on the St. Clair River, destined for Detroit from her namesake port – August 30-2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "j-a-w-iglehart": {
+    "name": "J.A.W. Iglehart",
+    "operator": "Inland Lakes Management Inc.",
+    "yearBuilt": 1936,
+    "lengthDetail": "501′ 06″ (152.86m)",
+    "beamDetail": "68′ 03″ (20.80m)",
+    "capacity": "12,500 tons (12,700 mt)\nat a draft of 27’04” (8.33m)",
+    "enginePower": "4,400 s.h.p. (3,236 kW)",
+    "note": "Originally built as a deep sea tanker; the new ship’s keel was laid at the Sun Shipbuilding and Dry Dock Co., Chester, Pa yard on April 2, 1936 as their hull # 155. The tanker was launched on September 23, 1936 as the 15,515 ton (15,764 mt) capaci…",
+    "photo": "/ships/j-a-w-iglehart.jpg",
+    "photoCaption": "J.A.W. Iglehart & John G Munson 6-12-2024",
+    "photoCredit": "David Schauer / Boatnerd.com"
+  },
+  "s-t-crapo": {
+    "name": "S. T. Crapo",
+    "operator": "Inland Lakes Management Inc.",
+    "yearBuilt": 1927,
+    "lengthDetail": "402′ 06″ (122.68m)",
+    "beamDetail": "60′ 03″ (18.36m)",
+    "capacity": "8,900 tons (9,043 mt)\nat a draft of 21′ 08.25″ (6.61 m)",
+    "enginePower": "1,800 i.h.p. (1,343 KW)",
+    "note": "Only the second bulk cement carrier built from the keel up, the S.T. Crapo was built as hull # 256 in 1927 by the Great Lakes Engineering Works, River Rouge, MI. The vessel was launched and christened July 7, 1927 for the Huron Transportation Co.,…",
+    "photo": "/ships/s-t-crapo.jpg",
+    "photoCaption": "S.T. Crapo approaches the Blue Water Bridge in the waning minutes of her time on the open waters of Lake Huron. Michael Koprowicz image, September 26",
+    "photoCredit": "Boatnerd.com"
+  },
+  "dorothy-ann": {
+    "name": "Dorothy Ann",
+    "operator": "Interlake Steamship Company",
+    "lengthDetail": "124’03”",
+    "beamDetail": "44’00”",
+    "enginePower": "7,200 BHP",
+    "note": "The 124-foot, 7,200-horsepower Z-drive tug Dorothy Ann was designed by Ocean Tug & Barge Engineering of Bellingham, Massachusetts. Hull construction began at Bay Shipbuilding Company, Sturgeon Bay, Wisconsin, on January 1st, 1998. The tug’s hull, …",
+    "photo": "/ships/dorothy-ann.jpg",
+    "photoCaption": "Dorothy Ann:Pathfinder arriving at Lorain Tuesday.",
+    "photoCredit": "Bill Kloss / Boatnerd.com"
+  },
+  "herbert-c-jackson": {
+    "name": "Herbert C. Jackson",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1959,
+    "lengthDetail": "690′ 00″ (210.31m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "24,800 tons",
+    "enginePower": "6,250 bhp diesel",
+    "note": "On February 20, 1959; the Great Lakes Engineering Works, River Rouge (Detroit), MI side-launched their new hull # 302 into the Rouge River, the new hull becoming the heaviest vessel ever side-launched by the shipyard. Christened the Herbert C. Jac…",
+    "photo": "/ships/herbert-c-jackson.jpg",
+    "photoCaption": "HERBERT C. JACKSON – Upbound Port Huron, Michigan 3-24-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "hon-james-l-oberstar": {
+    "name": "Hon. James L. Oberstar",
+    "operator": "Interlake Steamship Company",
+    "formerNames": [
+      "Shenango II",
+      "Charles M. Beeghly"
+    ],
+    "yearBuilt": 1909,
+    "lengthDetail": "806′ 00″ (245.67m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "31,000 tons",
+    "enginePower": "8,158 bhp diesel",
+    "note": "This classic Great Lakes self-unloader was originally built as a straight deck bulk carrier. The Shenango Furnace Co. of Pittsburgh, PA, announced in 1957 that a contract had been granted to the American Ship Building Co. of Toledo, OH, to build a…",
+    "photo": "/ships/hon-james-l-oberstar.jpg",
+    "photoCaption": "Hon.. James L. Oberstar departing this afternoon for LS&I Marquette on Monday.",
+    "photoCredit": "David Schauer / Boatnerd.com"
+  },
+  "james-r-barker": {
+    "name": "James R. Barker",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1976,
+    "lengthDetail": "1,004’00”",
+    "beamDetail": "105’00”",
+    "capacity": "63,300 tons",
+    "enginePower": "16,000",
+    "note": "The third thousand footer in the lakes fleet was built in 1976 by American Ship Building Co., Lorain, Ohio as Hull #905. She was the first 1000 footer built for the Interlake Steamship Co. and the first 1000 footer to be built entirely on the Lake…",
+    "photo": "/ships/james-r-barker.jpg",
+    "photoCaption": "James R Barker upbound leaving the Soo Locks this morning. 8-29-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "john-sherwin-2": {
+    "name": "John Sherwin",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1958,
+    "lengthDetail": "806′ 00″ (245.67m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "31,500 tons (32,006 mt)\n  at a draft of 28’02” (8.58m)",
+    "enginePower": "9,350 s.h.p. (6,959 kW)",
+    "note": "The Great Lakes gearless bulk carrier (“straight decker”) John Sherwin was built in 1958 by the American Ship Building Co., Toledo, OH as their hull # 192. This traditional styled laker was launched November 2, 1957 for owners Interlake Steamship …",
+    "photo": "/ships/john-sherwin-2.jpg",
+    "photoCaption": "John-Sherwin-name",
+    "photoCredit": "Boatnerd.com"
+  },
+  "kaye-e-barker": {
+    "name": "Kaye E. Barker",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1951,
+    "lengthDetail": "767’00”",
+    "beamDetail": "70’00”",
+    "capacity": "25,900",
+    "note": "Constructed in 1951-51, for the Cleveland Cliffs Steamship Company, the Edward B. Greene was the first vessel in the history of the Great Lakes to be built completely in drydock, She was 1 of 8 of the new AAA-Korea class boats to be built for the …",
+    "photo": "/ships/kaye-e-barker.jpg",
+    "photoCaption": "Kaye E Barker heading under Gordie Howe bridge",
+    "photoCredit": "Bill Salton / Boatnerd.com"
+  },
+  "lee-a-tregurtha": {
+    "name": "Lee A. Tregurtha",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1960,
+    "lengthDetail": "826′ 00″ (251.76m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "29,360 tons (29.832 mt)\n at a draft of 28′ 01″ (8.56m)",
+    "enginePower": "8,040 b.h.p. (6,000 kW)",
+    "note": "The Lee A. Tregurtha has had a long life, in many trades and under many names.  She was originally laid down in the early stages of World War II at the Bethlehem Shipbuilding and Drydock Company, Sparrows Point, MD yard as the commercial ocean tan…",
+    "photo": "/ships/lee-a-tregurtha.jpg",
+    "photoCaption": "Lee A Tregurtha upbound in the St Clair River. July 18 2025.",
+    "photoCredit": "Terry McCullough photo / Boatnerd.com"
+  },
+  "mark-w-barker": {
+    "name": "Mark W. Barker",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 2021,
+    "lengthDetail": "639′ 00″ (194.77m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "??,000 tons",
+    "enginePower": "7,800 bhp diesel",
+    "note": "Great Lakes self-unloading bulk carrier built by Fincantieri Bay Shipbuilding, Sturgeon Bay WI. Keel laid June 23, 2020. Floated out January 4, 2021 Launched October 28, 2021 for Interlake Steamship Co., Middleburg Heights, OH.  She is believed to…",
+    "photo": "/ships/mark-w-barker.jpg",
+    "photoCaption": "Mark W Barker downbound St Clair river for Fairport Ohio on this beautifu 8-27-2025",
+    "photoCredit": "Jeff Vandenberg / Boatnerd.com"
+  },
+  "mesabi-miner": {
+    "name": "Mesabi Miner",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1970,
+    "lengthDetail": "1004′ 00″ (306.02m)",
+    "beamDetail": "105′ 00″ (32.00m)",
+    "capacity": "63,300 tons (64,317 mt)\nat draft of 29’01” (8.86m)",
+    "enginePower": "16,000 b.h.p. (11,936 kW)",
+    "note": "The keel for this “super carrier”, the fourth of thirteen “1,000 footers” built for various American flag carriers on the Great Lakes, was laid at the American Ship Building Company’s Lorain, OH yard on May 15, 1975 as their hull # 906.  The bow a…",
+    "photo": "/ships/mesabi-miner.jpg",
+    "photoCaption": "MV Mesabi Miner making her turn at the Blue Water Bridges in Port Huron MI on 91224 enroute to Toledo OH with iron ore.",
+    "photoCredit": "The Captain ET / Boatnerd.com"
+  },
+  "pathfinder": {
+    "name": "Pathfinder",
+    "operator": "Interlake Steamship Company",
+    "yearBuilt": 1996,
+    "lengthDetail": "606’02”",
+    "beamDetail": "70’00”",
+    "capacity": "21,260",
+    "note": "The Pathfinder began her career as one of the members of the “AAA” class of vessel originally designed for Pittsburgh Steamship Company. Other fleets adopted variations of the original plans for their needs, and Interlake Steamship Company develop…"
+  },
+  "paul-r-tregurtha": {
+    "name": "Paul R. Tregurtha",
+    "operator": "Interlake Steamship Company",
+    "formerNames": [
+      "William J. DeLancey"
+    ],
+    "yearBuilt": 1981,
+    "lengthDetail": "1,013′ 06″ (308.92m)",
+    "beamDetail": "105′ 00″ (32.00m)",
+    "capacity": "68,000 tons",
+    "enginePower": "17,120 bhp diesel",
+    "note": "The reigning “Queen of the Lakes” title holder as the longest vessel on the Great Lakes at 1,013′ 06″ (308.92m) was constructed in two sections. With her keel being laid July 12, 1979; the bow and part of the cargo section was built at American Sh…",
+    "photo": "/ships/paul-r-tregurtha.jpg",
+    "photoCaption": "Paul R Tregurtha unloading at St Clair 8-28-2025",
+    "photoCredit": "Bill salton / Boatnerd.com"
+  },
+  "stewart-j-cort": {
+    "name": "Stewart J. Cort",
+    "operator": "Interlake Steamship Company",
+    "lengthDetail": "1000’00”",
+    "beamDetail": "105’00”",
+    "capacity": "58,000",
+    "enginePower": "14,000",
+    "note": "The completed vessel was named Stewart J. Cort after the late vice president of Bethlehem Steel, and it sailed on its maiden voyage on May 1, 1972 for Taconite Harbor, MN. Well-wishers lined the shores of the Detroit, St. Clair and St. Marys river…",
+    "photo": "/ships/stewart-j-cort.jpg",
+    "photoCaption": "Stewart J. Cort waiting to fuel before heading to BNSF to load ore Tuesday evening.",
+    "photoCredit": "David Schauer / Boatnerd.com"
+  },
+  "viking-i-barge": {
+    "name": "Viking I (barge)",
+    "kind": "barge",
+    "operator": "KK Integrated Logistics"
+  },
+  "g-l-ostrander": {
+    "name": "G. L. Ostrander",
+    "operator": "Lafarge Holcim North America Inc.",
+    "formerNames": [
+      "Andrew Martin",
+      "Robert L. Torres",
+      "Jacklyn M.",
+      "Integrity"
+    ],
+    "yearBuilt": 1976,
+    "lengthDetail": "140′ 02″ (42.72m)",
+    "beamDetail": "40′ 01″ (12.22m)",
+    "enginePower": "7,200 bhp diesel",
+    "note": "G. L. Ostrander was built in 1976 by Halter Marine of Pierre Part, Louisiana, as the push tug Andrew Martin for Andrew Martin Marine Sea Service. She entered service for Andrew Martin Marine in 1976. She is 140′ 02″ long, 40′ 01″ wide, and 22′ 03″…",
+    "photo": "/ships/g-l-ostrander.jpg",
+    "photoCaption": "G. L. Ostrander and Integrity departing Waukegan 9-6-2025 -",
+    "photoCredit": "Brenden Bayer / Boatnerd.com"
+  },
+  "innovation": {
+    "name": "Innovation",
+    "operator": "Lafarge Holcim North America Inc.",
+    "yearBuilt": 2006,
+    "lengthDetail": "460′ 00″ (140.21m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "7,557 tons",
+    "note": "Innovation was constructed in 2006 by Bay Shipbuilding of Sturgeon Bay, Wisconsin, as a self-unloading cement barge for American Transport Leasing of Muskegon, Michigan. The barge was to be operated by Andrie, Inc. of Muskegon under a cargo contra…",
+    "photo": "/ships/innovation.jpg",
+    "photoCaption": "SAMUEL DE CHAMPLAIN INNOVATION – Upbound Port Huron, Michigan 12-1-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "integrity": {
+    "name": "Integrity",
+    "operator": "Lafarge Holcim North America Inc.",
+    "yearBuilt": 1996,
+    "lengthDetail": "460′ 00″ (140.21m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "7,557 tons",
+    "note": "Integrity was constructed in 1996 by Bay Shipbuilding of Sturgeon Bay, Wisconsin, as a self-unloading cement barge for American Transport Leasing of Muskegon, Michigan. The barge was to be operated by Andrie, Inc. of Muskegon under a cargo contrac…",
+    "photo": "/ships/integrity.jpg",
+    "photoCaption": "G. L. Ostrander and Integrity departing Waukegan 9-6-2025 -",
+    "photoCredit": "Brenden Bayer / Boatnerd.com"
+  },
+  "samuel-de-champlain": {
+    "name": "Samuel de Champlain",
+    "operator": "Lafarge Holcim North America Inc.",
+    "formerNames": [
+      "Musketeer Fury",
+      "Tender Panther",
+      "Margarita",
+      "Vortice",
+      "Norfolk",
+      "Innovation"
+    ],
+    "yearBuilt": 1975,
+    "lengthDetail": "140′ 02″ (42.72m)",
+    "beamDetail": "39′ 02″ (11.94m)",
+    "enginePower": "7,200 bhp diesel",
+    "note": "Samuel de Champlain was built in 1975 by Mangone Shipyard of Houston, Texas, as the large harbor tugboat Musketeer Fury for Bernhard Hansen AS of Norway. She was completed and entered service in 1976. In 1978, Bernhard Hansen sold the tug, and she…",
+    "photo": "/ships/samuel-de-champlain.jpg",
+    "photoCaption": "SAMUEL DE CHAMPLAIN INNOVATION – Upbound Port Huron, Michigan 12-1-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "badger-ferry": {
+    "name": "Badger (ferry)",
+    "kind": "ferry",
+    "operator": "Lake Michigan Carferry Service Inc.",
+    "lengthDetail": "410’06”",
+    "beamDetail": "59’06”",
+    "capacity": "620/180",
+    "enginePower": "7000",
+    "note": "The S.S. Badger was the last coal fired, steam powered passenger ship built in the United States, and the last still operating on the Great Lakes. She was built by Christy Corporation of Sturgeon Bay, WI for the Chesapeake and Ohio Railway in 1952…",
+    "photo": "/ships/badger-ferry.jpg",
+    "photoCaption": "Badger leaving Manitowoc on September 28.",
+    "photoCredit": "Roger LeLievre / Boatnerd.com"
+  },
+  "spartan-ferry": {
+    "name": "Spartan (ferry)",
+    "kind": "ferry",
+    "operator": "Lake Michigan Carferry Service Inc.",
+    "photo": "/ships/spartan-ferry.jpg",
+    "photoCaption": "SPARTAN – Upbound Port Huron, Michigan 4-12-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "mckee-sons": {
+    "name": "McKee Sons",
+    "operator": "Lake Service Shipping",
+    "formerNames": [
+      "Marine Angel (stern)",
+      "Olive L. Moore",
+      "Invincible"
+    ],
+    "yearBuilt": 1945,
+    "lengthDetail": "579′ 02″ (176.56m)",
+    "beamDetail": "71′ 06″ (21.79m)",
+    "capacity": "19,900 tons",
+    "note": "The self-unloading barge McKee Sons was built in 1945 as a type C4-S-B2 fast troop transport by Sun Shipbuilding and Drydock Co., Chester, PA, christened as the Marine Angel. Her overall length was approximately 510 feet with power coming from a 9…",
+    "photo": "/ships/mckee-sons.jpg",
+    "photoCaption": "McKeeSons-outbound-sh-pg",
+    "photoCredit": "Boatnerd.com"
+  },
+  "american-valor": {
+    "name": "American Valor",
+    "operator": "Lower Lakes Towing Ltd.",
+    "formerNames": [
+      "Armco",
+      "Valo (on paper only)"
+    ],
+    "yearBuilt": 1953,
+    "lengthDetail": "767′ 00″ (233.78m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "25,500 tons",
+    "enginePower": "7,000 shp steam turbine",
+    "note": "Built by American Shipbuilding Co., Lorain, OH; the Great Lakes bulk carrier Armco was launched in 1953 for Oglebay Norton Co., Cleveland, OH. She was the seventh of eight “AAA” (or “Pittsburgh”) class steamers built in the early 1950’s. Her origi…",
+    "photo": "/ships/american-valor.jpg",
+    "photoCaption": "American Valor",
+    "photoCredit": "Sheldon Rody / Boatnerd.com"
+  },
+  "cuyahoga": {
+    "name": "Cuyahoga",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1943,
+    "lengthDetail": "620 ’00” (188.98m)",
+    "beamDetail": "60′ 00″ (18.29m)",
+    "capacity": "15,675 tons (19,927 tonnes)",
+    "enginePower": "3,084 b.h.p.",
+    "note": "This “L6-S-A1” type (more commonly known as “Maritimer” class) steel bulk freighter was built in 1943 at an approximate cost of $1.97 million by the American Ship Building Co., Lorain, OH (hull # 828) as the Mesabi for the United States Maritime C…",
+    "photo": "/ships/cuyahoga.jpg",
+    "photoCaption": "The Cuyahoga at the government dock at Sarnia in October 1995.",
+    "photoCredit": "Robert Campbell / Boatnerd.com"
+  },
+  "kaministiqua": {
+    "name": "Kaministiqua",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1983,
+    "lengthDetail": "730′ 01″ (222.54m)",
+    "beamDetail": "75′ 09″ (23.08m)",
+    "capacity": "33,824 tons (34,367 mt)\n at draft of 32′ 08″ (9.962m)",
+    "enginePower": "10,880 b.h.p. (8,098 kW)",
+    "note": "The vessel Voyageur Pioneer has truly had a colorful career, both in hull colors and trade routes.  Her original owners, James Richardson & Sons through their division, Pioneer Shipping Ltd., were dedicated to grain transportation on the Great Lak…",
+    "photo": "/ships/kaministiqua.jpg",
+    "photoCaption": "Kaministiqua upbound leaving the Soo Locks this evening. 7-17-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "manistee": {
+    "name": "Manistee",
+    "operator": "Lower Lakes Towing Ltd.",
+    "photo": "/ships/manistee.jpg",
+    "photoCaption": "Manistee’s colorful stern is all decked out for the holiday season as she arrives Manistee. Chris Franckowiak image, November 28",
+    "photoCredit": "Boatnerd.com"
+  },
+  "manitoulin-3": {
+    "name": "Manitoulin",
+    "operator": "Lower Lakes Towing Ltd.",
+    "formerNames": [
+      "Lalandia Swan (stern)"
+    ],
+    "yearBuilt": 2014,
+    "lengthDetail": "664′ 00″ (202.39m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "27,550 tons",
+    "enginePower": "8,113 bhp diesel",
+    "note": "Lower Lakes Towing Ltd.’s river-class vessel Manitoulin (IMO 8810918) is the result of joining the pre-existing stern section of a Danish-registered chemical tanker with a new, self-unloading bow section built in China.",
+    "photo": "/ships/manitoulin-3.jpg",
+    "photoCaption": "Manitoulin arrives at Sandusky Bay in 2024.t",
+    "photoCredit": "Jim Cassat / Boatnerd.com"
+  },
+  "michipicoten-2": {
+    "name": "Michipicoten",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1952,
+    "lengthDetail": "689’06”",
+    "beamDetail": "70’00”",
+    "capacity": "22,300",
+    "note": "The Michipicoten was one of a trio of vessels built on saltwater in 1952 due to a back-up of orders at Great Lakes shipyards. She was launched as the Elton Hoyt 2nd to serve as the new flagship of Pickands Mather’s Interlake Steamship Company; the…",
+    "photo": "/ships/michipicoten-2.jpg",
+    "photoCaption": "Michipicoten leaving Thunder Bay. Michael Hiull Photo",
+    "photoCredit": "Boatnerd.com"
+  },
+  "ojibway": {
+    "name": "Ojibway",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1941,
+    "note": "This classic Great Lakes bulk carrier was built by the Defoe Shipbuilding Company in Bay City, Michigan, and entered service on September 24, 1952. The vessel was built along the same basic plans used for building U.S. Steel’s “Super,”or AA, class…",
+    "photo": "/ships/ojibway.jpg",
+    "photoCaption": "Ojibway 8-2-2024",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "robert-s-pierson": {
+    "name": "Robert S. Pierson",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1974,
+    "lengthDetail": "630′ 00″ (192m)",
+    "beamDetail": "68′ 00″ (20.73m)",
+    "capacity": "19,650 tons (19,966 mt)\nat a mid-summer draft of 26’00” (7.92m)",
+    "enginePower": "5,600 b.h.p. (4,118 kw)",
+    "note": "This “river class” self-unloading bulk freighter was built at a cost of $14.1 million by the American Ship Building Co., Lorain, OH. Her keel was laid June 1, 1973 with the vessel being launched September 9, 1974 as the Wolverine for the Union Com…",
+    "photo": "/ships/robert-s-pierson.jpg",
+    "photoCaption": "ROBERT S. PIERSON – Downbound Port Huron, Michigan 1-15-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "saginaw-3": {
+    "name": "Saginaw",
+    "operator": "Lower Lakes Towing Ltd.",
+    "yearBuilt": 1953,
+    "lengthDetail": "639’03” (194.84m)",
+    "beamDetail": "72’00” (21.95m)",
+    "capacity": "20,200 tons (20,525 tonnes)",
+    "enginePower": "7,000 s.h.p.",
+    "note": "This Great Lakes self-unloading bulk carrier was built as hull #417 by the Manitowoc Shipbuilding Co., Manitowoc, WI for the American Steamship Co. (Boland & Cornelius, managers), Buffalo, NY. She was launched May 9th, 1953 as the John J. Boland (…",
+    "photo": "/ships/saginaw-3.jpg",
+    "photoCaption": "Saginaw upbound under the Blue Water Bridge Monday afternoon.",
+    "photoCredit": "Jeff Gushman / Boatnerd.com"
+  },
+  "tecumseh-2": {
+    "name": "Tecumseh",
+    "operator": "Lower Lakes Towing Ltd.",
+    "formerNames": [
+      "Sugar Islander",
+      "Islander",
+      "Judy Litrico",
+      "Tina Litrico"
+    ],
+    "yearBuilt": 1971,
+    "lengthDetail": "641′ 00″ (195.38m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "29,510 tons",
+    "enginePower": "12,000 bhp diesel",
+    "note": "Tecumseh was upbound in the Seaway for the first time on April 9, 2012, heading for Thunder Bay, ON, and a new career on the Great Lakes. It was built by Lockheed Shipbuilding & Engineering Co. and launched at Seattle, WA, on August 22, 1971.",
+    "photo": "/ships/tecumseh-2.jpg",
+    "photoCaption": "Tecumseh",
+    "photoCredit": "Walter Col Kurtz / Boatnerd.com"
+  },
+  "american-courage": {
+    "name": "American Courage",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Fred R. White Jr."
+    ],
+    "yearBuilt": 1974,
+    "lengthDetail": "636′ 00″ (193.86m)",
+    "beamDetail": "68′ 00″ (20.73m)",
+    "capacity": "24,300 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "After several years constructing 1,000-foot lakers, Bay Ship Building in Sturgeon Bay, WI, received several contracts in the mid-to-late 1970s to build a series of smaller vessels meant to service smaller ports that could not accommodate larger ve…",
+    "photo": "/ships/american-courage.jpg",
+    "photoCaption": "AMERICAN COURAGE – Upbound Port Huron, Michigan 4-11-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "american-mariner": {
+    "name": "American Mariner",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Chicago"
+    ],
+    "lengthDetail": "730′ 00″ (222.51m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "37,300 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "American Mariner is a self-unloading bulk freighter built by Bay Shipbuilding Co., Sturgeon Bay, WI, for American Steamship Co., Buffalo, NY. Although initially to be named Chicago (3), she was launched Aug. 2, 1979 as the American Mariner. Her ma…",
+    "photo": "/ships/american-mariner.jpg",
+    "photoCaption": "American Mariner downbound on the St. Clair River, highlighted by a sunburst – April 8, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "ashtabula": {
+    "name": "Ashtabula",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Erol Beker",
+      "Mary Turner",
+      "April T. Beker",
+      "Beverly Anderson",
+      "Defiance"
+    ],
+    "yearBuilt": 1982,
+    "lengthDetail": "610′ 00″ (185.93m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "25,891 tons",
+    "note": "The tug Defiance (US 646729) and barge Ashtabula (US 626730) were specifically designed to operate together as a self-unloading bulk carrier and have spent their entire career doing so. The pair were originally built for subsidiaries of Beker Indu…",
+    "photo": "/ships/ashtabula.jpg",
+    "photoCaption": "DEFIANCE ASHTABULA – Downbound Port Huron, Michigan 1-18-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "c-t-c-no-1": {
+    "name": "C.T.C. No. 1",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "yearBuilt": 1943,
+    "lengthDetail": "620′ 06″",
+    "beamDetail": "60′ 00″ (18.29m)",
+    "capacity": "16,300 tons (16,562 mt)\nat a draft of 25′ 02″ (7.67m)",
+    "enginePower": "2,500 i.h.p. (1,865 kw)",
+    "note": "The keel was laid for this ‘L6-S-B1’ designated ‘Maritime Class’ straight-deck bulk carrier on September 24, 1942 for the United States Maritime Commission built by the Great Lakes Engineering Works, River Rouge, MI  as their hull # 293 at a cost …"
+  },
+  "calumet-3": {
+    "name": "Calumet",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "yearBuilt": 1973,
+    "lengthDetail": "630’00”",
+    "beamDetail": "68’00”",
+    "capacity": "19,650",
+    "note": "The Calumet was built in 1973 as the William R. Roesch by the American Shipbuilding Co., Lorain, OH as Hull # 901 at a cost of $12.4 million. She was the first vessel completed under Title XI of the 1970 Merchant Marine Act and is virtually identi…",
+    "photo": "/ships/calumet-3.jpg",
+    "photoCaption": "CALUMET – Upbound Port Huron, Michigan 1-16-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "defiance": {
+    "name": "Defiance",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "April T. Beker",
+      "Beverly Anderson",
+      "Erol Beker",
+      "Mary Turner",
+      "Ashtabula"
+    ],
+    "yearBuilt": 1982,
+    "lengthDetail": "145′ 01″ (185.93m)",
+    "beamDetail": "44′ 00″ (23.77m)",
+    "enginePower": "7,200 bhp diesel",
+    "note": "Defiance was constructed in 1982 as the ocean-going tugboat April T. Beker for Beker Industries’ subsidiary Beker Transportation. The tug and her paired barge were built under Title XI of the Merchant Marine Act of 1970. The tug was paired with th…",
+    "photo": "/ships/defiance.jpg",
+    "photoCaption": "DEFIANCE ASHTABULA – Downbound Port Huron, Michigan 1-18-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "h-lee-white-2": {
+    "name": "H. Lee White",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "yearBuilt": 1973,
+    "lengthDetail": "704′ 00″ (304.8m)",
+    "beamDetail": "78′ 00″ (32.0m)",
+    "capacity": "35,200 tons",
+    "enginePower": "14,400 bhp diesel",
+    "note": "Built by the Bay Shipbuilding Corp., Sturgeon Bay, WI, for the American Steamship Co., Buffalo, NY, H. Lee White (2) was launched December 3, 1973 and sailed on her maiden voyage June 1, 1974. This self-unloading bulk freighter is powered by twin …",
+    "photo": "/ships/h-lee-white-2.jpg",
+    "photoCaption": "H Lee White arriving Duluth 12-4-2025",
+    "photoCredit": "David Schauer / Boatnerd.com"
+  },
+  "invincible": {
+    "name": "Invincible",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "R. W. Sesler",
+      "McKee Sons"
+    ],
+    "yearBuilt": 1979,
+    "lengthDetail": "100′ 00″ (30.48m)",
+    "beamDetail": "35′ 00″ (10.67m)",
+    "enginePower": "5,750 bhp diesel",
+    "note": "R. W. Sesler was constructed in 1979 as an articulated push tug by Atlantic Marine in Fort George Island, Florida. Sesler is 100′ long, 35′ wide, and 22′ 06″ deep, propelled by a pair of GM EMD 16-645-E7B diesel engines producing 5,750 BHP. She is…",
+    "photo": "/ships/invincible.jpg",
+    "photoCaption": "invinciblesterna-9-15-00",
+    "photoCredit": "Boatnerd.com"
+  },
+  "john-j-boland-4": {
+    "name": "John J. Boland",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Charles E. Wilson"
+    ],
+    "yearBuilt": 1973,
+    "lengthDetail": "680′ 00″ (207.27m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "34,000 tons",
+    "enginePower": "7,200 bhp diesel",
+    "note": "The self-unloading lake bulk carrier John J. Boland (the fourth vessel to bear the name of this pioneering Great Lakes ship owner and manager) was built by the Bay Shipbuilding Co., Sturgeon Bay, WI, and launched March 10, 1973 for the American St…",
+    "photo": "/ships/john-j-boland-4.jpg",
+    "photoCaption": "John J. Boland cruising down Lake Huron yesterday- just before the Blue Water Bridge. 6-21-2025",
+    "photoCredit": "Andrew Dean Aerial Photography / Boatnerd.com"
+  },
+  "manitowoc": {
+    "name": "Manitowoc",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "yearBuilt": 1973,
+    "lengthDetail": "630’00”",
+    "beamDetail": "68’00”",
+    "capacity": "19,650",
+    "enginePower": "5,600",
+    "note": "Throughout the history of shipping on the Great Lakes the trend for shipbuilding has been to build larger and more elaborate vessels.  Each decade since the construction of the present Soo Locks Vessel Managers have stretched there respective ship…",
+    "photo": "/ships/manitowoc.jpg",
+    "photoCaption": "Manitowoc unloading stone at the Northwest Pier of the Soo Locks Tuesday morning.",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "maumee-2-2": {
+    "name": "Maumee",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Reserve",
+      "James L. Kuber",
+      "Victory"
+    ],
+    "yearBuilt": 1953,
+    "lengthDetail": "703′ 08″ (214.48m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "25,500 tons",
+    "note": "The classic Great Lakes bulk carrier Reserve was built in 1953 at Great Lakes Engineering Works, River Rouge, MI as their hull # 299 after being launched November 15, 1952 for the Columbia Transportation Co. division of Oglebay Norton Co., Clevela…",
+    "photo": "/ships/maumee-2-2.jpg",
+    "photoCaption": "Maumee-Olive L. Moore 3-17-2024",
+    "photoCredit": "Mary Balkavitch / Boatnerd.com"
+  },
+  "menominee-3": {
+    "name": "Menominee",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "Sparrows Point",
+      "Buckeye",
+      "Lewis J. Kuber",
+      "Olive L. Moore"
+    ],
+    "yearBuilt": 1952,
+    "lengthDetail": "616′ 10″ (188.01m)",
+    "beamDetail": "70′ 00″ (21.34m)",
+    "capacity": "22,300 tons",
+    "note": "In the early 1950s and due to the Korean War, extra carrying capacity was needed for the movement of iron ore from the upper Great Lakes to the steel mills of the lower lakes. With Great Lakes shipyards booked to capacity, ship owners had to look …",
+    "photo": "/ships/menominee-3.jpg",
+    "photoCaption": "Olive L. Moore-Menominee upbound Port Huron. 11-22-2021. Paul R. Murray.jpgss",
+    "photoCredit": "Boatnerd.com"
+  },
+  "olive-l-moore": {
+    "name": "Olive L. Moore",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "formerNames": [
+      "John F. Cushing",
+      "James E. Scully",
+      "Buckeye",
+      "McKee Sons",
+      "Lewis J. Kuber",
+      "Maumee"
+    ],
+    "yearBuilt": 1928,
+    "lengthDetail": "125′ 00″ (38.1m)",
+    "beamDetail": "39′ 02″ (11.94m)",
+    "enginePower": "5,830 bhp diesel",
+    "note": "Originally designed and built with a low superstructure for passage beneath the bridges of the waterways in and around Chicago, this large tugboat was built in 1928 as hull # 241 by Manitowoc Ship Building Inc. of Manitowoc, WI. The tug was launch…",
+    "photo": "/ships/olive-l-moore.jpg",
+    "photoCaption": "OLIVE L. MOORE MENOMENEE – Downbound Port Huron, Michigan 1-20-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "victory": {
+    "name": "Victory",
+    "operator": "Grand River Navigation (Rand Logistics)",
+    "yearBuilt": 1981,
+    "lengthDetail": "140′ 00″ (42.67m)",
+    "beamDetail": "43′ 01″ (13.13m)",
+    "enginePower": "7,880 bhp diesel",
+    "note": "The keel was laid for this articulated pusher tug at the McDermott Shipyard, Morgan City, LA, on February 21, 1981 as their hull # 259. The tug was launched April 21, 1981 and christened Victory for Texaco Marine Services, Port Arthur, TX. Records…"
+  },
+  "everlast": {
+    "name": "Everlast",
+    "operator": "McAsphalt Marine Transportation Ltd.",
+    "formerNames": [
+      "Bilibino"
+    ],
+    "yearBuilt": 1977,
+    "lengthDetail": "143′ 04″ (43.69m)",
+    "beamDetail": "44′ 04″ (13.51m)",
+    "enginePower": "6,000 bhp diesel",
+    "note": "The tug Everlast was purchased by McAsphalt Marine Transportation Ltd. in November 1999 for joint operation by McAsphalt Industries Ltd. and ULS Corp. The ship arrived at Port Weller Dry Docks on June 8, 2000, and was laid up pending the arrival o…",
+    "photo": "/ships/everlast.jpg",
+    "photoCaption": "Everlast/Norman McLeod are for sale.",
+    "photoCredit": "Scruton Marine / Boatnerd.com"
+  },
+  "john-j-carrick": {
+    "name": "John J. Carrick",
+    "operator": "McAsphalt Marine Transportation Ltd.",
+    "lengthDetail": "407′ 06″ (124.21m)",
+    "beamDetail": "71′ 07″ (21.82m)",
+    "capacity": "11,613 tons",
+    "note": "The barge John J. Carrick (C833236) was built by the Penglai Bohai Shipyard at Penglai, China. It was christened on July 8, 2008 and arrived Halifax, after a transpacific voyage, on Sept. 9, 2009. The trip to Canada, via the Panama Canal, covered …"
+  },
+  "leo-a-mcarthur": {
+    "name": "Leo A. McArthur",
+    "operator": "McAsphalt Marine Transportation Ltd.",
+    "formerNames": [
+      "Victorious"
+    ],
+    "yearBuilt": 2009,
+    "lengthDetail": "122′ 00″ (37.19m)",
+    "beamDetail": "44′ 03″ (13.49m)",
+    "enginePower": "5,384 bhp diesel",
+    "note": "The articulated tug Victorious was renamed Leo A. McArthur at a ceremony held in Windsor, ON, on Jan. 16, 2017. Leo A. McArthur was one of the two founding partners of the Miller-McAsphalt Group of Companies. She is mated to the tank barge John J.…"
+  },
+  "norman-mcleod": {
+    "name": "Norman Mcleod",
+    "operator": "McAsphalt Marine Transportation Ltd.",
+    "yearBuilt": 2001,
+    "lengthDetail": "379′ 02″ (115.57m)",
+    "beamDetail": "71′ 06″ (21.79m)",
+    "capacity": "6,809 tons",
+    "note": "The black-oil tanker barge Norman McLeod was built at Nanjing, People’s Republic of China, in 2001. The 377-foot, 3-inch long vessel is owned by McAsphalt Marine Transportation Ltd. Together with the usual tug Everlast, the pair measures 500 feet …"
+  },
+  "atlantic-spirit": {
+    "name": "Atlantic Spirit",
+    "operator": "McKeil Marine",
+    "photo": "/ships/atlantic-spirit.jpg",
+    "photoCaption": "Atlantic Spirit, first upbound Salty at Beauharnois, QC. Lock #3. March 22, 2022. Richard Haydon.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "blair-mckeil": {
+    "name": "Blair McKeil",
+    "operator": "McKeil Marine",
+    "photo": "/ships/blair-mckeil.jpg",
+    "photoCaption": "Blair McKeil, sporting fresh paint, downbound on the St. Clair River – May 8, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "evans-spirit": {
+    "name": "Evans Spirit",
+    "operator": "McKeil Marine",
+    "formerNames": [
+      "Spavalda"
+    ],
+    "yearBuilt": 2007,
+    "lengthDetail": "459′ 02″ (139.96m)",
+    "beamDetail": "68′ 11″ (21.01m)",
+    "capacity": "14,650 tons",
+    "enginePower": "5,831 bhp diesel",
+    "note": "The former saltwater cargo vessel Spavalda was acquired by McKeil Marine in late 2015. The vessel, built in 2007 at Royal Niestern Sander, Delfzijl, Netherlands, was renamed to honor company founder Evans McKeil in time to begin trading in 2016.",
+    "photo": "/ships/evans-spirit.jpg",
+    "photoCaption": "Evans Spirit downbound on the St. Clair River at Marine City, MI. Her destination is Baie Comeau, QC. – Oct 20, 2024",
+    "photoCredit": "Don Detloff / Boatnerd.com"
+  },
+  "florence-spirit": {
+    "name": "Florence Spirit",
+    "operator": "McKeil Marine",
+    "formerNames": [
+      "Arklow Willow"
+    ],
+    "yearBuilt": 2004,
+    "lengthDetail": "447′ 07″ (136.43m)",
+    "beamDetail": "69′ 07″ (21.21m)",
+    "capacity": "14,650 tons",
+    "enginePower": "13,988 bhp diesel",
+    "note": "The former saltwater cargo vessel ARKLOW WILLOW was acquired by McKeil Marine in mid-2016 from Arklow Shipping Co. of Wicklow, Ireland, and renamed FLORENCE SPIRIT in honor of the wife of McKeil Marine founder Evans McKeil.",
+    "photo": "/ships/florence-spirit.jpg",
+    "photoCaption": "Florence Spirit downbound at St. Clair, Mi., St. Clair River on 9-29-2021. Dick Wicklund",
+    "photoCredit": "Boatnerd.com"
+  },
+  "hinch-spirit": {
+    "name": "Hinch Spirit",
+    "operator": "McKeil Marine",
+    "photo": "/ships/hinch-spirit.jpg",
+    "photoCaption": "Hinch Spirit on her way to Lock 7. The tanker’s service is intermittent at best. She spends much of her time in Hamilton harbor. Bill Bird",
+    "photoCredit": "Boatnerd.com"
+  },
+  "mckeil-spirit": {
+    "name": "McKeil Spirit",
+    "operator": "McKeil Marine",
+    "formerNames": [
+      "Gagliarda",
+      "Ardita"
+    ],
+    "yearBuilt": 2007,
+    "lengthDetail": "459′ 02″ (139.96m)",
+    "beamDetail": "68′ 11″ (21.01m)",
+    "capacity": "14,650 tons",
+    "enginePower": "5,831 bhp diesel",
+    "note": "The former saltwater cargo vessel Ardita was acquired by McKeil Marine in early 2016 from Setramar, based in Ravenna, Italy. The vessel, built in 2007 at Royal Niestern Sander, Delfzijl, Netherlands as a modern, shallow-draft vessel with two cargo…",
+    "photo": "/ships/mckeil-spirit.jpg",
+    "photoCaption": "McKeil Spirit in Cleveland 7-26-2025",
+    "photoCredit": "SDunnPhotography / Boatnerd.com"
+  },
+  "northern-spirit-2": {
+    "name": "Northern Spirit",
+    "operator": "McKeil Marine"
+  },
+  "northern-spirit": {
+    "name": "Northern Spirit",
+    "operator": "McKeil Marine"
+  },
+  "wicky-spirit": {
+    "name": "Wicky Spirit",
+    "operator": "McKeil Marine",
+    "photo": "/ships/wicky-spirit.jpg",
+    "photoCaption": "Wicky Spirit12-24-2021",
+    "photoCredit": "Carl Burkett / Boatnerd.com"
+  },
+  "401-barge": {
+    "name": "401 (barge)",
+    "kind": "barge",
+    "operator": "McKeil Marine"
+  },
+  "alouette-spirit-barge": {
+    "name": "Alouette Spirit (barge)",
+    "kind": "barge",
+    "operator": "McKeil Marine",
+    "photo": "/ships/alouette-spirit-barge.jpg",
+    "photoCaption": "Wilf Seymour and Alouette Spirit line up the Burlington Piers inbound to Hamilton for winter layup after another grueling season. Jan. 4, 2022. Ted Willish.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "carrol-c-i-tug": {
+    "name": "Carrol C I (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine"
+  },
+  "evans-mckeil-tug": {
+    "name": "Evans McKeil (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine",
+    "photo": "/ships/evans-mckeil-tug.jpg",
+    "photoCaption": "Evans McKeil on last trip with Seahound bound for Port Mailtand. Barry Andersen 1",
+    "photoCredit": "Boatnerd.com"
+  },
+  "huron-spirit": {
+    "name": "Huron Spirit",
+    "operator": "McKeil Marine",
+    "formerNames": [
+      "Mulege"
+    ],
+    "yearBuilt": 1995,
+    "lengthDetail": "328′ 01″ (100.0m)",
+    "beamDetail": "82′ 0″ (25.0m)",
+    "capacity": "4,542 tons",
+    "note": "Special features of the barge Huron Spirit, built in 1995 at Jiangdu Shipyard, Tiangsu Province, China, include 150-foot self-unloading conveyor boom ideal for efficient discharge of bulk commodities. The vessel has additional deck strength capabl…",
+    "photo": "/ships/huron-spirit.jpg",
+    "photoCaption": "Huron Spirit 5-27-2024",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "jarrett-m-tug": {
+    "name": "Jarrett M (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine",
+    "photo": "/ships/jarrett-m-tug.jpg",
+    "photoCaption": "Tug Jarrett M. and Northern Venture about to leave for Port Weller.",
+    "photoCredit": "Amy Daggett / Boatnerd.com"
+  },
+  "metis": {
+    "name": "Metis",
+    "operator": "McKeil Marine",
+    "yearBuilt": 1956,
+    "lengthDetail": "331′ 00″ (100.89m)",
+    "beamDetail": "43′ 09″ (13.34m)",
+    "capacity": "5,800 tons",
+    "note": "The career of Metis can be divided into four stages. It has sailed as a canaller, lengthened canaller, cement carrier and barge. It continues in the latter service, as needed. This was the last canal-sized ship built for C.S.L. The 259 foot long c…"
+  },
+  "salvor-tug": {
+    "name": "Salvor (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine"
+  },
+  "stormont-tug": {
+    "name": "Stormont (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine",
+    "photo": "/ships/stormont-tug.jpg",
+    "photoCaption": "Stormont-&-CSL-Niagara-2.5.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "tony-mackay-tug": {
+    "name": "Tony MacKay (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine"
+  },
+  "wilf-seymour-tug": {
+    "name": "Wilf Seymour (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine",
+    "photo": "/ships/wilf-seymour-tug.jpg",
+    "photoCaption": "Wilf Seymour and Alouette Spirit line up the Burlington Piers inbound to Hamilton for winter layup after another grueling season. Jan. 4, 2022. Ted Willish.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "wyatt-m-tug": {
+    "name": "Wyatt M (tug)",
+    "kind": "tug",
+    "operator": "McKeil Marine"
+  },
+  "nacc-argonaut": {
+    "name": "NACC Argonaut",
+    "operator": "NovaAlgoma Cement Carriers Ltd.",
+    "formerNames": [
+      "Arklow Wave",
+      "NACC Toronto"
+    ],
+    "yearBuilt": 2003,
+    "lengthDetail": "447′ 07″ (136.43m)",
+    "beamDetail": "69′ 07″ (21.21m)",
+    "capacity": "14,650 tons",
+    "enginePower": "13,988 bhp diesel",
+    "note": "Built in 2003 by Kyokuyo Shipyard Corp., Shimonoseki, Japan, as Arklow Wave, this vessel was converted to a cement carrier in 2017 and renamed NACC Toronto. Her name was changed to NACC Argonaut in 2018 prior to her entering service on the Great L…",
+    "photo": "/ships/nacc-argonaut.jpg",
+    "photoCaption": "NACC ARGONAUT passing Mariatown this morning at daybreak. Jack Frost is here now, can Old Man Winter be far behind",
+    "photoCredit": "Ron Beaupre / Boatnerd.com"
+  },
+  "nacc-quebec": {
+    "name": "NACC Quebec",
+    "operator": "NovaAlgoma Cement Carriers Ltd.",
+    "formerNames": [
+      "Tenace"
+    ],
+    "yearBuilt": 2011,
+    "lengthDetail": "459′ 02″ (139.96m)",
+    "beamDetail": "68′ 11″ (21.01m)",
+    "capacity": "14,650 tons",
+    "enginePower": "5,831 bhp diesel",
+    "note": "Built in 2011 at Tuzla Gemi Endustrisi A.S., Tulza, Turkey, as Tenace. Converted to a cement carrier in 2016 and renamed NACC Quebec.",
+    "photo": "/ships/nacc-quebec.jpg",
+    "photoCaption": "NACC Quebec and Algoscotia side by side in Las Palmas in the Canary Islands. Algoma",
+    "photoCredit": "Boatnerd.com"
+  },
+  "chi-cheemaun": {
+    "name": "Chi-Cheemaun",
+    "operator": "Owen Sound Transportation Co. Ltd.",
+    "yearBuilt": 1946,
+    "lengthDetail": "365’05”",
+    "beamDetail": "61’00”",
+    "capacity": "6991 gross tons – 638 passengers",
+    "note": "The Chi-Cheemaun was built to replace the Norisle (launched July 15, 1946; now a museum/restaurant moored at Manitowaning, ON) and the Norgoma (launched Dec. 22, 1949; now a museum ship at Sault Ste. Marie, ON). Her name Chi-Cheemaun is the Ojibwa…",
+    "photo": "/ships/chi-cheemaun.jpg",
+    "photoCaption": "Chi-Cheemaun downbound at Point Louise Saturday morning. – Graham Grattam",
+    "photoCredit": "Boatnerd.com"
+  },
+  "pearl-mist": {
+    "name": "Pearl Mist",
+    "operator": "Pearl Seas Cruises",
+    "yearBuilt": 2008,
+    "lengthDetail": "325′ 00″ (99.05m)",
+    "beamDetail": "52′ 00″ (15.84m)",
+    "capacity": "210 passengers",
+    "enginePower": "3,567 bhp diesel",
+    "note": "This small cruise ship was ordered from Irving Shipyards, Halifax, Nova Scotia, by Pearl Seas Cruises in 2006 for $43.5 million as the first ship built for the cruise line.",
+    "photo": "/ships/pearl-mist.jpg",
+    "photoCaption": "Pearl Mist upbound Port Huron on a luxurious cruise. Marc Dease, July 7",
+    "photoCredit": "Boatnerd.com"
+  },
+  "jiimaan-ferry": {
+    "name": "Jiimaan (ferry)",
+    "kind": "ferry",
+    "operator": "Pelee Island Transportation Services"
+  },
+  "pelee-islander-ferry": {
+    "name": "Pelee Islander (ferry)",
+    "kind": "ferry",
+    "operator": "Pelee Island Transportation Services",
+    "photo": "/ships/pelee-islander-ferry.jpg",
+    "photoCaption": "Pelee-Islander-arrive-at-Ja",
+    "photoCredit": "Boatnerd.com"
+  },
+  "pelee-islander-ii": {
+    "name": "Pelee Islander II",
+    "operator": "Pelee Island Transportation Services",
+    "lengthDetail": "203′ 08″ (62.09m)",
+    "beamDetail": "48′ 07″ (14.8m)",
+    "capacity": "399 passengers\n34 cars, or four tractor-trailers and 16 cars",
+    "enginePower": "unknown bhp diesel",
+    "note": "The passenger and auto ferry Pelee Islander II was built at the Asenav Shipbuilding Company in Valdivia, Chile to run between Leamington/Kingsville, Ont., was delivered to her new homeport of Kingsville in mid June 2018.",
+    "photo": "/ships/pelee-islander-ii.jpg",
+    "photoCaption": "Pelee Islander II.",
+    "photoCredit": "Windsor Aerial Drone Photography / Boatnerd.com"
+  },
+  "pere-marquette-41-barge": {
+    "name": "Pere Marquette 41 (barge)",
+    "kind": "barge",
+    "operator": "Pere Marquette Shipping Co.",
+    "yearBuilt": 1940,
+    "lengthDetail": "403′",
+    "beamDetail": "58′.3″",
+    "capacity": "5,000",
+    "note": "If one were to make a list of the hardest working vessels on the Great Lakes, they would have to make mention of the articulated tug and barge Pere Marquette 41. In her more then a half-century on the Great Lakes she has served her owners well in …",
+    "photo": "/ships/pere-marquette-41-barge.jpg",
+    "photoCaption": "Pere Marquette 41 loading Saturday night in Monroe. Vinny Ciolett",
+    "photoCredit": "Boatnerd.com"
+  },
+  "undaunted-articulated-tug": {
+    "name": "Undaunted (articulated tug)",
+    "kind": "articulated tug",
+    "operator": "Pere Marquette Shipping Co.",
+    "photo": "/ships/undaunted-articulated-tug.jpg",
+    "photoCaption": "UndauntedPere Marquette 41 arriving.",
+    "photoCredit": "John Jaffee / Boatnerd.com"
+  },
+  "bradshaw-mckee": {
+    "name": "Bradshaw McKee",
+    "operator": "Port City Marine Services Inc.",
+    "formerNames": [
+      "Lady Elda",
+      "Kings Challenger",
+      "ITM No. 1",
+      "Kings Challenger",
+      "Susan W. Hannah",
+      "Medusa Conquest (Southdown Conquest, Cemex Conquest, St. Marys Conquest)",
+      "Cleveland Rocks",
+      "St. Marys Challenger",
+      "St. Marys Conquest",
+      "Commander",
+      "St. Marys Conquest"
+    ],
+    "yearBuilt": 1977,
+    "lengthDetail": "121’06” (37.03m)",
+    "beamDetail": "34’06″ (10.51m)",
+    "enginePower": "4,320 bhp diesel",
+    "note": "Bradshaw McKee was constructed in 1977 as Lady Elda for United Offshore Services. She was built by Toche Enterprises of Ocean Springs, Mississippi, as yard Hull #101. She is 121’06’’ long, 34’06’’ wide, and 18’02’’ deep, and was fitted with a Blud…",
+    "photo": "/ships/bradshaw-mckee.jpg",
+    "photoCaption": "Bradshaw McKee and St. Marys Conquest upbound at Port Huron. April 5, 2022. Paul R. Murray.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "caroline-mckee": {
+    "name": "Caroline McKee",
+    "operator": "Port City Marine Services Inc.",
+    "formerNames": [
+      "David P. Guidry",
+      "Thunder",
+      "Sharon DeHart",
+      "Coastal 303",
+      "Southern Dawn",
+      "Doris Guenther (Alabama Enterprise, 2013)",
+      "Commander"
+    ],
+    "yearBuilt": 1972,
+    "lengthDetail": "122′ 02″ (37.2m)",
+    "beamDetail": "34’06″ (10.51m)",
+    "enginePower": "5,120 bhp diesel",
+    "note": "Caroline McKee was constructed in 1972 by Main Iron Works at Houma, Louisiana, as their Hull #273. She was named David P. Guidry upon completion, and delivered to her new owners, American Offshore of Galliano, Louisiana, in early 1973. She is 122’…",
+    "photo": "/ships/caroline-mckee.jpg",
+    "photoCaption": "Caroline McKee and barge Commander on a Charlevoix to Cleveland run, passing Detroit downbound 5.30.25 8am.",
+    "photoCredit": "Robert Phillips / Boatnerd.com"
+  },
+  "commander": {
+    "name": "Commander",
+    "operator": "Port City Marine Services Inc.",
+    "yearBuilt": 1957,
+    "lengthDetail": "495’00”",
+    "beamDetail": "71’00”",
+    "capacity": "13,453 tons",
+    "note": "Commander started her life quite different than how she appears today. She was originally built in 1957 by Todd Shipyards Corp. of Houston, TX, as Hull #180. She was built as the M-211 for Brown & Root of Baton Rouge, LA, as a B-Hull barge, and wa…",
+    "photo": "/ships/commander.jpg",
+    "photoCaption": "CAROLINE MC KEE COMMANDER – Downbound Port Huron, Michigan 10-22-2024",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "prentiss-brown": {
+    "name": "Prentiss Brown",
+    "operator": "Port City Marine Services Inc.",
+    "formerNames": [
+      "Betty Culbreath",
+      "Michaela McAllister",
+      "Pearle Jahn",
+      "St. Marys Conquest",
+      "St. Marys Challenger"
+    ],
+    "yearBuilt": 1967,
+    "lengthDetail": "123′ 05″ (37.61m)",
+    "beamDetail": "31’06″ (9.6m)",
+    "enginePower": "4,320 bhp diesel",
+    "note": "Prentiss Brown was originally constructed in 1967 by Gulfport Shipbuilding Corp. of Port Arthur, Texas, as their Hull #693. She was built for Gulfcoast Transit, a subsidiary of Tampa Electric Co., and named Betty Culbreath. Gulfcoast took delivery…",
+    "photo": "/ships/prentiss-brown.jpg",
+    "photoCaption": "Prentiss Brown:St. Marys Challenger pass Marine City at sunrise on the Summer Solstice. Lori Hannon, June 21",
+    "photoCredit": "Boatnerd.com"
+  },
+  "st-marys-challenger": {
+    "name": "St. Marys Challenger",
+    "operator": "Port City Marine Services Inc.",
+    "yearBuilt": 1906,
+    "lengthDetail": "527’00” (160.63m)",
+    "beamDetail": "56’ 00″ (17.07m)",
+    "capacity": "10,250 tons (10,415 mt)\n  at a draft of 21’09” (6.63m)",
+    "note": "In mid-1905, Shenango Furnace Co. of Pittsburgh, PA, contracted Great Lakes Engineering Works of Ecorse, MI, to construct the company’s first ship. The keel for Hull #17 was laid down on October 16, 1905, and was christened William P. Snyder and l…",
+    "photo": "/ships/st-marys-challenger.jpg",
+    "photoCaption": "BRADSHAW MC KEE ST. MARYS CHALLENGER – Upbound Port Huron, Michigan",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "adanac-iii": {
+    "name": "Adanac III",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Edward C. Whalen",
+      "John McLean"
+    ],
+    "lengthDetail": "80′ 03″ (24.46m)",
+    "beamDetail": "19′ 03″ (5.87m)",
+    "enginePower": "900 bhp diesel",
+    "note": "The 108 gross ton tug Adanac, which is Canada spelled backwards, was built by the Western Dry Dock and Shipbuilding Company of Port Arthur, ON, in 1913. The 80 foot, 3 inch long by 19 foot wide by 11 foot deep vessel was originally known as the Ed…",
+    "photo": "/ships/adanac-iii.jpg",
+    "photoCaption": "Adanac III 7-12-2024",
+    "photoCredit": "Roger LeLievre / Boatnerd.com"
+  },
+  "anglian-lady": {
+    "name": "Anglian Lady",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Hamtun",
+      "Nathalie Letzer"
+    ],
+    "lengthDetail": "132′ 00″ (40.23m)",
+    "beamDetail": "31′ 00″ (9.45m)",
+    "enginePower": "3,500 bhp diesel",
+    "note": "The Purvis Marine tug Anglian Lady dates from 1953. The 122′ 10″ by 30′ 1″ by 14′, 318 gross-ton-vessel was built by J. I. Thornycroft & Co. of Southampton, England, as Hull 4151.",
+    "photo": "/ships/anglian-lady.jpg",
+    "photoCaption": "Anglian Lady arriving at Sarnia. She had made her turn and was tying up in the North Slip.Bill Moran",
+    "photoCredit": "Boatnerd.com"
+  },
+  "avenger-iv": {
+    "name": "Avenger IV",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Avenger"
+    ],
+    "yearBuilt": 1962,
+    "lengthDetail": "120′ 00″ (36.58m)",
+    "beamDetail": "30′ 00″ (9.14m)",
+    "enginePower": "2,700 bhp diesel",
+    "note": "Avenger IV survived a harrowing delivery voyage to the Great Lakes. It cleared Gravesend, England, on Oct. 30, 1985, with a Canadian crew and had to go south for better weather. It was battered by different Atlantic storms and finally passed upbou…"
+  },
+  "g-l-b-no-2": {
+    "name": "G.L.B. No. 2",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Jane Newfield",
+      "ORG 6502"
+    ],
+    "yearBuilt": 1953,
+    "lengthDetail": "240′ 00″ (73.15m)",
+    "beamDetail": "50′ 00″ (15.24m)",
+    "capacity": "3,215 tons",
+    "note": "Purvis Marine’s G.L.B. No. 2 was built by the Ingalls Shipbuilding Corp. as Hull 789 at Decatur, Alabama, and completed in June 1953 as a double-shell hopper barge. It went to work for the Potter Towing Co. of Nashville as the Jane Newfield."
+  },
+  "malden": {
+    "name": "Malden",
+    "operator": "Purvis Marine Ltd.",
+    "lengthDetail": "150′ 00″ (45.72m)",
+    "beamDetail": "41′ 00″ (12.5m)",
+    "capacity": "1,075 tons",
+    "note": "Malden (C138148) is a deck cargo barge. The 150 foot long by 41 foot, 9 inch wide by 10 foot, 3 inch deep vessel was built at Owen Sound by Russel Bros. Ltd. in 1946. The barge was ordered by J. Earl McQueen of Amherstburg but moved to McQueen Mar…"
+  },
+  "martin-e-johnson": {
+    "name": "Martin E. Johnson",
+    "operator": "Purvis Marine Ltd.",
+    "yearBuilt": 1959,
+    "lengthDetail": "47′ 00″ (14.33m)",
+    "beamDetail": "16′ 00″ (4.88m)",
+    "enginePower": "600 bhp diesel",
+    "note": "The tug Martin E. Johnson (C188403) was built for American Can of Canada in 1959. The 47′ x 16′ x 7′ vessel was constructed by Russel Bros. Ltd. of Owen Sound, ON. The 26-gross-ton ship is equipped with a Cummins Model NVH-12 diesel engine of 600 …"
+  },
+  "pml-2501": {
+    "name": "PML 2501",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "CTCO 2505"
+    ],
+    "yearBuilt": 1980,
+    "lengthDetail": "302′ 00″ (92.05m)",
+    "beamDetail": "52′ 00″ (15.85m)",
+    "capacity": "1,954 tons",
+    "note": "The tanker barge PML 2501 was built as Hull 36 by the Cenac Shipyard Division of the Cenac Towing Co. Ltd., in Houma, LA. The 302′ long by 52′ wide by 17′ deep vessel was completed as CTCO 2505 in 1980 and became part of the Cenac Towing Company f…"
+  },
+  "pml-9000": {
+    "name": "PML 9000",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Palmer"
+    ],
+    "lengthDetail": "400′ 00″ (121.92m)",
+    "beamDetail": "76′ 00″ (23.17m)",
+    "capacity": "4,285 tons",
+    "note": "The 4,285 gross ton deck cargo barge PML 9000 (C822480) joined Purvis Marine Ltd. in 2000. It arrived at Sault Ste. Marie, ON, from Jacksonville, FL, on May 19, 2000, pushed by the Anglian Lady. The vessel was constructed by Bethlehem Steel, Shipb…"
+  },
+  "pml-ironmaster": {
+    "name": "PML Ironmaster",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Seaspan 241",
+      "Ceres",
+      "American Gulf VII",
+      "Ceres",
+      "GT Steelmaster",
+      "GT Ironmaster"
+    ],
+    "lengthDetail": "338′ 00″ (103.02m)",
+    "beamDetail": "75′ 00″ (22.86m)",
+    "capacity": "4,635 tons",
+    "note": "The Purvis Marine barge PML Ironmaster (C834135) arrived at Sault Ste. Marie, ON, under tow of the tug Reliance in December 2009 and began Great Lakes service the following year. The vessel had been built by Yarrows Ltd., Vancouver, BC, in 1962 as…"
+  },
+  "reliance": {
+    "name": "Reliance",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Sinni",
+      "Irving Cedar",
+      "Atlantic Cedar"
+    ],
+    "yearBuilt": 1974,
+    "lengthDetail": "148′ 03″ (45.19m)",
+    "beamDetail": "35′ 07″ (10.85m)",
+    "enginePower": "5,700 bhp diesel",
+    "note": "The powerful, ice-strengthened tug Reliance was purchased by Purvis Marine in 2001. The vessel was built by Harlo Verkstad at Ulsteinvik, Norway, in 1974 and joined International Transport ontractors as Sinni. It was registered in the Netherlands …"
+  },
+  "rocket": {
+    "name": "Rocket",
+    "operator": "Purvis Marine Ltd.",
+    "yearBuilt": 1901,
+    "lengthDetail": "73′ 00″ (22.25m)",
+    "beamDetail": "16′ 00″ (4.88m)",
+    "enginePower": "600 bhp diesel",
+    "note": "The tug Rocket is now over 100 years old. The 73′ by 16′ by 7′ vessel was built by the Buffalo Drydock Company of Buffalo, NY, and completed as a fish tug in 1901."
+  },
+  "tecumseh-ii": {
+    "name": "Tecumseh II",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "U-727"
+    ],
+    "lengthDetail": "180′ 00″ (54.86m)",
+    "beamDetail": "54′ 00″ (16.46m)",
+    "capacity": "2,232 tons",
+    "note": "The barge Tecumseh II was built as Hull 1045 by the Bergeron Machine Shop of St. Bernard, LA. The vessel joined Marinac Inc. as U-727 in 1975."
+  },
+  "w-i-scott-purvis": {
+    "name": "W. I. Scott Purvis",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Orient Bay",
+      "Guy M. No. 1"
+    ],
+    "lengthDetail": "96′ 00″ (29.26m)",
+    "beamDetail": "26′ 00″ (7.26m)",
+    "enginePower": "1,200 bhp diesel",
+    "note": "W. I. Scott Purvis was built by Marine Industries Ltd. at Sorel, QC, and entered service as Orient Bay (C171703) in 1938. The 96 foot long by 26 foot wide by 10 foot deep tug was   \tpowered by two Sulzer diesel engines Model 5ASL25/30. They were f…",
+    "photo": "/ships/w-i-scott-purvis.jpg",
+    "photoCaption": "W I Scott Purvis 6-19-2024",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "w-j-isaac-purvis": {
+    "name": "W. J. Isaac Purvis",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Angus M.",
+      "Omni Sorel",
+      "Joyce B. Gardiner"
+    ],
+    "lengthDetail": "72′ 00″ (21.95m)",
+    "beamDetail": "19′ 00″ (5.79m)",
+    "enginePower": "680 bhp diesel",
+    "note": "The tug W. J. Isaac Purvis (C318726) was built by the McNamara Construction Company at Whitby, ON., in 1962. It was christened Angus M. and measured 72 feet long by 19 feet wide by   \t12 feet deep. The 71 gross, 34 net ton tug was powered by a Cum…"
+  },
+  "w-j-ivan-purvis": {
+    "name": "W. J. Ivan Purvis",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "Magpie",
+      "Dana T. Bowen"
+    ],
+    "yearBuilt": 1938,
+    "lengthDetail": "100′ 00″ (30.48m)",
+    "beamDetail": "26′ 00″ (7.26m)",
+    "enginePower": "1,200 bhp diesel",
+    "note": "The tug W. J. Ivan Purvis was purchased by John W. Purvis in 1972 but not renamed until 1976. The ship was repowered that year with the 1,200 horsepower General Motors diesel engine   \tModel 12-567C that had previously served the second tanker nam…"
+  },
+  "wilfred-m-cohen": {
+    "name": "Wilfred M. Cohen",
+    "operator": "Purvis Marine Ltd.",
+    "formerNames": [
+      "A. T. Lowmaster"
+    ],
+    "lengthDetail": "102′ 06″ (31.24m)",
+    "beamDetail": "28′ 00″ (8.53m)",
+    "enginePower": "1,670 bhp diesel",
+    "note": "The tug Wilfred M. Cohen (C318428) was built by Newport News Shipbuilding and Drydock Company as Hull 468 at Newport News, VA. The vessel entered service in 1948 as A. T. Lowmaster   \t(US255423) for the Chesapeake and Ohio Railway Co. It generally…",
+    "photo": "/ships/wilfred-m-cohen.jpg",
+    "photoCaption": "Wilfred M. Cohen passing downbound At Point Louise",
+    "photoCredit": "Graham Grattan / Boatnerd.com"
+  },
+  "canadian-empress": {
+    "name": "Canadian Empress",
+    "operator": "St. Lawrence Cruise Lines",
+    "lengthDetail": "108′ 00″ (32.92m)",
+    "beamDetail": "30′ 00″ (9.14m)",
+    "capacity": "66 passengers",
+    "enginePower": "365 bhp diesel",
+    "note": "The M/V Canadian Empress is a small cruise ship built at Algan Shipyards, Gananoque, Que., in 1981 for the St. Lawrence Cruise Lines, Kingston, Ont. Her route is generally confined to   \tthe waters between Kingston and Quebec City, Que., including…",
+    "photo": "/ships/canadian-empress.jpg",
+    "photoCaption": "Canadian Empress",
+    "photoCredit": "Boatnerd.com"
+  },
+  "st-marys-cement-ii-barge": {
+    "name": "St. Marys Cement II (barge)",
+    "kind": "barge",
+    "operator": "St. Marys Cement Inc.",
+    "photo": "/ships/st-marys-cement-ii-barge.jpg",
+    "photoCaption": "STMARYSCEMENTIIb0808-23-04m",
+    "photoCredit": "Boatnerd.com"
+  },
+  "st-marys-cement-barge": {
+    "name": "St. Marys Cement (barge)",
+    "kind": "barge",
+    "operator": "St. Marys Cement Inc.",
+    "photo": "/ships/st-marys-cement-barge.jpg",
+    "photoCaption": "Petite Forte and St. Marys Cement in layup at Hamilton. March 15, 2022. Frank Zhu.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "petite-forte": {
+    "name": "Petite Forte",
+    "operator": "St. Marys Cement Inc.",
+    "photo": "/ships/petite-forte.jpg",
+    "photoCaption": "PETITEFORTEb4505-14-03mn",
+    "photoCredit": "Boatnerd.com"
+  },
+  "sea-eagle-ii": {
+    "name": "Sea Eagle II",
+    "operator": "St. Marys Cement Inc.",
+    "photo": "/ships/sea-eagle-ii.jpg",
+    "photoCaption": "Sea Eagle II exiting the Welland Canal after yet another passage 11-29-2025",
+    "photoCredit": "Tim Shafley / Boatnerd.com"
+  },
+  "sterling-energy": {
+    "name": "Sterling Energy",
+    "operator": "Sterling Fuels (Hamilton)",
+    "photo": "/ships/sterling-energy.jpg",
+    "photoCaption": "Sterling Energy (center) and Ocean A. Simard (bottom left) in Hamilton Harbour, Pier 14. March 1, 2022. Frank Zhu.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "m-r-kane-tug": {
+    "name": "M. R. Kane (tug)",
+    "kind": "tug",
+    "operator": "Toronto Drydock Ltd."
+  },
+  "radium-yellowknife-tug": {
+    "name": "Radium Yellowknife (tug)",
+    "kind": "tug",
+    "operator": "Toronto Drydock Ltd.",
+    "photo": "/ships/radium-yellowknife-tug.jpg",
+    "photoCaption": "Tug Radium Yellowknife stands by above Lock 7 as lock gateis lowered into water",
+    "photoCredit": "Barry Andersen / Boatnerd.com"
+  },
+  "biscayne-bay-wtgb-104": {
+    "name": "Biscayne Bay (WTGB-104)",
+    "operator": "U.S. Coast Guard Ninth District",
+    "photo": "/ships/biscayne-bay-wtgb-104.jpg",
+    "photoCaption": "Biscayne Bay exiting the Poe Lock. Michele Briggs",
+    "photoCredit": "Boatnerd.com"
+  },
+  "uscgc-hollyhock-2": {
+    "name": "USCGC Hollyhock",
+    "operator": "U.S. Coast Guard Ninth District",
+    "yearBuilt": 2003,
+    "lengthDetail": "225′ 09″ (68.81m)",
+    "beamDetail": "46′ 00″ (14.02m)",
+    "enginePower": "3,100 bhp diesel",
+    "note": "USCGC Hollyhock (WLB-214) is a 225-foot (69 m) Juniper-class cutter of the United States Coast Guard.",
+    "photo": "/ships/uscgc-hollyhock-2.jpg",
+    "photoCaption": "Hollyhock arriving at the Soo on her way to Duluth-Superior. March 21, 2022. David Kaye.",
+    "photoCredit": "Boatnerd.com"
+  },
+  "ranger-iii": {
+    "name": "Ranger III",
+    "operator": "U.S. National Park Service - Isle Royal",
+    "yearBuilt": 1958,
+    "lengthDetail": "165’00”",
+    "beamDetail": "34’00”",
+    "note": "In 1956, Congress endorsed a program to revitalize the National Park system. Dubbed “Mission 66”, it was a 10 year program of funding specifically aimed at upgrading this nation’s National Park system. Isle Royale National Park sought a dynamic ne…",
+    "photo": "/ships/ranger-iii.jpg",
+    "photoCaption": "Ranger III at Isle Royal dock in 2021",
+    "photoCredit": "Roger Lelievre / Boatnerd.com"
+  },
+  "albert": {
+    "name": "Albert",
+    "operator": "U.S. Venture Inc.",
+    "yearBuilt": 1979,
+    "note": "Albert was constructed in 1979 by American Gulf Shipbuilding of Harvey, Louisiana, as the conventional tugboat Hercules. She is 114’05’’ long, 35’ wide, and 18’08’’ deep, and was originally powered by a pair of Burmeister & Wain 14V23LU diesel eng…",
+    "photo": "/ships/albert.jpg",
+    "photoCaption": "Tug Albert and her barge Margaret down at Port Huron ,July 25, 2025",
+    "photoCredit": "Fred Miller II / Boatnerd.com"
+  },
+  "great-lakes-barge": {
+    "name": "Great Lakes (barge)",
+    "kind": "barge",
+    "operator": "U.S. Venture Inc.",
+    "yearBuilt": 1982,
+    "note": "Amoco Great lakes was constructed in 1982 as the tank barge Hull #731 Bay Shipbuilding at Sturgeon Bay, Wisconsin, for Amoco Oil Company of Indiana. She is 141’ long, 60’ wide, and 30’ deep, and can carry 75,000 Bbls. at her mid-summer draft of 23…"
+  },
+  "margaret": {
+    "name": "Margaret",
+    "operator": "U.S. Venture Inc.",
+    "yearBuilt": 2005,
+    "note": "RTC-101 was constructed in 2005 as a tanker barge by SENESCO Marine of North Kingstown, Rhode Island, for Reinauer Transportation of Staten Island, New York. She is 391’ long, 74’ wide, and 27’ deep. She was delivered to Reinauer on December 16, 2…",
+    "photo": "/ships/margaret.jpg",
+    "photoCaption": "TugTank Barge AlbertMargaret, sporting fresh paint after winter work in Sturgeon Bay, downbound on the St. Clair River – May 17, 2025",
+    "photoCredit": "Rod Burdick / Boatnerd.com"
+  },
+  "michigan-articulated-tug": {
+    "name": "Michigan (articulated tug)",
+    "kind": "articulated tug",
+    "operator": "U.S. Venture Inc.",
+    "yearBuilt": 1982,
+    "note": "Amoco Michigan was constructed in 1982 as Bay Shipbuilding’s Hull #732 at Sturgeon Bay, Wisconsin, for Amoco Oil Company of Indiana. She is 107’08’’ long, 34’ wide, and 16’ deep, and powered by a pair of General Motors EMD 20-645-E6 diesel engines…"
+  },
+  "clyde-s-van-enkevort": {
+    "name": "Clyde S. Van Enkevort",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "formerNames": [
+      "Ken Boothe Sr."
+    ],
+    "yearBuilt": 2011,
+    "lengthDetail": "135′ 04″ (41.25m)",
+    "beamDetail": "50′ 00″ (15.24m)",
+    "enginePower": "10,876 bhp diesel",
+    "note": "The articulated tug Clyde S. Van Enkevort was completed in February 2011 at Donjon Shipbuilding and Repair LLC in Erie, Pa. She is mated with the self-unloading barge Erie Trader, which was completed at the Donjon yard in April 2012. Both are owne…",
+    "photo": "/ships/clyde-s-van-enkevort.jpg",
+    "photoCaption": "Clyde S. VanEnkevort-Erie Trader upbound Port Huron, Michigan 11-23-2021. Paul R. Murray",
+    "photoCredit": "Boatnerd.com"
+  },
+  "dirk-s-vanenkevort": {
+    "name": "Dirk S. VanEnkevort",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "formerNames": [
+      "Joseph H. Thompson Jr.",
+      "Joseph H. Thompson",
+      "Michigan Trader"
+    ],
+    "yearBuilt": 1990,
+    "lengthDetail": "131′ 00″",
+    "beamDetail": "38′ 00″",
+    "enginePower": "8,000 bhp diesel",
+    "note": "Joseph H. Thompson Jr. was constructed in 1990 as an articulated tugboat at Marinette, WI, by Upper Lakes Towing. The Thompson Jr. was constructed using the steel cut from converting the Joseph H. Thompson to a barge. She was 146’ long, 38’ wide, …",
+    "photo": "/ships/dirk-s-vanenkevort.jpg",
+    "photoCaption": "Dirk S VanEnkevort-Michigan Trader unloading gravel at the northeast Pier of the Soo Locks 9-3-2025",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "erie-trader": {
+    "name": "Erie Trader",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "formerNames": [
+      "Lakes Contender"
+    ],
+    "yearBuilt": 2012,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "38,516 tons",
+    "note": "The self-unloading barge Erie Trader was completed at the Donjon yard in April 2012. She is mated with the articulated tug Clyde S. Van Enkevort, which was completed in February 2011 at Donjon Shipbuilding and Repair LLC in Erie, Pa. Both are owne…",
+    "photo": "/ships/erie-trader.jpg",
+    "photoCaption": "CLYDE S. VAN ENKEVORT – ERIE TRADER – Upbound Port Huron, Michigan 3-19-2025",
+    "photoCredit": "Paul R Murray [2 / Boatnerd.com"
+  },
+  "great-lakes-trader": {
+    "name": "Great Lakes Trader",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "yearBuilt": 1998,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,600 tons",
+    "note": "Built for Great Lakes Marine Leasing and operated by Van Enkevort Tug and Barge of Escanaba, MI. Great Lakes Trader is pushed by the 135 foot tug Joyce L. Van Enkevort, which was built in 1998 by Bay Shipbuilding Co., Sturgeon Bay, WI. The tug is …",
+    "photo": "/ships/great-lakes-trader.jpg",
+    "photoCaption": "Great lakes Trader-Joyce L VanEnkevort in Lorain 8-19-2025",
+    "photoCredit": "SDunnPhotography / Boatnerd.com"
+  },
+  "joseph-h-thompson": {
+    "name": "Joseph H. Thompson",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "formerNames": [
+      "Marine Robin",
+      "Joseph H. Thompson Jr.",
+      "Laura L. Van Enkevort"
+    ],
+    "yearBuilt": 1944,
+    "lengthDetail": "706′ 06″ (215.34m)",
+    "beamDetail": "71′ 06″ (21.79m)",
+    "capacity": "21,200 tons",
+    "note": "The steamer-turned-barge Joseph H. Thompson was one of the most historic vessels afloat, serving in war and peace on the ocean and the Great Lakes.",
+    "photo": "/ships/joseph-h-thompson.jpg",
+    "photoCaption": "Laura L. VanEnkevort/Joseph H. Thompson are looking colorful while headed downbound at Port Huron. Lincat Photography image, January 12",
+    "photoCredit": "Boatnerd.com"
+  },
+  "joyce-l-vanenkevort": {
+    "name": "Joyce L. VanEnkevort",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "yearBuilt": 1998,
+    "lengthDetail": "135′ 04″ (41.25m)",
+    "beamDetail": "50′ 00″ (15.24m)",
+    "enginePower": "10,876 bhp diesel",
+    "note": "The Joyce L. VanEnkevort was built in 1998 as an articulated tugboat for VanEnkevort Tug & Barge of Escanaba, Michigan. Joyce was fabricated by Bay Shipbuilding in Sturgeon Bay, Wisconsin, with completion and fit out being taken care of by VanEnke…",
+    "photo": "/ships/joyce-l-vanenkevort.jpg",
+    "photoCaption": "Joyce L VanEnkevortGreat Lakes Trader downbound in the Soo Lock Canal. They are headed for Toledo. 8-10-25",
+    "photoCredit": "David Kaye / Boatnerd.com"
+  },
+  "demo-laura-l-van-enkevort": {
+    "name": "Laura L. Van Enkevort",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "formerNames": [
+      "Sidney Candies",
+      "Naida Ramil",
+      "Peggy Palmer",
+      "Joseph H. Thompson"
+    ],
+    "yearBuilt": 2020,
+    "lengthDetail": "124′ 00″ (37.8m)",
+    "beamDetail": "37′ 00″ (11.28m)",
+    "enginePower": "7,000 bhp diesel",
+    "note": "The tug Laura L. Van Enkevort (US 1020314) was built as the Sidney Candies for Otto Candies Inc. It was at least the second vessel to carry that name. A twin-engined, twin-screw conventional tug, the Sidney Candies was built by Halter Marine at it…",
+    "photo": "/ships/demo-laura-l-van-enkevort.jpg",
+    "photoCaption": "Laura L. VanEnkevort/Joseph H. Thompson are looking colorful while headed downbound at Port Huron. Lincat Photography image, January 12",
+    "photoCredit": "Boatnerd.com"
+  },
+  "michigan-trader": {
+    "name": "Michigan Trader",
+    "operator": "Van Enkevort Tug & Barge Inc.",
+    "yearBuilt": 2020,
+    "lengthDetail": "740′ 00″ (225.55m)",
+    "beamDetail": "78′ 00″ (23.77m)",
+    "capacity": "39,600 tons",
+    "note": "The Michigan Trader was constructed in 2020 as an articulated self-unloading barge by Fincantieri Bay Shipbuilding of Sturgeon Bay, Wisconsin, for VanEnkevort Tug & Barge of Escanaba, Michigan. She is 740′ long, 78′ wide, and 45′ deep, capable of …",
+    "photo": "/ships/michigan-trader.jpg",
+    "photoCaption": "DIRK S. VAN ENKEVORT MICHIGAN TRADER – Downbound Port Huron, Michigan 4-17-2025",
+    "photoCredit": "Paul R Murray / Boatnerd.com"
+  },
+  "victory-i": {
+    "name": "Victory I",
+    "operator": "Victory Cruise Lines",
+    "formerNames": [
+      "Cape May Light",
+      "Clipper Voyager",
+      "Sea Voyager",
+      "Saint Laurent"
+    ],
+    "lengthDetail": "300′ 00″ (91.44m)",
+    "beamDetail": "50′ 00″ (15.24m)",
+    "capacity": "202 passengers",
+    "enginePower": "2,000 bhp diesel",
+    "note": "Victory I is a small cruise ship that operates seasonally on the Great Lakes, carrying about 200 passengers and owned by Victory Cruise Lines, Miami, Fla. Laid down in August 1999,   \tthe ship was built at Atlantic Marine, Jacksonville, Fla., and …"
+  },
+  "victory-ii": {
+    "name": "Victory II",
+    "operator": "Victory Cruise Lines",
+    "formerNames": [
+      "Cape Cod Light",
+      "Coastal Queen 2",
+      "Clipper Discoverer",
+      "Sea Discoverer"
+    ],
+    "yearBuilt": 2004,
+    "lengthDetail": "300′ 00″ (91.44m)",
+    "beamDetail": "50′ 00″ (15.24m)",
+    "capacity": "202 passengers",
+    "enginePower": "2,000 bhp diesel",
+    "note": "Victory II is a small cruise ship that operates seasonally on the Great Lakes, carrying about 200 passengers and owned by Victory Cruise Lines, Miami, Fla. The ship was built at   \tAtlantic Marine, Jacksonville, Fla., as Cape Cod Light. The ship w…",
+    "photo": "/ships/victory-ii.jpg",
+    "photoCaption": "Victory II heading toward Lock 1",
+    "photoCredit": "Michel Gosselin / Boatnerd.com"
+  },
+  "coloma-l-warner-tug": {
+    "name": "Coloma L. Warner (tug)",
+    "kind": "tug",
+    "operator": "Warner Petroleum Corp."
+  },
+  "warner-provider-barge": {
+    "name": "Warner Provider (barge)",
+    "kind": "barge",
+    "operator": "Warner Petroleum Corp."
+  }
+}

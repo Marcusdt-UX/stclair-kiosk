@@ -47,9 +47,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 3rem 5rem 2rem;
+  padding: 3rem 3rem calc(var(--status-h) + var(--safe-b) + 1.5rem) 2rem;
   background: #0d1a22;
   position: relative;
+  overflow: hidden;
+  min-width: 0;
 }
 
 /* Header lozenge */
@@ -187,3 +189,82 @@
 }
 
 /* ── Fade animation (handled by Framer Motion) ── */
+
+/* ── Portrait screens: photo on top, details below ── */
+@media (orientation: portrait) {
+  .attract-overlay { flex-direction: column; }
+  .attract-photo-wrap { width: 100%; height: 42%; }
+  .attract-photo-gradient {
+    background: linear-gradient(to bottom, transparent 55%, #0d1a22 100%);
+  }
+  .attract-info {
+    justify-content: flex-start;
+    padding: 1.25rem 1.5rem calc(var(--status-h) + var(--safe-b) + 1rem);
+  }
+  .attract-counter { top: 0.9rem; right: 1.25rem; }
+  .attract-header { margin-bottom: 1rem; }
+}
+
+/* ── Phones ── */
+@media (max-width: 700px) {
+  .attract-header { font-size: 0.58rem; letter-spacing: 0.12em; line-height: 1.5; margin-bottom: 0.8rem; }
+  .attract-name { font-size: clamp(1.5rem, 8vw, 2.2rem); }
+  .attract-desc { font-size: 0.85rem; margin-bottom: 0.8rem; }
+  .attract-history { gap: 0.25rem 0.75rem; margin-bottom: 0.9rem; }
+  .attract-history-label { font-size: 0.68rem; }
+  .attract-history-value { font-size: 0.82rem; }
+  .attract-note {
+    font-size: 0.78rem; line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .attract-progress-wrap { margin-top: 1rem; }
+}
+
+/* ── Phone on its side ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .attract-photo-wrap { width: 45%; }
+  .attract-info { padding: 1rem 1.5rem calc(var(--status-h) + var(--safe-b) + 0.75rem) 1rem; justify-content: flex-start; }
+  .attract-counter { top: 0.6rem; right: 1rem; }
+  .attract-header { font-size: 0.56rem; margin-bottom: 0.6rem; }
+  .attract-name { font-size: clamp(1.2rem, 3.8vw, 1.9rem); margin-bottom: 0.35rem; }
+  .attract-divider { margin-bottom: 0.5rem; }
+  .attract-desc { font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .attract-history { gap: 0.1rem 0.75rem; margin-bottom: 0.5rem; }
+  .attract-history-label { font-size: 0.66rem; }
+  .attract-history-value { font-size: 0.78rem; }
+  .attract-note {
+    font-size: 0.74rem; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .attract-progress-wrap { margin-top: 0.5rem; }
+}
+
+.attract-photo.is-silhouette {
+  object-fit: contain;
+  padding: 10%;
+}
+
+/* Small screens: drop the slide counter (it collides with the header) */
+@media (max-width: 700px), (max-height: 500px) {
+  .attract-counter { display: none; }
+}
+
+/* Short portrait phones (e.g. 360x640): tighten so everything fits above the status bar */
+@media (orientation: portrait) and (max-height: 720px) {
+  .attract-photo-wrap { height: 32%; }
+  .attract-header { display: none; }
+  .attract-note { -webkit-line-clamp: 2; }
+  .attract-history { margin-bottom: 0.5rem; }
+}
+
+.attract-photo-credit {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  font-style: italic;
+  pointer-events: none;
+}

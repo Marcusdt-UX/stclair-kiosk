@@ -12,6 +12,7 @@
   left: 0;
   right: 0;
   height: 62vh;
+  height: 62dvh;
   display: flex;
   flex-direction: row;
   background: #f4ecd2;
@@ -47,11 +48,12 @@
 /* ── Info side ── */
 .popup-info {
   flex: 1;
-  padding: 2rem 2rem 1rem 1.5rem;
+  padding: 2rem 2rem calc(var(--status-h) + var(--safe-b) + 0.75rem) 1.5rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popup-close {
@@ -207,4 +209,74 @@
   background: #8b2020;
   border-radius: 2px;
   transition: width 0.2s linear;
+}
+
+/* ── Portrait screens (phone upright, tablet upright): photo on top ── */
+@media (orientation: portrait) {
+  .popup-card {
+    flex-direction: column;
+    height: auto;
+    max-height: 84vh;
+    max-height: 84dvh;
+  }
+  .popup-photo-wrap {
+    width: 100%;
+    height: 30vh;
+  }
+  .popup-info { flex: 1 1 auto; min-height: 0; }
+  .popup-progress-wrap { margin-top: 1rem; }
+  .popup-photo-gradient {
+    background: linear-gradient(to bottom, transparent 55%, #f4ecd2 100%);
+  }
+  .popup-info { padding: 1.1rem 1.25rem calc(var(--status-h) + var(--safe-b) + 0.75rem); }
+  .popup-name { font-size: clamp(1.5rem, 7vw, 2.6rem); }
+}
+
+/* ── Phones ── */
+@media (max-width: 700px) {
+  .popup-name { font-size: clamp(1.35rem, 7vw, 2rem); margin-bottom: 0.5rem; }
+  .popup-desc { font-size: 0.88rem; margin-bottom: 0.5rem; }
+  .popup-history { gap: 0.2rem 0.6rem; margin-bottom: 0.6rem; }
+  .popup-history-label { font-size: 0.7rem; }
+  .popup-history-value { font-size: 0.82rem; }
+  .popup-route { gap: 0.35rem; margin-bottom: 0.6rem; }
+  .popup-route-row { font-size: 0.92rem; }
+  .popup-note { font-size: 0.78rem; margin-bottom: 0.6rem; }
+  .popup-close { top: 0.6rem; right: 0.6rem; width: 2rem; height: 2rem; font-size: 1rem; }
+}
+
+/* ── Phone on its side: short screen, keep photo on the left ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .popup-card { height: 88vh; height: 88dvh; }
+  .popup-photo-wrap { width: 34%; }
+  .popup-info { padding: 0.9rem 1.2rem calc(var(--status-h) + var(--safe-b) + 0.5rem) 1rem; }
+  .popup-name { font-size: clamp(1.2rem, 3.6vw, 1.8rem); margin-bottom: 0.4rem; }
+  .popup-divider { margin-bottom: 0.4rem; }
+  .popup-desc { font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .popup-history { gap: 0.1rem 0.6rem; margin-bottom: 0.4rem; }
+  .popup-history-label { font-size: 0.68rem; }
+  .popup-history-value { font-size: 0.78rem; }
+  .popup-route { flex-direction: row; flex-wrap: wrap; gap: 0.2rem 1.2rem; margin-bottom: 0.4rem; }
+  .popup-route-row { font-size: 0.85rem; }
+  .popup-note { font-size: 0.75rem; margin-bottom: 0.4rem; }
+  .popup-close { top: 0.5rem; right: 0.5rem; width: 1.9rem; height: 1.9rem; }
+}
+
+/* Ship-type silhouette (no photo available): show it whole */
+.popup-photo.is-silhouette {
+  object-fit: contain;
+  padding: 8%;
+  background: #dfe5e6;
+}
+
+.popup-photo-credit {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  font-style: italic;
+  pointer-events: none;
 }

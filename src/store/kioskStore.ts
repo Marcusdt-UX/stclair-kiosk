@@ -9,6 +9,8 @@ interface KioskState {
   lastActivityAt: number
 
   updateVessel: (partial: Partial<Vessel> & { mmsi: string }) => void
+  hydrateVessels: (list: Vessel[]) => void
+  pruneStale: (maxAgeMs: number) => void
   triggerPopup: (vessel: Vessel) => void
   dismissPopup: () => void
   setWeather: (w: WeatherData) => void
@@ -31,6 +33,28 @@ export const useKioskStore = create<KioskState>((set, get) => ({
         },
         lastActivityAt: Date.now(),
       }
+    })
+  },
+
+  // Seed from the proxy snapshot without counting as live activity
+  hydrateVessels(list) {
+    set(state => {
+      const vessels = { ...state.vessels }
+      for (const v of list) {
+        if (!vessels[v.mmsi]) vessels[v.mmsi] = v
+      }
+      return { vessels }
+    })
+  },
+
+  // Remove ships we haven't heard from in a while (they've left coverage)
+  pruneStale(maxAgeMs) {
+    const cutoff = Date.now() - maxAgeMs
+    set(state => {
+      const entries = Object.entries(state.vessels)
+      const kept = entries.filter(([, v]) => (v.lastUpdated ?? 0) >= cutoff)
+      if (kept.length === entries.length) return {}
+      return { vessels: Object.fromEntries(kept) }
     })
   },
 

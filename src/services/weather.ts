@@ -1,5 +1,5 @@
 import type { WeatherData } from '../types'
-import { PORT_HURON_LAT, PORT_HURON_LON } from '../constants/bounds'
+import { PROXY_BASE } from './aisstream'
 
 function degToCompass(deg: number): string {
   const dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
@@ -7,14 +7,11 @@ function degToCompass(deg: number): string {
   return dirs[Math.round(deg / 22.5) % 16]
 }
 
-export async function fetchWeather(apiKey: string): Promise<WeatherData> {
-  const url =
-    `https://api.openweathermap.org/data/2.5/weather` +
-    `?lat=${PORT_HURON_LAT}&lon=${PORT_HURON_LON}` +
-    `&units=imperial&appid=${apiKey}`
-
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`Weather API ${res.status}`)
+// Weather comes through our own proxy (GET /weather), which holds the
+// OpenWeather key server-side. The browser never sees the key.
+export async function fetchWeather(): Promise<WeatherData> {
+  const res = await fetch(`${PROXY_BASE}/weather`)
+  if (!res.ok) throw new Error(`Weather proxy ${res.status}`)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const d = await res.json() as any
 

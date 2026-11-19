@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  padding: 0.55rem 1.4rem;
+  min-height: var(--status-h);
+  padding: 0.4rem 1.4rem calc(0.4rem + var(--safe-b));
   background: linear-gradient(to top, rgba(244, 236, 210, 0.97) 55%, transparent);
   border-top: 1px solid rgba(139, 105, 20, 0.35);
   pointer-events: none;
@@ -84,4 +85,18 @@
 @keyframes pulse-live {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ── Phones / small screens ── */
+@media (max-width: 700px), (max-height: 500px) {
+  .status-bar { gap: 0.7rem; padding: 0.3rem 0.8rem calc(0.3rem + var(--safe-b)); }
+  .status-time { font-size: 1.15rem; }
+  .status-weather { font-size: 0.8rem; gap: 0.35rem; }
+  .status-temp { font-size: 0.9rem; }
+  .status-wx-icon { width: 22px; height: 22px; }
+  .status-live { font-size: 0.7rem; }
+  .status-hide-sm { display: none; }
+}
+@media (max-width: 360px) {
+  .status-wx-icon { display: none; }
 }

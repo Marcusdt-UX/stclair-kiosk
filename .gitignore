@@ -32,3 +32,7 @@ scripts/boatnerd-raw.json
 *.njsproj
 *.sln
 *.sw?
+
+# Coverage log (built from live AIS traffic)
+coverage-log.jsonl
+/data/
