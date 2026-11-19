@@ -71,6 +71,8 @@ const CORRIDOR = { south: 42.85, west: -82.55, north: 43.05, east: -82.35 }
 // Stretch of river visible from the MOC (100 McMorran Blvd) — the "outside her window" zone
 const WINDOW_ZONE = { south: 42.955, west: -82.432, north: 43.003, east: -82.398 }
 // AIS TrueHeading 511 means "not available" — fall back to course over ground
+// AIS SOG 102.3 (raw 1023) means "speed not available"
+const sogOf = pos => (pos?.Sog != null && pos.Sog < 102.2) ? pos.Sog : null
 const headingOf = pos => (pos?.TrueHeading != null && pos.TrueHeading < 360) ? pos.TrueHeading : (pos?.Cog ?? 0)
 const inBox = (lat, lon, b) => lat >= b.south && lat <= b.north && lon >= b.west && lon <= b.east
 
@@ -304,7 +306,7 @@ function recordCoverage(msg) {
   // A "pass" = a moving ship entering the window zone (or jumping across it between reports)
   const prev = lastPos.get(mmsi)
   lastPos.set(mmsi, { lat, lon, inWin })
-  const moving = (pos.Sog ?? 0) >= 1
+  const moving = (sogOf(pos) ?? 0) >= 1
   const crossed = prev && !prev.inWin && !inWin &&
     lon >= WINDOW_ZONE.west && lon <= WINDOW_ZONE.east &&
     ((prev.lat > WINDOW_ZONE.north && lat < WINDOW_ZONE.south) ||
@@ -314,7 +316,7 @@ function recordCoverage(msg) {
     hour.windowPasses.push(name)
     lifetime.windowPasses++
     console.log(`[Coverage] 🚢 ${name} passing the MOC`)
-    try { dash?.recordPass(mmsi, { heading: headingOf(pos), speed: pos.Sog ?? 0 }) } catch {}
+    try { dash?.recordPass(mmsi, { heading: headingOf(pos), speed: sogOf(pos) ?? 0 }) } catch {}
   }
 }
 
@@ -559,7 +561,7 @@ function connectToAIS() {
             lastSeen: now,
             lastLat: meta.latitude ?? pos.Latitude,
             lastLon: meta.longitude ?? pos.Longitude,
-            lastSpeed: pos.Sog ?? existing.lastSpeed,
+            lastSpeed: sogOf(pos) ?? existing.lastSpeed,
             lastHeading: headingOf(pos) ?? existing.lastHeading,
             positionCount: (existing.positionCount ?? 0) + 1,
           }

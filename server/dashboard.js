@@ -119,6 +119,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
   }
 
   function recordPass(mmsi, { heading = 0, speed = 0 } = {}) {
+    if (!(speed >= 1 && speed < 102.2)) return     // 102.3 kn = AIS "not available"
     const t = now()
     // ignore duplicates for the same ship within 2 hours
     if (passes.some(p => p.mmsi === mmsi && t - p.at < 2 * 3600 * 1000)) return
@@ -146,7 +147,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
     for (const [mmsi, v] of Object.entries(vesselCache)) {
       if (!v.lastSeen || t - v.lastSeen > 20 * 60 * 1000) continue
       const { lastLat: lat, lastLon: lon, lastSpeed: sog = 0, lastHeading: hdg = 0 } = v
-      if (lat == null || lon == null || sog < 3) continue          // anchored / docked / drifting
+      if (lat == null || lon == null || sog < 3 || sog >= 102.2) continue   // anchored / docked / drifting / speed unknown
       if (lon < -82.75 || lon > -82.2) continue                     // stay on the St. Clair / lower Huron line
       const southbound = hdg > 90 && hdg < 270
       let km
@@ -369,7 +370,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
       }
       if (req.method === 'GET' && path === '/dash/log') {
         const since = Number(url.searchParams.get('since')) || now() - 24 * 3600 * 1000
-        return send(res, 200, passes.filter(p => p.at >= since).sort((a, b) => b.at - a.at).slice(0, 20))
+        return send(res, 200, passes.filter(p => p.at >= since && p.speed < 102.2).sort((a, b) => b.at - a.at).slice(0, 20))
       }
       if (req.method === 'GET' && path === '/dash/upcoming') return send(res, 200, upcoming())
       if (req.method === 'GET' && path === '/dash/conditions') {

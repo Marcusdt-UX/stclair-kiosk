@@ -185,7 +185,8 @@ export function startAISStream(
           const inZone = isInZone(lat, lon, TRIGGER_ZONE)
           const wasInZone = prevInZone.get(mmsi) ?? false
           const crossed = crossedZone(prevPos.get(mmsi), lat, lon, TRIGGER_ZONE)
-          const moving = (pos.Sog ?? 0) >= TRIGGER_MIN_SPEED_KN
+          const sog = (pos.Sog != null && pos.Sog < 102.2) ? pos.Sog : 0   // 102.3 = not available
+          const moving = sog >= TRIGGER_MIN_SPEED_KN
 
           // TrueHeading 511 = "not available" → use course over ground
           const heading = (pos.TrueHeading != null && pos.TrueHeading < 360) ? pos.TrueHeading : (pos.Cog ?? 0)
@@ -193,7 +194,7 @@ export function startAISStream(
             mmsi,
             lat,
             lon,
-            speed: pos.Sog ?? 0,
+            speed: sog,
             heading,
             course: pos.Cog ?? 0,
             lastUpdated: Date.now(),
