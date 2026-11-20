@@ -366,7 +366,7 @@ const dash = createDashboard({ dataDir: DATA_DIR, vesselCache, vesselInfo, wxKey
 
 // ── HTTP server (handles both HTTP requests and WebSocket upgrades) ──────────
 const httpServer = createServer(async (req, res) => {
-  if (req.url?.startsWith('/dash/') || req.url === '/admin' || req.url?.startsWith('/admin/')) {
+  if (req.url?.startsWith('/dash/') || req.url === '/admin' || req.url?.startsWith('/admin/') || req.url === '/list' || req.url?.startsWith('/list?') || req.url === '/list/') {
     const handled = await dash(req, res)
     if (handled !== false) return
   }

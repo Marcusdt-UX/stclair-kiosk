@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { dashPost } from './api'
+import { dashPost, type Mode } from './api'
 import { blobToWavBase64 } from './wav'
 import './AskCaptain.css'
 
@@ -11,7 +11,7 @@ import './AskCaptain.css'
 type Phase = 'idle' | 'listening' | 'thinking' | 'answer' | 'error'
 const MAX_SECONDS = 12
 
-export function AskCaptain() {
+export function AskCaptain({ mode = 'office' }: { mode?: Mode }) {
   const [phase, setPhase] = useState<Phase>('idle')
   const [heard, setHeard] = useState('')
   const [answer, setAnswer] = useState('')
@@ -65,7 +65,7 @@ export function AskCaptain() {
     setPhase('thinking')
     try {
       const audio = await blobToWavBase64(blob)
-      const res = await dashPost<{ heard: string; answer: string }>('/dash/ask', { audio, mime: 'audio/wav' })
+      const res = await dashPost<{ heard: string; answer: string }>('/dash/ask', { audio, mime: 'audio/wav', mode })
       setHeard(res.heard || '')
       setAnswer(res.answer || 'Sorry, I didn’t catch that.')
       setPhase('answer')
@@ -104,7 +104,7 @@ export function AskCaptain() {
           {phase === 'listening' && (
             <>
               <div className="ask-wave"><span /><span /><span /><span /><span /></div>
-              <p className="ask-status">Listening… ask about a ship, the river, the weather — anything.</p>
+              <p className="ask-status">{mode === 'home' ? 'Listening… ask about a ship, the weather, your list — anything.' : 'Listening… ask about a ship, the river, the weather — anything.'}</p>
               <p className="ask-hint">Tap “Done” when you’re finished · {MAX_SECONDS - secs}s</p>
             </>
           )}

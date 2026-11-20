@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { dashGet, familyPhotoUrl, type Bridge, type CalEvent, type Conditions, type DashStatus, type Pass, type Upcoming } from './api'
+import { dashGet, dashPost, familyPhotoUrl, type Bridge, type CalEvent, type Conditions, type DashStatus, type HomeInfo, type ListItem, type Mode, type Pass, type Upcoming } from './api'
 import { getSilhouette } from '../services/photoResolver'
 import './Sidebar.css'
 
@@ -40,7 +40,7 @@ function Panel({ title, children, className = '' }: { title: string; children: R
 }
 
 // ── Coming up the river ─────────────────────────────────────────────────────
-function ComingUp() {
+function ComingUp({ max = 3 }: { max?: number }) {
   const list = usePoll(() => dashGet<Upcoming[]>('/dash/upcoming'), 60_000)
   return (
     <Panel title="Coming up the river">
@@ -48,7 +48,7 @@ function ComingUp() {
         : list.length === 0 ? <p className="sb-empty">Nothing headed this way right now.</p>
         : (
           <ul className="sb-list">
-            {list.slice(0, 3).map(v => (
+            {list.slice(0, max).map(v => (
               <li key={v.mmsi} className="sb-row">
                 <Thumb src={v.photo} />
                 <div className="sb-row-main">
@@ -83,6 +83,131 @@ function ShipsLog() {
           </ul>
         )}
     </Panel>
+  )
+}
+
+function LogCard() {
+  const list = usePoll(() => dashGet<Pass[]>(`/dash/log?since=${startOfToday()}`), 60_000)
+  return (
+    <div className="sb-card">
+      <h2 className="sb-title">{`Ship's log — today${list && list.length ? ` · ${list.length}` : ''}`}</h2>
+      {!list ? <p className="sb-empty">Opening the log…</p>
+        : list.length === 0 ? <p className="sb-empty">No ships past the city offices yet today.</p>
+        : (
+          <ul className="sb-list sb-log">
+            {list.slice(0, 9).map(p => (
+              <li key={`${p.mmsi}-${p.at}`} className="sb-logrow">
+                <span className="sb-logtime">{fmtTime(p.at)}</span>
+                <Dir d={p.direction} />
+                <span className="sb-logname">{p.name}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+    </div>
+  )
+}
+
+// ── Home mode: today at the house ───────────────────────────────────────────
+const keyToDate = (k: string) => new Date(`${k}T00:00:00`)
+function daysBetween(a: string, b: string) { return Math.round((keyToDate(b).getTime() - keyToDate(a).getTime()) / 86_400_000) }
+function dayWord(k: string, today: string) {
+  const n = daysBetween(today, k)
+  if (n === 0) return 'today'
+  if (n === 1) return 'tomorrow'
+  return keyToDate(k).toLocaleDateString([], n < 7 ? { weekday: 'long' } : { weekday: 'short', month: 'short', day: 'numeric' })
+}
+
+function HomeToday({ home }: { home: HomeInfo | null }) {
+  if (!home) return <Panel title="At home"><p className="sb-empty">Checking the house…</p></Panel>
+  // group trash + recycling that share a day
+  const byDate = new Map<string, { names: string[]; shifted: boolean }>()
+  for (const [name, p] of [['Trash', home.trash], ['Recycling', home.recycling]] as const) {
+    if (!p) continue
+    const g = byDate.get(p.date) || { names: [], shifted: false }
+    g.names.push(g.names.length ? name.toLowerCase() : name)
+    g.shifted ||= p.shifted
+    byDate.set(p.date, g)
+  }
+  const pickups = [...byDate.entries()].sort(([a], [b]) => a.localeCompare(b))
+  const md = home.moveInDays
+  return (
+    <Panel title="At home" className="sb-home">
+      {home.moveIn && md != null && md >= 0 && (
+        <div className="sb-movein">
+          {md === 0 ? <span className="sb-big">Move-in day!</span> : <span className="sb-big">{md}</span>}
+          {md > 0 && <span>{md === 1 ? 'day' : 'days'} to move-in<small>{keyToDate(home.moveIn).toLocaleDateString([], { weekday: 'short', month: 'long', day: 'numeric' })}</small></span>}
+        </div>
+      )}
+      {pickups.map(([date, g]) => {
+        const n = daysBetween(home.today, date)
+        const what = g.names.join(' & ')
+        return (
+          <div key={date} className={`sb-pickup${n === 1 ? ' is-tonight' : n === 0 ? ' is-today' : ''}`}>
+            <span className="sb-pickup-icon">🗑</span>
+            <span>
+              {n === 1 ? <strong>{what} out tonight</strong> : n === 0 ? <strong>{what} pickup today</strong> : <>{what} · {dayWord(date, home.today)}</>}
+              {g.shifted && <small> · holiday week, a day late</small>}
+            </span>
+          </div>
+        )
+      })}
+      {!home.trashSet && !home.moveIn && <p className="sb-empty">Add the move-in date and trash day at /admin.</p>}
+    </Panel>
+  )
+}
+
+// ── Home mode: grocery + to-do list (tap to check off; add from her phone at /list)
+function ListCard() {
+  const [items, setItems] = useState<ListItem[] | null>(null)
+  useEffect(() => {
+    let alive = true
+    const run = () => dashGet<ListItem[]>('/dash/list').then(d => { if (alive) setItems(d) }).catch(() => {})
+    run()
+    const t = setInterval(run, 30_000)
+    return () => { alive = false; clearInterval(t) }
+  }, [])
+  const toggle = (i: ListItem) => dashPost<ListItem[]>(`/dash/list/${i.id}`, { done: !i.done }).then(setItems).catch(() => {})
+  const open = (k: ListItem['kind']) => (items || []).filter(i => i.kind === k && !i.done).sort((a, b) => a.at - b.at)
+  const groceries = open('grocery'), todos = open('todo')
+  return (
+    <Panel title={`Ship's stores${groceries.length ? ` · ${groceries.length}` : ''}`} className="sb-stores">
+      {!items ? <p className="sb-empty">Opening the list…</p>
+        : !groceries.length && !todos.length ? <p className="sb-empty">All stocked up. Add things from your phone.</p>
+        : (
+          <>
+            {groceries.length > 0 && (
+              <div className="sb-chips">
+                {groceries.slice(0, 10).map(i => <button key={i.id} className="sb-chip" onClick={() => toggle(i)}>{i.text}</button>)}
+                {groceries.length > 10 && <span className="sb-chip is-more">+{groceries.length - 10}</span>}
+              </div>
+            )}
+            {todos.length > 0 && (
+              <ul className="sb-list sb-todo">
+                {todos.slice(0, 3).map(i => <li key={i.id} onClick={() => toggle(i)}><span className="sb-box" />{i.text}</li>)}
+                {todos.length > 3 && <li className="sb-sub">+{todos.length - 3} more to-dos</li>}
+              </ul>
+            )}
+          </>
+        )}
+      <p className="sb-foot">Tap to check off · add from your phone at {location.host}/list</p>
+    </Panel>
+  )
+}
+
+function BuildCard({ names, seed, moveIn }: { names: string[]; seed: number; moveIn: string | null }) {
+  // walk the timeline, oldest → newest, one photo each time the card comes around
+  const i = seed % names.length
+  const name = names[i]
+  const taken = /^\d{4}-\d{2}-\d{2}/.test(name) ? keyToDate(name.slice(0, 10)) : null
+  return (
+    <div className="sb-card sb-photo sb-build">
+      <img src={familyPhotoUrl(name, 'build')} alt="" />
+      <div className="sb-build-cap">
+        <strong>The house</strong>{taken && <> · {taken.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })}</>}
+        <span>{i + 1} of {names.length}{moveIn ? ` · move-in ${keyToDate(moveIn).toLocaleDateString([], { month: 'short', day: 'numeric' })}` : ''}</span>
+      </div>
+    </div>
   )
 }
 
@@ -149,7 +274,7 @@ function BridgeCard({ b }: { b: Bridge | null }) {
   )
 }
 
-function WatchCard({ ev }: { ev: CalEvent[] | null }) {
+function WatchCard({ ev, title = 'Watch schedule' }: { ev: CalEvent[] | null; title?: string }) {
   const todayKey = new Date(startOfToday()).toDateString()
   const label = (e: CalEvent) => {
     const d = e.allDay ? new Date(String(e.start) + 'T00:00:00') : new Date(Number(e.start))
@@ -158,7 +283,7 @@ function WatchCard({ ev }: { ev: CalEvent[] | null }) {
   }
   return (
     <div className="sb-card">
-      <h2 className="sb-title">Watch schedule</h2>
+      <h2 className="sb-title">{title}</h2>
       {!ev ? <p className="sb-empty">Checking the calendar…</p>
         : ev.length === 0 ? <p className="sb-empty">Clear sailing — nothing scheduled.</p>
         : (
@@ -182,17 +307,23 @@ function PhotoCard({ names, seed }: { names: string[]; seed: number }) {
   )
 }
 
-function Rotator({ status }: { status: DashStatus | null }) {
+function Rotator({ status, mode = 'office', home = null }: { status: DashStatus | null; mode?: Mode; home?: HomeInfo | null }) {
   const unlocked = !!status?.unlocked
+  const isHome = mode === 'home'
+  const hasCal = isHome ? !!status?.features.homeCalendar : !!status?.features.calendar
   const cond = usePoll(() => dashGet<Conditions>('/dash/conditions'), 10 * 60_000)
   const bridge = usePoll(() => dashGet<Bridge | null>('/dash/bridge'), 10 * 60_000)
   const cal = usePoll(
     () => {
-      if (!unlocked || !status?.features.calendar) return Promise.resolve(null)
+      if (!unlocked || !hasCal) return Promise.resolve(null)
       const from = startOfToday()
-      return dashGet<CalEvent[]>(`/dash/calendar?from=${from}&to=${from + 2 * 24 * 3600 * 1000}`)
+      return dashGet<CalEvent[]>(`/dash/calendar?from=${from}&to=${from + 2 * 24 * 3600 * 1000}&mode=${mode}`)
     },
-    10 * 60_000, [unlocked, status?.features.calendar],
+    10 * 60_000, [unlocked, hasCal, mode],
+  )
+  const build = usePoll(
+    () => (isHome && unlocked ? dashGet<string[]>('/dash/photos?album=build') : Promise.resolve([] as string[])),
+    30 * 60_000, [isHome, unlocked],
   )
   const photos = usePoll(
     () => (status?.unlocked && status.features.photos ? dashGet<string[]>('/dash/photos') : Promise.resolve([] as string[])),
@@ -204,12 +335,16 @@ function Rotator({ status }: { status: DashStatus | null }) {
     return () => clearInterval(t)
   }, [])
 
-  const cards: { key: string; el: ReactNode }[] = [
-    { key: 'cond', el: <ConditionsCard c={cond} /> },
-    { key: 'bridge', el: <BridgeCard b={bridge} /> },
-  ]
-  if (unlocked && status?.features.calendar) cards.push({ key: 'watch', el: <WatchCard ev={cal} /> })
+  const cards: { key: string; el: ReactNode }[] = [{ key: 'cond', el: <ConditionsCard c={cond} /> }]
+  if (isHome) cards.push({ key: 'log', el: <LogCard /> })
+  else cards.push({ key: 'bridge', el: <BridgeCard b={bridge} /> })
+  if (unlocked && hasCal) cards.push({ key: 'watch', el: <WatchCard ev={cal} title={isHome ? 'On the calendar' : 'Watch schedule'} /> })
+  if (build && build.length) cards.push({ key: 'build', el: null })
   if (photos && photos.length) cards.push({ key: 'photo', el: <PhotoCard names={photos} seed={idx} /> })
+  if (isHome) cards.push({ key: 'bridge', el: <BridgeCard b={bridge} /> })
+  // the build timeline moves one photo forward each time its card comes around
+  const bi = cards.findIndex(c => c.key === 'build')
+  if (bi >= 0 && build) cards[bi].el = <BuildCard names={build} seed={Math.floor(idx / cards.length)} moveIn={home?.moveIn ?? null} />
   const current = cards[idx % cards.length]
 
   return (
@@ -221,7 +356,17 @@ function Rotator({ status }: { status: DashStatus | null }) {
 }
 
 // ── Sidebar ─────────────────────────────────────────────────────────────────
-export function Sidebar({ status }: { status: DashStatus | null }) {
+export function Sidebar({ status, mode = 'office', home = null }: { status: DashStatus | null; mode?: Mode; home?: HomeInfo | null }) {
+  if (mode === 'home' && status?.unlocked) {
+    return (
+      <aside className="sidebar is-home">
+        <HomeToday home={home} />
+        <ComingUp max={2} />
+        <ListCard />
+        <Rotator status={status} mode="home" home={home} />
+      </aside>
+    )
+  }
   return (
     <aside className="sidebar">
       <ComingUp />

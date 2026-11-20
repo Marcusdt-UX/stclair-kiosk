@@ -12,7 +12,8 @@
  * Optional env:
  *   KIOSK_TOKEN        unlock key for private panels
  *   ADMIN_TOKEN        key for the photo upload page (/admin); defaults to KIOSK_TOKEN
- *   CALENDAR_ICS_URL   Google Calendar "secret address in iCal format"
+ *   CALENDAR_ICS_URL   Google Calendar "secret address in iCal format" (office; more links,
+ *                      and the Home-mode calendar, are set at /admin and kept on the volume)
  *   GEMINI_API_KEY     Gemini API key from a billing-linked project (paid tier = not used for training)
  *
  * Privacy of "Ask the Captain": questions are never written to disk or logs
@@ -25,6 +26,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSy
 import { resolve, basename } from 'path'
 import { timingSafeEqual } from 'crypto'
 import ical from 'node-ical'
+import { createHousehold } from './household.js'
 
 // Where Jazmyn's window is (keep in sync with src/constants/bounds.ts)
 export const WINDOW_ZONE = { south: 42.955, west: -82.432, north: 43.003, east: -82.398 }
@@ -94,16 +96,18 @@ function degToCompass(deg = 0) {
 export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
   const KIOSK_TOKEN = process.env.KIOSK_TOKEN || ''
   const ADMIN_TOKEN = process.env.ADMIN_TOKEN || KIOSK_TOKEN
-  const CAL_URL = process.env.CALENDAR_ICS_URL || ''
   const GEMINI_KEY = process.env.GEMINI_API_KEY || ''
   const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest'
   const GEMINI_BASE = process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'   // override only for tests
 
   const PHOTO_DIR = resolve(dataDir, 'photos')
-  try { mkdirSync(PHOTO_DIR, { recursive: true }) } catch {}
+  const BUILD_DIR = resolve(PHOTO_DIR, 'build')        // Home mode: photos of the house going up
+  try { mkdirSync(BUILD_DIR, { recursive: true }) } catch {}
+  const albumDir = url => url.searchParams.get('album') === 'build' ? BUILD_DIR : PHOTO_DIR
 
   const authorized = req => KIOSK_TOKEN && (safeEqual(req.headers['x-kiosk-token'], KIOSK_TOKEN) || safeEqual(cookie(req, 'kiosk'), KIOSK_TOKEN))
   const isAdmin = req => ADMIN_TOKEN && (safeEqual(req.headers['x-admin-token'], ADMIN_TOKEN) || safeEqual(cookie(req, 'kiosk'), ADMIN_TOKEN))
+  const household = createHousehold({ dataDir, authorized, isAdmin, send, readBody })
 
   // ── Ship's log: moving ships that passed the MOC ──────────────────────────
   const PASSES_PATH = resolve(dataDir, 'passes.json')
@@ -230,16 +234,25 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
   })
 
   // ── Calendar (private) ────────────────────────────────────────────────────
-  const getCalendarRaw = cached(10 * 60 * 1000, async () => {
-    const r = await fetch(CAL_URL, { headers: { 'User-Agent': 'stclair-kiosk/1.0' } })
-    if (!r.ok) throw new Error(`calendar ${r.status}`)
-    return ical.sync.parseICS(await r.text())
-  })
+  const calCache = new Map()
+  function getCalendarRaw(link) {
+    if (!calCache.has(link)) {
+      calCache.set(link, cached(10 * 60 * 1000, async () => {
+        const r = await fetch(link, { headers: { 'User-Agent': 'stclair-kiosk/1.0' } })
+        if (!r.ok) throw new Error(`calendar ${r.status}`)
+        return ical.sync.parseICS(await r.text())
+      }))
+    }
+    return calCache.get(link)()
+  }
 
-  async function calendar(from, to) {
-    const data = await getCalendarRaw()
+  async function calendar(from, to, mode = 'office') {
+    const links = household.calendarUrls(mode)
+    const results = await Promise.allSettled(links.map(getCalendarRaw))
+    if (links.length && results.every(r => r.status === 'rejected')) throw results[0].reason
+    const events = results.flatMap(r => r.status === 'fulfilled' ? Object.values(r.value) : [])
     const out = []
-    for (const ev of Object.values(data)) {
+    for (const ev of events) {
       if (ev.type !== 'VEVENT' || ev.status === 'CANCELLED') continue
       let instances = []
       try { instances = ical.expandRecurringEvent(ev, { from, to, expandOngoing: true }) } catch { continue }
@@ -265,17 +278,19 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
 
   // ── Family photos (private) ───────────────────────────────────────────────
   const PHOTO_RE = /^[a-z0-9][a-z0-9._-]{0,80}\.(jpe?g|png|webp)$/i
-  function listPhotos() {
+  function listPhotos(dir = PHOTO_DIR) {
     try {
-      return readdirSync(PHOTO_DIR).filter(f => PHOTO_RE.test(f))
-        .map(f => ({ name: f, at: statSync(resolve(PHOTO_DIR, f)).mtimeMs }))
-        .sort((a, b) => b.at - a.at)
+      const list = readdirSync(dir).filter(f => PHOTO_RE.test(f))
+        .map(f => ({ name: f, at: statSync(resolve(dir, f)).mtimeMs }))
+      // build photos are named YYYY-MM-DD-… (date taken) → oldest first, as a timeline
+      return dir === BUILD_DIR ? list.sort((a, b) => a.name.localeCompare(b.name)) : list.sort((a, b) => b.at - a.at)
     } catch { return [] }
   }
 
   // ── Ask the Captain (private, Gemini paid tier) ───────────────────────────
   const askLog = []   // timestamps only, for rate limiting — questions and audio are never stored
-  async function ask({ audio, mime, text }) {
+  async function ask({ audio, mime, text, mode }) {
+    const home = mode === 'home'
     const t = now()
     while (askLog.length && t - askLog[0] > 3600 * 1000) askLog.shift()
     if (askLog.length >= 40) throw Object.assign(new Error('Too many questions this hour — try again later.'), { status: 429 })
@@ -304,10 +319,13 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
       weather: cond.status === 'fulfilled' ? cond.value : undefined,
       river: river.status === 'fulfilled' ? river.value : undefined,
       blueWaterBridge: bridge.status === 'fulfilled' ? bridge.value : undefined,
+      household: home ? household.askContext() : undefined,
     }
 
     const system = [
-      'You are "the Captain", a friendly, knowledgeable voice assistant on a ship-tracking dashboard in an office window overlooking the St. Clair River at Port Huron, Michigan (the Municipal Office Center, across from Sarnia, just south of the Blue Water Bridge).',
+      home
+        ? 'You are "the Captain", a friendly, knowledgeable voice assistant on a ship-tracking dashboard in her home in Port Huron, Michigan, near the St. Clair River and the Blue Water Bridge. "The window" in the data means the stretch of river by the city offices downtown. You also know her grocery list, to-do list, trash days and move-in date (in "household").'
+        : 'You are "the Captain", a friendly, knowledgeable voice assistant on a ship-tracking dashboard in an office window overlooking the St. Clair River at Port Huron, Michigan (the Municipal Office Center, across from Sarnia, just south of the Blue Water Bridge).',
       'Answers are read aloud, so keep them short (1–3 sentences, under 60 words), conversational, with no lists, markdown, emoji or URLs.',
       'For questions about ships, the river, weather or the bridge, use the live data below; say plainly when the data does not cover something. You can also answer general questions.',
       'Distances: speak in miles or feet. Times: Eastern time.',
@@ -357,11 +375,16 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
     const path = url.pathname
 
     try {
+      const h = await household.handle(req, res, url, path)
+      if (h !== false) return h
+
       if (req.method === 'GET' && path === '/dash/status') {
         return send(res, 200, {
           unlocked: !!authorized(req),
+          defaultMode: household.settings().defaultMode,
           features: {
-            calendar: !!CAL_URL && !!KIOSK_TOKEN,
+            calendar: !!KIOSK_TOKEN && household.calendarUrls('office').length > 0,
+            homeCalendar: !!KIOSK_TOKEN && household.calendarUrls('home').length > 0,
             photos: !!KIOSK_TOKEN,
             ask: !!GEMINI_KEY && !!KIOSK_TOKEN,
             privateKeySet: !!KIOSK_TOKEN,
@@ -385,15 +408,16 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
         if (!authorized(req)) return send(res, 401, { error: 'This device is not unlocked.' })
       }
       if (req.method === 'GET' && path === '/dash/calendar') {
-        if (!CAL_URL) return send(res, 404, { error: 'No calendar connected.' })
+        const mode = url.searchParams.get('mode') === 'home' ? 'home' : 'office'
+        if (!household.calendarUrls(mode).length) return send(res, 404, { error: 'No calendar connected.' })
         const from = new Date(Number(url.searchParams.get('from')) || now())
         const to = new Date(Number(url.searchParams.get('to')) || now() + 3 * 24 * 3600 * 1000)
-        return send(res, 200, await calendar(from, to))
+        return send(res, 200, await calendar(from, to, mode))
       }
-      if (req.method === 'GET' && path === '/dash/photos') return send(res, 200, listPhotos().map(p => p.name))
+      if (req.method === 'GET' && path === '/dash/photos') return send(res, 200, listPhotos(albumDir(url)).map(p => p.name))
       if (req.method === 'GET' && path.startsWith('/dash/photos/')) {
         const name = basename(decodeURIComponent(path.slice('/dash/photos/'.length)))
-        const file = resolve(PHOTO_DIR, name)
+        const file = resolve(albumDir(url), name)
         if (!PHOTO_RE.test(name) || !existsSync(file)) return send(res, 404, { error: 'not found' })
         res.writeHead(200, { 'Content-Type': name.endsWith('.png') ? 'image/png' : name.endsWith('.webp') ? 'image/webp' : 'image/jpeg', 'Cache-Control': 'private, max-age=86400' })
         return createReadStream(file).pipe(res)
@@ -414,13 +438,14 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
       if (path.startsWith('/admin/photos')) {
         if (!ADMIN_TOKEN) return send(res, 403, { error: 'No ADMIN_TOKEN / KIOSK_TOKEN set.' })
         if (!isAdmin(req)) return send(res, 401, { error: 'Wrong key.' })
-        if (req.method === 'GET') return send(res, 200, listPhotos())
+        const dir = albumDir(url)
+        if (req.method === 'GET') return send(res, 200, listPhotos(dir))
         const name = basename(decodeURIComponent(path.slice('/admin/photos/'.length)))
         if (!PHOTO_RE.test(name)) return send(res, 400, { error: 'Bad file name.' })
-        const file = resolve(PHOTO_DIR, name)
+        const file = resolve(dir, name)
         if (req.method === 'PUT') {
           const buf = await readBody(req, 8 * 1024 * 1024)
-          if (listPhotos().length >= 300) return send(res, 400, { error: 'Photo limit reached (300).' })
+          if (listPhotos(dir).length >= 300) return send(res, 400, { error: 'Photo limit reached (300).' })
           writeFileSync(file, buf)
           return send(res, 200, { ok: true })
         }
@@ -440,28 +465,88 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
 }
 
 const ADMIN_HTML = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kiosk photos</title><style>
-body{font-family:Georgia,serif;background:#f4ecd2;color:#1a2e3a;max-width:760px;margin:2rem auto;padding:0 1rem}
-h1{font-size:1.5rem}input,button{font:inherit;padding:.4rem .7rem}#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:1rem}
-#grid div{position:relative}#grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}#grid button{position:absolute;top:4px;right:4px;padding:0 .4rem}
-.muted{color:#5a4a2a;font-size:.9rem}</style></head><body>
-<h1>Family photos for the kiosk</h1>
-<p class="muted">Photos are resized on this device before upload and stored only on your Railway volume. They show only on unlocked devices.</p>
-<p><input id="key" type="password" placeholder="Admin key"> <button id="save">Use key</button></p>
+<title>Kiosk admin</title><style>
+body{font-family:Georgia,serif;background:#f4ecd2;color:#1a2e3a;max-width:780px;margin:2rem auto;padding:0 1rem}
+h1{font-size:1.5rem}h2{font-size:1.1rem;margin:1.8rem 0 .4rem;border-bottom:1px solid #c9a54a;padding-bottom:.2rem}
+input,button,select,textarea{font:inherit;padding:.35rem .6rem}textarea{width:100%;min-height:3.2rem;font-size:.8rem;font-family:monospace}
+label{display:block;margin:.55rem 0 .15rem;font-weight:700;font-size:.9rem}.row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:1rem}
+#grid div{position:relative;font-size:.75rem}#grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}#grid button{position:absolute;top:4px;right:4px;padding:0 .4rem}
+.muted{color:#5a4a2a;font-size:.88rem}.seg button{border:1px solid #8b6914;background:#fff8e6}.seg button.on{background:#1a2e3a;color:#f4ecd2}
+.box{background:#fff8e6;border:1px solid #d8c48f;border-radius:6px;padding:.4rem 1rem 1rem}</style></head><body>
+<h1>⚓ Kiosk admin</h1>
+<p><input id="key" type="password" placeholder="Admin key"> <button id="use">Use key</button> <span id="who" class="muted"></span></p>
+
+<h2>Dashboard mode</h2>
+<div class="box">
+<p class="muted">Office mode: ship's log, bridge waits, her work calendar. Home mode: trash day, move-in countdown, grocery &amp; to-do list, build photos, household calendar.
+Every unlocked device uses this default. One device can be switched by opening the site once with <code>?mode=home</code> or <code>?mode=office</code> (<code>?mode=auto</code> goes back to the default).</p>
+<label>Default mode</label><select id="defaultMode"><option value="office">Office</option><option value="home">Home</option></select>
+
+<label>Home location (for the map pin)</label>
+<div class="row"><input id="lat" placeholder="Latitude" size="12"> <input id="lon" placeholder="Longitude" size="12"> <input id="label" placeholder="Label" size="10"></div>
+<p class="muted">Use the county GIS parcel coordinates — map apps can put new streets in the wrong place. Kept on the server only, shown only on unlocked devices.</p>
+
+<label>Move-in date</label><input id="moveIn" type="date">
+
+<label>Trash pickup day</label>
+<div class="row"><select id="trashDay"></select> <span class="muted">Recycling:</span> <select id="recyclingDay"></select>
+<select id="every"><option value="1">every week</option><option value="2">every other week</option></select></div>
+<div class="row" id="anchorRow"><span class="muted">One recycling date (to know which weeks):</span> <input id="anchor" type="date"></div>
+<label class="row" style="font-weight:400"><input id="holiday" type="checkbox" checked> Holiday weeks: pickup is a day late after a weekday holiday</label>
+<p class="muted">Check her day with the city / WM once the house has an address in their system.</p>
+
+<label>Office calendar links</label><textarea id="calOffice" placeholder="One Google Calendar &quot;secret address in iCal format&quot; per line"></textarea>
+<label>Home calendar links</label><textarea id="calHome" placeholder="One per line"></textarea>
+<p class="muted">If the office box is empty, the CALENDAR_ICS_URL variable on Railway is used.</p>
+<p><button id="saveSettings">Save settings</button> <span id="smsg" class="muted"></span></p>
+</div>
+
+<h2>Photos</h2>
+<div class="box">
+<div class="row seg"><button data-a="" class="on">Family photos</button><button data-a="build">Build photos</button></div>
+<p class="muted" id="ahelp"></p>
+<div class="row" id="dateRow"><span class="muted">Taken on (blank = the photo's own date):</span> <input id="taken" type="date"></div>
 <p><input id="files" type="file" accept="image/*" multiple> <span id="msg" class="muted"></span></p>
 <div id="grid"></div>
+</div>
+
+<h2>Grocery &amp; to-do list</h2>
+<p class="muted">On her phone: open <code>/list?k=&lt;kiosk key&gt;</code> once, then "Add to Home Screen".</p>
 <script>
-const $=s=>document.querySelector(s);let key=localStorage.getItem('adminKey')||'';$('#key').value=key;
-$('#save').onclick=()=>{key=$('#key').value.trim();localStorage.setItem('adminKey',key);load()};
-async function api(p,o={}){o.headers={...(o.headers||{}),'x-admin-token':key};const r=await fetch(p,o);if(!r.ok)throw new Error((await r.json().catch(()=>({}))).error||r.status);return r}
-async function load(){try{const list=await (await api('/admin/photos')).json();$('#grid').innerHTML='';for(const p of list){const d=document.createElement('div');
-const i=document.createElement('img');i.src='/dash/photos/'+encodeURIComponent(p.name);const b=document.createElement('button');b.textContent='×';
-b.onclick=async()=>{await api('/admin/photos/'+encodeURIComponent(p.name),{method:'DELETE'});load()};d.append(i,b);$('#grid').append(d)}
-document.cookie='kiosk='+encodeURIComponent(key)+';path=/;max-age=31536000;SameSite=Strict;Secure';$('#msg').textContent=list.length+' photos'}catch(e){$('#msg').textContent=e.message}}
-$('#files').onchange=async e=>{const fs=[...e.target.files];let n=0;for(const f of fs){$('#msg').textContent='Uploading '+(++n)+'/'+fs.length+'…';
-const bmp=await createImageBitmap(f);const s=Math.min(1,1600/Math.max(bmp.width,bmp.height));const c=new OffscreenCanvas(Math.round(bmp.width*s),Math.round(bmp.height*s));
-c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);const blob=await c.convertToBlob({type:'image/jpeg',quality:.82});
-const name=(Date.now()+'-'+f.name.replace(/\\.[^.]+$/,'')).toLowerCase().replace(/[^a-z0-9._-]+/g,'-').slice(0,60)+'.jpg';
-await api('/admin/photos/'+encodeURIComponent(name),{method:'PUT',body:blob})}load()};
-if(key)load();
+var $=function(s){return document.querySelector(s)},key=localStorage.getItem('adminKey')||'',album='';
+var days=['—','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+['#trashDay','#recyclingDay'].forEach(function(id){days.forEach(function(d,i){var o=document.createElement('option');o.value=i?i-1:'';o.textContent=d;$(id).append(o)})});
+$('#key').value=key;
+$('#use').onclick=function(){key=$('#key').value.trim();localStorage.setItem('adminKey',key);loadAll()};
+function api(p,o){o=o||{};o.headers=Object.assign({},o.headers||{},{'x-admin-token':key});return fetch(p,o).then(function(r){if(!r.ok)return r.json().catch(function(){return{}}).then(function(j){throw new Error(j.error||r.status)});return r})}
+function v(id){return $(id).value}
+function showAnchor(){$('#anchorRow').style.display=v('#every')==='2'?'':'none'}$('#every').onchange=showAnchor;
+function loadSettings(){return api('/admin/settings').then(function(r){return r.json()}).then(function(s){
+$('#defaultMode').value=s.defaultMode;$('#lat').value=s.home.lat==null?'':s.home.lat;$('#lon').value=s.home.lon==null?'':s.home.lon;$('#label').value=s.home.label||'Home';
+$('#moveIn').value=s.moveIn||'';$('#trashDay').value=s.trash.trashDay==null?'':s.trash.trashDay;$('#recyclingDay').value=s.trash.recyclingDay==null?'':s.trash.recyclingDay;
+$('#every').value=String(s.trash.recyclingEveryWeeks||1);$('#anchor').value=s.trash.recyclingAnchor||'';$('#holiday').checked=s.trash.holidayDelay!==false;
+$('#calOffice').value=(s.calendars.office||[]).join('\\n');$('#calHome').value=(s.calendars.home||[]).join('\\n');showAnchor();
+document.cookie='kiosk='+encodeURIComponent(key)+';path=/;max-age=31536000;SameSite=Strict;Secure';$('#who').textContent='Key OK'})}
+$('#saveSettings').onclick=function(){var body={defaultMode:v('#defaultMode'),home:{lat:v('#lat'),lon:v('#lon'),label:v('#label')},moveIn:v('#moveIn')||null,
+trash:{trashDay:v('#trashDay'),recyclingDay:v('#recyclingDay'),recyclingEveryWeeks:Number(v('#every')),recyclingAnchor:v('#anchor')||null,holidayDelay:$('#holiday').checked},
+calendars:{office:v('#calOffice').split('\\n'),home:v('#calHome').split('\\n')}};
+api('/admin/settings',{method:'PUT',body:JSON.stringify(body)}).then(function(){$('#smsg').textContent='Saved.';return loadSettings()}).catch(function(e){$('#smsg').textContent=e.message})};
+function q(){return album?'?album='+album:''}
+function setAlbum(a){album=a;document.querySelectorAll('.seg button').forEach(function(b){b.className=b.dataset.a===a?'on':''});
+$('#dateRow').style.display=a?'':'none';$('#ahelp').textContent=a?'Photos of the house going up. They show as a timeline in Home mode, oldest first.':'Shown in the photo card on both Office and Home mode.';loadPhotos()}
+document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setAlbum(b.dataset.a)}});
+function loadPhotos(){if(!key)return Promise.resolve();return api('/admin/photos'+q()).then(function(r){return r.json()}).then(function(list){$('#grid').innerHTML='';list.forEach(function(p){var d=document.createElement('div');
+var i=document.createElement('img');i.src='/dash/photos/'+encodeURIComponent(p.name)+q();var b=document.createElement('button');b.textContent='×';
+b.onclick=function(){api('/admin/photos/'+encodeURIComponent(p.name)+q(),{method:'DELETE'}).then(loadPhotos)};d.append(i,b);
+if(album){var c=document.createElement('div');c.textContent=p.name.slice(0,10);d.append(c)}$('#grid').append(d)});$('#msg').textContent=list.length+' photos'}).catch(function(e){$('#msg').textContent=e.message})}
+function ymd(t){var d=new Date(t);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+$('#files').onchange=async function(e){var fs=[].slice.call(e.target.files),n=0;for(var f of fs){$('#msg').textContent='Uploading '+(++n)+'/'+fs.length+'…';
+var bmp=await createImageBitmap(f);var s=Math.min(1,1600/Math.max(bmp.width,bmp.height));var c=new OffscreenCanvas(Math.round(bmp.width*s),Math.round(bmp.height*s));
+c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);var blob=await c.convertToBlob({type:'image/jpeg',quality:.82});
+var base=(Date.now()+'-'+f.name.split('.').slice(0,-1).join('.')).toLowerCase().replace(/[^a-z0-9._-]+/g,'-').slice(0,50);
+var name=(album?(v('#taken')||ymd(f.lastModified))+'-':'')+base+'.jpg';
+await api('/admin/photos/'+encodeURIComponent(name)+q(),{method:'PUT',body:blob})}e.target.value='';loadPhotos()};
+function loadAll(){loadSettings().then(function(){setAlbum(album)}).catch(function(e){$('#who').textContent=e.message})}
+setAlbum('');if(key)loadAll();
 </script></body></html>`

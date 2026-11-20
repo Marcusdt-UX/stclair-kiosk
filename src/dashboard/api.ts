@@ -21,6 +21,31 @@ export function captureKeyFromUrl() {
   } catch { /* ignore */ }
 }
 
+// ── Office / Home mode ──────────────────────────────────────────────────────
+// The default comes from /admin. One device can override it by opening the
+// site once with ?mode=home or ?mode=office (?mode=auto clears the override).
+const MODE_STORE = 'kioskMode'
+export type Mode = 'office' | 'home'
+
+export function captureModeFromUrl() {
+  try {
+    const url = new URL(window.location.href)
+    const m = url.searchParams.get('mode')
+    if (!m) return
+    if (m === 'home' || m === 'office') localStorage.setItem(MODE_STORE, m)
+    else localStorage.removeItem(MODE_STORE)
+    url.searchParams.delete('mode')
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash)
+  } catch { /* ignore */ }
+}
+
+export function resolveMode(status: DashStatus | null): Mode {
+  let o: string | null = null
+  try { o = localStorage.getItem(MODE_STORE) } catch { /* ignore */ }
+  if (o === 'home' || o === 'office') return o
+  return status?.defaultMode === 'home' ? 'home' : 'office'
+}
+
 export async function dashGet<T>(path: string): Promise<T> {
   const key = readKey()
   const res = await fetch(`${PROXY_BASE}${path}`, {
@@ -31,10 +56,10 @@ export async function dashGet<T>(path: string): Promise<T> {
   return res.json() as Promise<T>
 }
 
-export async function dashPost<T>(path: string, body: unknown): Promise<T> {
+export async function dashPost<T>(path: string, body: unknown, method = 'POST'): Promise<T> {
   const key = readKey()
   const res = await fetch(`${PROXY_BASE}${path}`, {
-    method: 'POST',
+    method,
     credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json', ...(key ? { 'x-kiosk-token': key } : {}) },
     body: JSON.stringify(body),
@@ -45,15 +70,28 @@ export async function dashPost<T>(path: string, body: unknown): Promise<T> {
 }
 
 /** URL for a private family photo (sent with the cookie; header fallback not possible for <img>) */
-export function familyPhotoUrl(name: string) {
-  return `${PROXY_BASE}/dash/photos/${encodeURIComponent(name)}`
+export function familyPhotoUrl(name: string, album?: 'build') {
+  return `${PROXY_BASE}/dash/photos/${encodeURIComponent(name)}${album ? `?album=${album}` : ''}`
 }
 
 // ── Types ───────────────────────────────────────────────────────────────────
 export interface DashStatus {
   unlocked: boolean
-  features: { calendar: boolean; photos: boolean; ask: boolean; privateKeySet: boolean }
+  defaultMode?: Mode
+  features: { calendar: boolean; homeCalendar?: boolean; photos: boolean; ask: boolean; privateKeySet: boolean }
 }
+export interface Pickup { date: string; shifted: boolean }
+export interface HomeInfo {
+  defaultMode: Mode
+  home: { lat: number; lon: number; label: string } | null
+  today: string
+  moveIn: string | null
+  moveInDays: number | null
+  trash: Pickup | null
+  recycling: Pickup | null
+  trashSet: boolean
+}
+export interface ListItem { id: string; kind: 'grocery' | 'todo'; text: string; done: boolean; at: number }
 export interface Pass {
   mmsi: string; at: number; name: string; direction: 'upbound' | 'downbound'
   speed: number; photo?: string; operator?: string; destination?: string

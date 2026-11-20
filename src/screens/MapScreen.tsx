@@ -15,7 +15,7 @@ import { AttractScreen } from './AttractScreen'
 import { useKioskMode } from '../services/kioskMode'
 import { Sidebar } from '../dashboard/Sidebar'
 import { AskCaptain } from '../dashboard/AskCaptain'
-import { dashGet, type DashStatus } from '../dashboard/api'
+import { dashGet, resolveMode, type DashStatus, type HomeInfo } from '../dashboard/api'
 import {
   MAP_CENTER,
   MAP_ZOOM,
@@ -94,6 +94,17 @@ export function MapScreen() {
     const t = setInterval(load, 10 * 60_000)
     return () => clearInterval(t)
   }, [])
+  const mode = resolveMode(dashStatus)
+  const [homeInfo, setHomeInfo] = useState<HomeInfo | null>(null)
+  useEffect(() => {
+    if (mode !== 'home' || !dashStatus?.unlocked) { setHomeInfo(null); return }
+    const load = () => dashGet<HomeInfo>('/dash/home').then(setHomeInfo).catch(() => {})
+    load()
+    const t = setInterval(load, 15 * 60_000)
+    return () => clearInterval(t)
+  }, [mode, dashStatus?.unlocked])
+  const pin: [number, number] = mode === 'home' && homeInfo?.home ? [homeInfo.home.lat, homeInfo.home.lon] : HOME_POINT
+  const pinLabel = mode === 'home' && homeInfo?.home ? homeInfo.home.label || 'Home' : HOME_LABEL
   const lastActivityAt = useKioskStore(s => s.lastActivityAt)
   const stopRef = useRef<(() => void) | null>(null)
   const mapRef = useRef<LeafletMap | null>(null)
@@ -194,10 +205,10 @@ export function MapScreen() {
           opacity={0.8}
         />
 
-        {/* Jazmyn's office — the MOC */}
-        <Marker position={HOME_POINT} icon={HOME_ICON} interactive={false}>
+        {/* Jazmyn's office (the MOC), or her house in Home mode */}
+        <Marker key={pin.join(',')} position={pin} icon={HOME_ICON} interactive={false}>
           <Tooltip permanent direction="right" offset={[10, 0]} className="home-pin-label">
-            {HOME_LABEL}
+            {pinLabel}
           </Tooltip>
         </Marker>
 
@@ -243,10 +254,10 @@ export function MapScreen() {
       </AnimatePresence>
 
       {/* Dashboard instruments (tablet landscape) */}
-      {showSidebar && <Sidebar status={dashStatus} />}
+      {showSidebar && <Sidebar status={dashStatus} mode={mode} home={homeInfo} />}
 
       {/* Tap-to-talk — only on an unlocked device with a Gemini key configured */}
-      {dashStatus?.unlocked && dashStatus.features.ask && !attract && <AskCaptain />}
+      {dashStatus?.unlocked && dashStatus.features.ask && !attract && <AskCaptain mode={mode} />}
 
       {/* Status bar — rendered above attract overlay (z-index 1200) */}
       <StatusBar />
