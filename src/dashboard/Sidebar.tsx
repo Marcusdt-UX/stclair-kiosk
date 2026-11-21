@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { dashGet, dashPost, familyPhotoUrl, type Bridge, type CalEvent, type Conditions, type DashStatus, type HomeInfo, type ListItem, type Mode, type Pass, type Upcoming } from './api'
+import { dashGet, dashPost, familyPhotoUrl, type Bridge, type CalEvent, type Conditions, type DashStatus, type HomeInfo, type ListItem, type Meetings, type Mode, type Pass, type Upcoming } from './api'
 import { getSilhouette } from '../services/photoResolver'
 import './Sidebar.css'
 
@@ -211,6 +211,44 @@ function BuildCard({ names, seed, moveIn }: { names: string[]; seed: number; mov
   )
 }
 
+// ── Office mode: city board meetings (public city calendar) ────────────────
+function MeetingsCard({ m }: { m: Meetings | null }) {
+  const today = new Date(); today.setHours(0, 0, 0, 0)
+  const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+  const list = (m?.meetings || []).filter(x => x.start > Date.now() - 2 * 3600_000).slice(0, 6)
+  const cutoff = (m?.meetings || []).find(x => x.appsDue && x.appsDue >= todayKey)
+  const when = (ms: number) => {
+    const d = new Date(ms)
+    const day = d.toDateString() === today.toDateString() ? 'Today' : d.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' })
+    return `${day} · ${d.toLocaleTimeString([], { hour: 'numeric', minute: d.getMinutes() ? '2-digit' : undefined })}`
+  }
+  const short = (k: string) => new Date(`${k}T00:00:00`).toLocaleDateString([], { month: 'short', day: 'numeric' })
+  return (
+    <div className="sb-card">
+      <h2 className="sb-title">Board meetings</h2>
+      {!m ? <p className="sb-empty">Checking the city calendar…</p>
+        : list.length === 0 ? <p className="sb-empty">Nothing on the city calendar soon.</p>
+        : (
+          <ul className="sb-list sb-cal sb-meet">
+            {list.map(x => (
+              <li key={`${x.board}-${x.start}`} className={x.cancelled ? 'is-cancelled' : ''}>
+                <span className="sb-cal-when">{when(x.start)}{x.cancelled && <em> · cancelled</em>}</span>
+                <span className="sb-cal-what">{x.title}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      {cutoff && (
+        <p className="sb-meet-cutoff">
+          <span>Next filing cutoff</span>
+          {cutoff.appsDue === todayKey ? 'Today' : short(cutoff.appsDue!)} → {cutoff.name}, {short(cutoff.date)}
+        </p>
+      )}
+      <p className="sb-foot">{m?.source === 'schedule' ? 'Regular schedule (city calendar unavailable)' : 'City of Port Huron calendar'}</p>
+    </div>
+  )
+}
+
 // ── Rotating instrument cards ───────────────────────────────────────────────
 function ConditionsCard({ c }: { c: Conditions | null }) {
   const w = c?.weather
@@ -313,6 +351,7 @@ function Rotator({ status, mode = 'office', home = null }: { status: DashStatus 
   const hasCal = isHome ? !!status?.features.homeCalendar : !!status?.features.calendar
   const cond = usePoll(() => dashGet<Conditions>('/dash/conditions'), 10 * 60_000)
   const bridge = usePoll(() => dashGet<Bridge | null>('/dash/bridge'), 10 * 60_000)
+  const meet = usePoll(() => (mode === 'office' ? dashGet<Meetings>('/dash/meetings') : Promise.resolve(null)), 30 * 60_000, [mode])
   const cal = usePoll(
     () => {
       if (!unlocked || !hasCal) return Promise.resolve(null)
@@ -337,7 +376,7 @@ function Rotator({ status, mode = 'office', home = null }: { status: DashStatus 
 
   const cards: { key: string; el: ReactNode }[] = [{ key: 'cond', el: <ConditionsCard c={cond} /> }]
   if (isHome) cards.push({ key: 'log', el: <LogCard /> })
-  else cards.push({ key: 'bridge', el: <BridgeCard b={bridge} /> })
+  else cards.push({ key: 'bridge', el: <BridgeCard b={bridge} /> }, { key: 'meet', el: <MeetingsCard m={meet} /> })
   if (unlocked && hasCal) cards.push({ key: 'watch', el: <WatchCard ev={cal} title={isHome ? 'On the calendar' : 'Watch schedule'} /> })
   if (build && build.length) cards.push({ key: 'build', el: null })
   if (photos && photos.length) cards.push({ key: 'photo', el: <PhotoCard names={photos} seed={idx} /> })

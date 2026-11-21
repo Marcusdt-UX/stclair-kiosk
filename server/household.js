@@ -30,6 +30,7 @@ export const DEFAULT_SETTINGS = {
     holidayDelay: true,
   },
   calendars: { office: [], home: [] },   // Google "secret address in iCal format" links
+  about: '',                             // a line about her for Ask the Captain (kept off the public repo)
 }
 
 // ── local-date helpers (process.env.TZ is America/Detroit) ──────────────────
@@ -114,6 +115,7 @@ export function createHousehold({ dataDir, authorized, isAdmin, send, readBody }
         holidayDelay: s.trash?.holidayDelay !== false,
       },
       calendars: { office: urls(s.calendars?.office), home: urls(s.calendars?.home) },
+      about: String(s.about || '').replace(/\s+/g, ' ').trim().slice(0, 300),
     }
   }
 

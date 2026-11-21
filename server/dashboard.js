@@ -27,6 +27,7 @@ import { resolve, basename } from 'path'
 import { timingSafeEqual } from 'crypto'
 import ical from 'node-ical'
 import { createHousehold } from './household.js'
+import { createMeetings } from './meetings.js'
 
 // Where Jazmyn's window is (keep in sync with src/constants/bounds.ts)
 export const WINDOW_ZONE = { south: 42.955, west: -82.432, north: 43.003, east: -82.398 }
@@ -108,6 +109,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
   const authorized = req => KIOSK_TOKEN && (safeEqual(req.headers['x-kiosk-token'], KIOSK_TOKEN) || safeEqual(cookie(req, 'kiosk'), KIOSK_TOKEN))
   const isAdmin = req => ADMIN_TOKEN && (safeEqual(req.headers['x-admin-token'], ADMIN_TOKEN) || safeEqual(cookie(req, 'kiosk'), ADMIN_TOKEN))
   const household = createHousehold({ dataDir, authorized, isAdmin, send, readBody })
+  const meetings = createMeetings()     // public city calendar → Board meetings card
 
   // ── Ship's log: moving ships that passed the MOC ──────────────────────────
   const PASSES_PATH = resolve(dataDir, 'passes.json')
@@ -296,7 +298,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
     if (askLog.length >= 40) throw Object.assign(new Error('Too many questions this hour — try again later.'), { status: 429 })
     askLog.push(t)
 
-    const [cond, river, bridge] = await Promise.allSettled([getForecast(), getRiver(), getBridge()])
+    const [cond, river, bridge, mtg] = await Promise.allSettled([getForecast(), getRiver(), getBridge(), meetings.get()])
     const inRiver = Object.entries(vesselCache)
       .filter(([, v]) => v.lastSeen && t - v.lastSeen < 20 * 60 * 1000 && v.lastLat > 42.85 && v.lastLat < 43.1 && v.lastLon > -82.6 && v.lastLon < -82.3)
       .map(([mmsi, v]) => {
@@ -320,6 +322,10 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
       river: river.status === 'fulfilled' ? river.value : undefined,
       blueWaterBridge: bridge.status === 'fulfilled' ? bridge.value : undefined,
       household: home ? household.askContext() : undefined,
+      cityBoardMeetings: !home && mtg.status === 'fulfilled'
+        ? mtg.value.meetings.slice(0, 8).map(m => ({ board: m.title, when: new Date(m.start).toLocaleString('en-US', { timeZone: 'America/Detroit', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }), cancelled: m.cancelled || undefined, applicationsDue: m.appsDue }))
+        : undefined,
+      aboutHer: household.settings().about || undefined,
     }
 
     const system = [
@@ -327,7 +333,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
         ? 'You are "the Captain", a friendly, knowledgeable voice assistant on a ship-tracking dashboard in her home in Port Huron, Michigan, near the St. Clair River and the Blue Water Bridge. "The window" in the data means the stretch of river by the city offices downtown. You also know her grocery list, to-do list, trash days and move-in date (in "household").'
         : 'You are "the Captain", a friendly, knowledgeable voice assistant on a ship-tracking dashboard in an office window overlooking the St. Clair River at Port Huron, Michigan (the Municipal Office Center, across from Sarnia, just south of the Blue Water Bridge).',
       'Answers are read aloud, so keep them short (1–3 sentences, under 60 words), conversational, with no lists, markdown, emoji or URLs.',
-      'For questions about ships, the river, weather or the bridge, use the live data below; say plainly when the data does not cover something. You can also answer general questions.',
+      'For questions about ships, the river, weather, the bridge or the city board meetings, use the live data below; say plainly when the data does not cover something. You can also answer general questions.',
       'Distances: speak in miles or feet. Times: Eastern time.',
       'Live data (JSON): ' + JSON.stringify(context),
     ].join('\n')
@@ -401,6 +407,7 @@ export function createDashboard({ dataDir, vesselCache, vesselInfo, wxKey }) {
         return send(res, 200, { weather: f.status === 'fulfilled' ? f.value : null, river: r.status === 'fulfilled' ? r.value : null })
       }
       if (req.method === 'GET' && path === '/dash/bridge') return send(res, 200, await getBridge().catch(() => null))
+      if (req.method === 'GET' && path === '/dash/meetings') return send(res, 200, await meetings.get())
 
       // ---- private below ----
       if (path.startsWith('/dash/calendar') || path.startsWith('/dash/photos') || path === '/dash/ask') {
@@ -499,6 +506,8 @@ Every unlocked device uses this default. One device can be switched by opening t
 <label>Office calendar links</label><textarea id="calOffice" placeholder="One Google Calendar &quot;secret address in iCal format&quot; per line"></textarea>
 <label>Home calendar links</label><textarea id="calHome" placeholder="One per line"></textarea>
 <p class="muted">If the office box is empty, the CALENDAR_ICS_URL variable on Railway is used.</p>
+<label>About her (for Ask the Captain)</label><input id="about" style="width:100%" maxlength="300" placeholder="A line about her: her job, what she likes — helps the Captain answer">
+<p class="muted">Kept on the server only, never in the code on GitHub.</p>
 <p><button id="saveSettings">Save settings</button> <span id="smsg" class="muted"></span></p>
 </div>
 
@@ -526,11 +535,11 @@ function loadSettings(){return api('/admin/settings').then(function(r){return r.
 $('#defaultMode').value=s.defaultMode;$('#lat').value=s.home.lat==null?'':s.home.lat;$('#lon').value=s.home.lon==null?'':s.home.lon;$('#label').value=s.home.label||'Home';
 $('#moveIn').value=s.moveIn||'';$('#trashDay').value=s.trash.trashDay==null?'':s.trash.trashDay;$('#recyclingDay').value=s.trash.recyclingDay==null?'':s.trash.recyclingDay;
 $('#every').value=String(s.trash.recyclingEveryWeeks||1);$('#anchor').value=s.trash.recyclingAnchor||'';$('#holiday').checked=s.trash.holidayDelay!==false;
-$('#calOffice').value=(s.calendars.office||[]).join('\\n');$('#calHome').value=(s.calendars.home||[]).join('\\n');showAnchor();
+$('#about').value=s.about||'';$('#calOffice').value=(s.calendars.office||[]).join('\\n');$('#calHome').value=(s.calendars.home||[]).join('\\n');showAnchor();
 document.cookie='kiosk='+encodeURIComponent(key)+';path=/;max-age=31536000;SameSite=Strict;Secure';$('#who').textContent='Key OK'})}
 $('#saveSettings').onclick=function(){var body={defaultMode:v('#defaultMode'),home:{lat:v('#lat'),lon:v('#lon'),label:v('#label')},moveIn:v('#moveIn')||null,
 trash:{trashDay:v('#trashDay'),recyclingDay:v('#recyclingDay'),recyclingEveryWeeks:Number(v('#every')),recyclingAnchor:v('#anchor')||null,holidayDelay:$('#holiday').checked},
-calendars:{office:v('#calOffice').split('\\n'),home:v('#calHome').split('\\n')}};
+calendars:{office:v('#calOffice').split('\\n'),home:v('#calHome').split('\\n')},about:v('#about')};
 api('/admin/settings',{method:'PUT',body:JSON.stringify(body)}).then(function(){$('#smsg').textContent='Saved.';return loadSettings()}).catch(function(e){$('#smsg').textContent=e.message})};
 function q(){return album?'?album='+album:''}
 function setAlbum(a){album=a;document.querySelectorAll('.seg button').forEach(function(b){b.className=b.dataset.a===a?'on':''});

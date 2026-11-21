@@ -91,6 +91,8 @@ export interface HomeInfo {
   recycling: Pickup | null
   trashSet: boolean
 }
+export interface Meeting { board: string; name: string; title: string; start: number; date: string; cancelled: boolean; appsDue?: string }
+export interface Meetings { source: 'city' | 'schedule'; updated: number | null; meetings: Meeting[] }
 export interface ListItem { id: string; kind: 'grocery' | 'todo'; text: string; done: boolean; at: number }
 export interface Pass {
   mmsi: string; at: number; name: string; direction: 'upbound' | 'downbound'

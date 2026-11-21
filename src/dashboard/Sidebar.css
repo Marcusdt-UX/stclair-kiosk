@@ -136,3 +136,9 @@
 .sb-build { position: relative; }
 .sb-build-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.5rem 0.7rem; font-size: 0.78rem; color: #f1e8c8; background: linear-gradient(transparent, rgba(13, 26, 34, 0.9)); border-radius: 0 0 6px 6px; }
 .sb-build-cap span { display: block; font-size: 0.66rem; color: #c9a54a; letter-spacing: 0.06em; }
+
+/* ── Board meetings (office) ── */
+.sb-meet li.is-cancelled .sb-cal-what { text-decoration: line-through; color: #7d9099; }
+.sb-meet li.is-cancelled em { color: #e07b5a; font-style: normal; }
+.sb-meet-cutoff { margin: 0.45rem 0 0; padding: 0.4rem 0.5rem; border-radius: 4px; background: rgba(201, 165, 74, 0.14); font-size: 0.8rem; color: #f1e8c8; }
+.sb-meet-cutoff span { display: block; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #c9a54a; }
