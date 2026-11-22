@@ -3,7 +3,7 @@ import {
   dashGet, dashPost, familyPhotoUrl,
   type Bridge, type CalEvent, type Conditions, type DashStatus, type HomeInfo, type ListItem, type Pass, type Upcoming,
 } from './api'
-import { usePoll, Thumb, Dir, keyToDate, daysBetween, dayWord, fmtTime, startOfToday } from './Sidebar'
+import { usePoll, Thumb, Dir, WxIcon, keyToDate, daysBetween, dayWord, fmtTime, startOfToday } from './Sidebar'
 import './HomeDashboard.css'
 
 // Home mode as a household dashboard: clock, weather, the house, lists,
@@ -53,7 +53,7 @@ function Header({ c }: { c: Conditions | null }) {
       {w && (
         <div className="hd-weather">
           <div className="hd-wx-now">
-            <img src={`https://openweathermap.org/img/wn/${w.current.icon}@2x.png`} alt="" onError={e => { e.currentTarget.style.visibility = 'hidden' }} />
+            <WxIcon code={w.current.icon} className="hd-wx-big" />
             <div>
               <div className="hd-temp">{w.current.tempF}°</div>
               <div className="hd-wx-desc">{w.current.description}</div>
@@ -64,7 +64,7 @@ function Header({ c }: { c: Conditions | null }) {
             {w.periods.map(p => (
               <div key={p.at}>
                 <span>{new Date(p.at).toLocaleTimeString([], { hour: 'numeric' })}</span>
-                <img src={`https://openweathermap.org/img/wn/${p.icon}.png`} alt="" onError={e => { e.currentTarget.style.visibility = 'hidden' }} />
+                <WxIcon code={p.icon} />
                 <strong>{p.tempF}°</strong>
                 {p.pop >= 20 && <em>{p.pop}%</em>}
               </div>

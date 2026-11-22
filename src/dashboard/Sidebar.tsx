@@ -17,6 +17,13 @@ export function usePoll<T>(load: () => Promise<T>, ms: number, deps: unknown[] =
   return data
 }
 
+const WX: Record<string, string> = { '01d': '☀️', '01n': '🌙', '02d': '🌤️', '02n': '☁️', '03': '☁️', '04': '☁️', '09': '🌧️', '10d': '🌦️', '10n': '🌧️', '11': '⛈️', '13': '❄️', '50': '🌫️' }
+/** Weather glyph for an OpenWeather icon code */
+export function WxIcon({ code, className = '' }: { code?: string; className?: string }) {
+  const g = code ? (WX[code] || WX[code.slice(0, 2)] || '🌡️') : ''
+  return <span className={`wx-icon ${className}`} aria-hidden>{g}</span>
+}
+
 export const fmtTime = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 export const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime() }
 
@@ -259,7 +266,7 @@ function ConditionsCard({ c }: { c: Conditions | null }) {
       {w ? (
         <>
           <div className="sb-wx-now">
-            <img src={`https://openweathermap.org/img/wn/${w.current.icon}@2x.png`} alt="" onError={e => { e.currentTarget.style.display = 'none' }} />
+            <WxIcon code={w.current.icon} className="sb-wx-big" />
             <div>
               <div className="sb-big">{w.current.tempF}°F</div>
               <div className="sb-sub">{w.current.description} · wind {w.current.windDir} {w.current.windMph}{w.current.gustMph ? `–${w.current.gustMph}` : ''} mph</div>
@@ -269,7 +276,7 @@ function ConditionsCard({ c }: { c: Conditions | null }) {
             {w.periods.map(p => (
               <div key={p.at} className="sb-fc">
                 <div className="sb-fc-time">{new Date(p.at).toLocaleTimeString([], { hour: 'numeric' })}</div>
-                <img src={`https://openweathermap.org/img/wn/${p.icon}.png`} alt="" onError={e => { e.currentTarget.style.visibility = 'hidden' }} />
+                <WxIcon code={p.icon} />
                 <div className="sb-fc-temp">{p.tempF}°</div>
                 {p.pop >= 20 && <div className="sb-fc-pop">{p.pop}%</div>}
               </div>

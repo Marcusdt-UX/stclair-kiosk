@@ -26,7 +26,8 @@
 .hd-wx-sub { font-size: 0.72rem; color: #9ab0b8; }
 .hd-fc { display: flex; gap: 0.15rem; padding-left: 1rem; border-left: 1px solid rgba(201, 165, 74, 0.3); }
 .hd-fc div { display: flex; flex-direction: column; align-items: center; min-width: 3.1rem; font-size: 0.74rem; color: #9ab0b8; }
-.hd-fc img { width: 34px; height: 34px; margin: -4px 0; }
+.hd-fc .wx-icon { font-size: 1.35rem; line-height: 1.6rem; }
+.hd-wx-big { font-size: 3.2rem; line-height: 1; margin-right: 0.7rem; }
 .hd-fc strong { font-size: 0.95rem; color: #f6eed3; }
 .hd-fc em { font-style: normal; font-size: 0.66rem; color: #7fb6d9; }
 
@@ -127,7 +128,7 @@
 .hd-ship { display: flex; align-items: center; gap: 0.7rem; }
 .hd-ship .sb-thumb { width: 74px; height: 50px; border-radius: 6px; }
 .hd-ship strong { display: block; font-size: 1rem; color: #f6eed3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hd-ship span { display: block; font-size: 0.8rem; color: #9ab0b8; }
+.hd-ship > div > span { display: block; font-size: 0.8rem; color: #9ab0b8; }
 .hd-ship > div { min-width: 0; }
 
 /* Ask the Captain sits in the header's top-right corner on the home dashboard */
