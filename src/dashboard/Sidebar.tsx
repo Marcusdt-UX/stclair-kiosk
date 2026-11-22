@@ -24,6 +24,13 @@ export function WxIcon({ code, className = '' }: { code?: string; className?: st
   return <span className={`wx-icon ${className}`} aria-hidden>{g}</span>
 }
 
+/** Ship names arrive a few minutes after positions; until then say whose flag it flies */
+export function shipName(name: string, mmsi: string) {
+  if (name && !/^MMSI\s/i.test(name)) return name
+  const mid = String(mmsi).slice(0, 3)
+  return mid === '316' ? 'Canadian vessel' : /^3(38|6[6-9])$/.test(mid) ? 'U.S. vessel' : 'Unidentified vessel'
+}
+
 export const fmtTime = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 export const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime() }
 
@@ -59,7 +66,7 @@ function ComingUp({ max = 3 }: { max?: number }) {
               <li key={v.mmsi} className="sb-row">
                 <Thumb src={v.photo} />
                 <div className="sb-row-main">
-                  <div className="sb-name"><Dir d={v.direction} /> {v.name}</div>
+                  <div className="sb-name"><Dir d={v.direction} /> {shipName(v.name, v.mmsi)}</div>
                   <div className="sb-sub">{v.operator || `${v.speed} kn`}</div>
                 </div>
                 <div className="sb-eta">{v.etaMinutes < 2 ? 'now' : `${v.etaMinutes} min`}</div>

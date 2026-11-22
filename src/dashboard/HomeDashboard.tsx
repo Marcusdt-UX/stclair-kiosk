@@ -3,7 +3,7 @@ import {
   dashGet, dashPost, familyPhotoUrl,
   type Bridge, type CalEvent, type Conditions, type DashStatus, type HomeInfo, type ListItem, type Pass, type Upcoming,
 } from './api'
-import { usePoll, Thumb, Dir, WxIcon, keyToDate, daysBetween, dayWord, fmtTime, startOfToday } from './Sidebar'
+import { usePoll, Thumb, Dir, WxIcon, shipName, keyToDate, daysBetween, dayWord, fmtTime, startOfToday } from './Sidebar'
 import './HomeDashboard.css'
 
 // Home mode as a household dashboard: clock, weather, the house, lists,
@@ -255,7 +255,7 @@ function RiverTile({ onOpen }: { onOpen: () => void }) {
         <div className="hd-ship">
           <Thumb src={next.photo} />
           <div>
-            <strong><Dir d={next.direction} /> {next.name}</strong>
+            <strong><Dir d={next.direction} /> {shipName(next.name, next.mmsi)}</strong>
             <span>{next.etaMinutes < 2 ? 'Passing the city offices now' : `Downtown in ${next.etaMinutes} min`}{next.operator ? ` · ${next.operator}` : ''}</span>
           </div>
         </div>
@@ -263,7 +263,7 @@ function RiverTile({ onOpen }: { onOpen: () => void }) {
         <div className="hd-ship">
           <Thumb src={last.photo} />
           <div>
-            <strong><Dir d={last.direction} /> {last.name}</strong>
+            <strong><Dir d={last.direction} /> {shipName(last.name, last.mmsi)}</strong>
             <span>Went by at {fmtTime(last.at)}</span>
           </div>
         </div>
