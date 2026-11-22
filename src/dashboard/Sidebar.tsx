@@ -4,7 +4,7 @@ import { getSilhouette } from '../services/photoResolver'
 import './Sidebar.css'
 
 // ── helpers ─────────────────────────────────────────────────────────────────
-function usePoll<T>(load: () => Promise<T>, ms: number, deps: unknown[] = []): T | null {
+export function usePoll<T>(load: () => Promise<T>, ms: number, deps: unknown[] = []): T | null {
   const [data, setData] = useState<T | null>(null)
   useEffect(() => {
     let alive = true
@@ -17,16 +17,16 @@ function usePoll<T>(load: () => Promise<T>, ms: number, deps: unknown[] = []): T
   return data
 }
 
-const fmtTime = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime() }
+export const fmtTime = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+export const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime() }
 
-function Thumb({ src }: { src?: string }) {
+export function Thumb({ src }: { src?: string }) {
   const [s, setS] = useState(src || getSilhouette(70))
   useEffect(() => setS(src || getSilhouette(70)), [src])
   return <img className={`sb-thumb${s.startsWith('/silhouettes/') ? ' is-sil' : ''}`} src={s} alt="" onError={() => setS(getSilhouette(70))} />
 }
 
-function Dir({ d }: { d: 'upbound' | 'downbound' }) {
+export function Dir({ d }: { d: 'upbound' | 'downbound' }) {
   return <span className={`sb-dir sb-dir-${d}`} title={d === 'downbound' ? 'Downbound — toward Lake St. Clair' : 'Upbound — toward Lake Huron'}>{d === 'downbound' ? '▼' : '▲'}</span>
 }
 
@@ -109,9 +109,9 @@ function LogCard() {
 }
 
 // ── Home mode: today at the house ───────────────────────────────────────────
-const keyToDate = (k: string) => new Date(`${k}T00:00:00`)
-function daysBetween(a: string, b: string) { return Math.round((keyToDate(b).getTime() - keyToDate(a).getTime()) / 86_400_000) }
-function dayWord(k: string, today: string) {
+export const keyToDate = (k: string) => new Date(`${k}T00:00:00`)
+export function daysBetween(a: string, b: string) { return Math.round((keyToDate(b).getTime() - keyToDate(a).getTime()) / 86_400_000) }
+export function dayWord(k: string, today: string) {
   const n = daysBetween(today, k)
   if (n === 0) return 'today'
   if (n === 1) return 'tomorrow'

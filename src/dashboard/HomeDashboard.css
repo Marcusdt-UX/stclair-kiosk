@@ -1,0 +1,147 @@
+/* ── Home dashboard: a household screen with the river as one tile ── */
+.home-dash {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: calc(0.9rem + env(safe-area-inset-top)) 1rem calc(0.9rem + env(safe-area-inset-bottom));
+  background: radial-gradient(120% 90% at 0% 0%, #1a2f3b 0%, #0f1d25 55%, #0b161c 100%);
+  color: #ece3c4;
+  font-family: Georgia, 'Palatino Linotype', serif;
+  overflow: hidden;
+}
+
+/* Header */
+.hd-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 0.3rem; padding-right: 13rem; min-height: 0; }
+.hd-time { font-size: clamp(3rem, 9vh, 5.2rem); font-weight: 700; line-height: 0.95; color: #f6eed3; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.hd-time span { font-size: 0.3em; margin-left: 0.25em; color: #c9a54a; letter-spacing: 0.08em; vertical-align: 0.15em; }
+.hd-date { margin-top: 0.3rem; font-size: clamp(0.9rem, 2.3vh, 1.15rem); color: #b9c6c9; }
+.hd-weather { display: flex; align-items: center; gap: 1.2rem; }
+.hd-wx-now { display: flex; align-items: center; gap: 0.2rem; }
+.hd-wx-now img { width: 76px; height: 76px; margin: -10px -6px -10px -12px; }
+.hd-temp { font-size: clamp(2rem, 5.6vh, 3rem); font-weight: 700; line-height: 1; color: #f6eed3; }
+.hd-wx-desc { font-size: 0.95rem; text-transform: capitalize; color: #ece3c4; }
+.hd-wx-sub { font-size: 0.72rem; color: #9ab0b8; }
+.hd-fc { display: flex; gap: 0.15rem; padding-left: 1rem; border-left: 1px solid rgba(201, 165, 74, 0.3); }
+.hd-fc div { display: flex; flex-direction: column; align-items: center; min-width: 3.1rem; font-size: 0.74rem; color: #9ab0b8; }
+.hd-fc img { width: 34px; height: 34px; margin: -4px 0; }
+.hd-fc strong { font-size: 0.95rem; color: #f6eed3; }
+.hd-fc em { font-style: normal; font-size: 0.66rem; color: #7fb6d9; }
+
+/* Grid */
+.hd-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: 1fr 1.3fr 1.1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "house lists photo"
+    "cal   lists photo"
+    "cal   river photo";
+}
+.hd-house { grid-area: house; }
+.hd-lists { grid-area: lists; }
+.hd-photo { grid-area: photo; }
+.hd-cal { grid-area: cal; }
+.hd-river { grid-area: river; }
+
+@media (orientation: portrait) {
+  .hd-header { flex-direction: column; align-items: flex-start; padding-right: 0.3rem; }
+  .hd-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-areas:
+      "house photo"
+      "lists photo"
+      "lists cal"
+      "river cal";
+  }
+}
+
+/* Tiles */
+.hd-tile {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(244, 236, 210, 0.055);
+  border: 1px solid rgba(201, 165, 74, 0.28);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  overflow: hidden;
+}
+.hd-title { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 0.6rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #c9a54a; }
+.hd-empty { margin: 0.2rem 0; font-size: 0.9rem; color: #8fa3aa; font-style: italic; }
+.hd-foot { margin: auto 0 0; padding-top: 0.5rem; font-size: 0.7rem; color: #7d9099; font-style: italic; }
+.hd-tile h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #b9c6c9; }
+.hd-tile h3 span { margin-left: 0.3rem; padding: 0 0.4rem; border-radius: 999px; background: rgba(201, 165, 74, 0.25); color: #f3d27a; font-size: 0.7rem; }
+
+/* The house */
+.hd-movein { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.5rem; }
+.hd-big { font-size: clamp(2.4rem, 7vh, 3.6rem); font-weight: 700; line-height: 1; color: #f6eed3; }
+.hd-movein span:last-child { font-size: 1rem; line-height: 1.25; color: #ece3c4; }
+.hd-movein small { display: block; font-size: 0.78rem; color: #9ab0b8; }
+.hd-pickup { display: flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0; font-size: 0.98rem; border-top: 1px solid rgba(201, 165, 74, 0.15); }
+.hd-pickup b { font-weight: 700; color: #f6eed3; text-transform: capitalize; }
+.hd-pickup small { display: block; font-size: 0.72rem; color: #9ab0b8; }
+.hd-pickup.is-tonight, .hd-pickup.is-today { border-top: none; margin: 0.15rem -0.5rem; padding: 0.5rem; border-radius: 8px; background: rgba(201, 165, 74, 0.2); }
+.hd-pickup.is-tonight strong, .hd-pickup.is-today strong { color: #f3d27a; }
+.hd-pickup-icon { font-size: 1.2rem; }
+
+/* Lists */
+.hd-lists-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 0.9rem; overflow: hidden; }
+.hd-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.hd-chips button { font: inherit; font-size: 0.98rem; color: #f6eed3; background: rgba(244, 236, 210, 0.08); border: 1px solid rgba(201, 165, 74, 0.45); border-radius: 999px; padding: 0.35rem 0.85rem; cursor: pointer; }
+.hd-chips button:active { background: #c9a54a; color: #0d1a22; }
+.hd-more { font-size: 0.8rem; color: #8fa3aa; align-self: center; }
+.hd-todo { list-style: none; margin: 0; padding: 0; }
+.hd-todo li { display: flex; align-items: center; gap: 0.6rem; padding: 0.38rem 0; font-size: 1rem; border-top: 1px solid rgba(201, 165, 74, 0.12); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hd-todo li:first-child { border-top: none; }
+.hd-box { width: 1.05rem; height: 1.05rem; border: 2px solid #c9a54a; border-radius: 4px; flex-shrink: 0; }
+
+/* Calendar */
+.hd-cal { overflow: hidden; }
+.hd-day + .hd-day { margin-top: 0.7rem; }
+.hd-event { display: flex; gap: 0.7rem; align-items: baseline; padding: 0.22rem 0; }
+.hd-event span { min-width: 4.4rem; font-size: 0.8rem; color: #c9a54a; font-variant-numeric: tabular-nums; }
+.hd-event strong { font-weight: 400; font-size: 0.98rem; color: #f6eed3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Photo */
+.hd-photo { padding: 0; position: relative; cursor: pointer; background: #0b161c; }
+.hd-photo img { width: 100%; height: 100%; object-fit: cover; animation: hd-fade 1.2s ease; }
+@keyframes hd-fade { from { opacity: 0; } to { opacity: 1; } }
+.hd-photo-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1rem 0.8rem; background: linear-gradient(transparent, rgba(11, 22, 28, 0.92)); font-size: 0.95rem; }
+.hd-photo-cap span { display: block; font-size: 0.75rem; color: #c9a54a; letter-spacing: 0.05em; }
+.hd-photo.is-empty { cursor: default; background: rgba(244, 236, 210, 0.04); }
+.hd-photo-empty { margin: auto; padding: 1.5rem; text-align: center; color: #8fa3aa; }
+.hd-photo-empty span { font-size: 2.4rem; opacity: 0.5; }
+.hd-photo-empty p { margin: 0.6rem 0 0.3rem; font-size: 0.95rem; }
+.hd-photo-empty small { font-size: 0.75rem; font-style: italic; }
+
+/* River */
+.hd-river { cursor: pointer; }
+.hd-open { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: none; color: #9ab0b8; }
+.hd-ship { display: flex; align-items: center; gap: 0.7rem; }
+.hd-ship .sb-thumb { width: 74px; height: 50px; border-radius: 6px; }
+.hd-ship strong { display: block; font-size: 1rem; color: #f6eed3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hd-ship span { display: block; font-size: 0.8rem; color: #9ab0b8; }
+.hd-ship > div { min-width: 0; }
+
+/* Ask the Captain sits in the header's top-right corner on the home dashboard */
+.home-dash-on .ask-btn { top: calc(1.2rem + env(safe-area-inset-top)); right: 1.2rem; left: auto; bottom: auto; }
+.home-dash-on .ask-card { top: calc(4.6rem + env(safe-area-inset-top)); right: 1.2rem; left: auto; bottom: auto; }
+
+/* Back-to-home button when the river map is open from Home mode */
+.hd-back {
+  position: fixed; top: calc(1rem + env(safe-area-inset-top)); left: 1rem; z-index: 800;
+  display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.1rem;
+  background: #0d1a22; color: #f1e8c8; border: 1.5px solid #c9a54a; border-radius: 999px;
+  font-family: Georgia, serif; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* the map's own controls stay hidden under the dashboard */
+.home-dash-on .home-btn, .home-dash-on .no-vessels-overlay { display: none; }

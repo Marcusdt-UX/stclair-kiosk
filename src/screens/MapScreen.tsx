@@ -15,6 +15,7 @@ import { AttractScreen } from './AttractScreen'
 import { useKioskMode } from '../services/kioskMode'
 import { Sidebar } from '../dashboard/Sidebar'
 import { AskCaptain } from '../dashboard/AskCaptain'
+import { HomeDashboard } from '../dashboard/HomeDashboard'
 import { dashGet, resolveMode, type DashStatus, type HomeInfo } from '../dashboard/api'
 import {
   MAP_CENTER,
@@ -103,6 +104,18 @@ export function MapScreen() {
     const t = setInterval(load, 15 * 60_000)
     return () => clearInterval(t)
   }, [mode, dashStatus?.unlocked])
+  // Home mode on a tablet is a household dashboard; the river map opens from its tile
+  const wide = useMediaQuery('(min-width: 700px)')
+  const homeDash = mode === 'home' && !!dashStatus?.unlocked && wide
+  const [riverOpen, setRiverOpen] = useState(false)
+  useEffect(() => {
+    if (!riverOpen) return
+    const t = setTimeout(() => setRiverOpen(false), 3 * 60_000)   // drift back to the dashboard
+    return () => clearTimeout(t)
+  }, [riverOpen])
+  const dashOn = homeDash && !riverOpen
+  const homeDashRef = useRef(false)
+  homeDashRef.current = homeDash
   const pin: [number, number] = mode === 'home' && homeInfo?.home ? [homeInfo.home.lat, homeInfo.home.lon] : HOME_POINT
   const pinLabel = mode === 'home' && homeInfo?.home ? homeInfo.home.label || 'Home' : HOME_LABEL
   const lastActivityAt = useKioskStore(s => s.lastActivityAt)
@@ -156,7 +169,7 @@ export function MapScreen() {
   useEffect(() => {
     const check = setInterval(() => {
       const idle = Date.now() - useKioskStore.getState().lastActivityAt
-      if (idle >= ATTRACT_IDLE_MS && !useKioskStore.getState().activePopup) {
+      if (idle >= ATTRACT_IDLE_MS && !useKioskStore.getState().activePopup && !homeDashRef.current) {
         setAttract(true)
       }
     }, 10_000)
@@ -172,7 +185,7 @@ export function MapScreen() {
   const vesselList = Object.values(vessels).filter(v => v.lat != null && v.lon != null)
 
   return (
-    <div className={`map-screen${showSidebar ? ' with-sidebar' : ''}`}>
+    <div className={`map-screen${showSidebar && !homeDash ? ' with-sidebar' : ''}${dashOn ? ' home-dash-on' : ''}`}>
       <MapContainer
         center={MAP_CENTER}
         zoom={MAP_ZOOM}
@@ -237,10 +250,12 @@ export function MapScreen() {
       )}
 
       {/* Popup — always use live vessel from store so name/data updates reactively */}
-      <VesselPopup
-        vessel={activePopup ? (vessels[activePopup.mmsi] ?? activePopup) : null}
-        onDismiss={dismissPopup}
-      />
+      {!dashOn && (
+        <VesselPopup
+          vessel={activePopup ? (vessels[activePopup.mmsi] ?? activePopup) : null}
+          onDismiss={dismissPopup}
+        />
+      )}
 
       {/* Home button */}
       <button className="home-btn" onClick={flyHome} title="Return to St. Clair River">
@@ -250,17 +265,21 @@ export function MapScreen() {
 
       {/* Attract / screensaver mode */}
       <AnimatePresence>
-        {(attract || forceAttract) && <AttractScreen key="attract" />}
+        {(attract || forceAttract) && !homeDash && <AttractScreen key="attract" />}
       </AnimatePresence>
 
       {/* Dashboard instruments (tablet landscape) */}
-      {showSidebar && <Sidebar status={dashStatus} mode={mode} home={homeInfo} />}
+      {showSidebar && !homeDash && <Sidebar status={dashStatus} mode={mode} home={homeInfo} />}
+
+      {/* Home mode: household dashboard over the map, or a way back to it */}
+      {dashOn && <HomeDashboard status={dashStatus} home={homeInfo} onOpenMap={() => setRiverOpen(true)} />}
+      {homeDash && riverOpen && <button className="hd-back" onClick={() => setRiverOpen(false)}>‹ Dashboard</button>}
 
       {/* Tap-to-talk — only on an unlocked device with a Gemini key configured */}
       {dashStatus?.unlocked && dashStatus.features.ask && !attract && <AskCaptain mode={mode} />}
 
       {/* Status bar — rendered above attract overlay (z-index 1200) */}
-      <StatusBar />
+      {!dashOn && <StatusBar />}
     </div>
   )
 }
