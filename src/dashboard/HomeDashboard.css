@@ -14,7 +14,10 @@
 }
 
 /* Header */
-.hd-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 0.3rem; padding-right: 13rem; min-height: 0; }
+.hd-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; padding: 0 0.3rem; min-height: 0; }
+.has-ask .hd-header { padding-right: 12.5rem; }
+.hd-date { white-space: nowrap; }
+@media (max-width: 1000px) { .hd-fc { display: none; } }
 .hd-time { font-size: clamp(3rem, 9vh, 5.2rem); font-weight: 700; line-height: 0.95; color: #f6eed3; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .hd-time span { font-size: 0.3em; margin-left: 0.25em; color: #c9a54a; letter-spacing: 0.08em; vertical-align: 0.15em; }
 .hd-date { margin-top: 0.3rem; font-size: clamp(0.9rem, 2.3vh, 1.15rem); color: #b9c6c9; }

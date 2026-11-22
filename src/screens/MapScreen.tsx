@@ -272,7 +272,7 @@ export function MapScreen() {
       {showSidebar && !homeDash && <Sidebar status={dashStatus} mode={mode} home={homeInfo} />}
 
       {/* Home mode: household dashboard over the map, or a way back to it */}
-      {dashOn && <HomeDashboard status={dashStatus} home={homeInfo} onOpenMap={() => setRiverOpen(true)} />}
+      {dashOn && <HomeDashboard status={dashStatus} home={homeInfo} onOpenMap={() => setRiverOpen(true)} askOn={!!dashStatus?.features.ask} />}
       {homeDash && riverOpen && <button className="hd-back" onClick={() => setRiverOpen(false)}>‹ Dashboard</button>}
 
       {/* Tap-to-talk — only on an unlocked device with a Gemini key configured */}

@@ -276,10 +276,10 @@ function RiverTile({ onOpen }: { onOpen: () => void }) {
   )
 }
 
-export function HomeDashboard({ status, home, onOpenMap }: { status: DashStatus | null; home: HomeInfo | null; onOpenMap: () => void }) {
+export function HomeDashboard({ status, home, onOpenMap, askOn = false }: { status: DashStatus | null; home: HomeInfo | null; onOpenMap: () => void; askOn?: boolean }) {
   const cond = usePoll(() => dashGet<Conditions>('/dash/conditions'), 10 * 60_000)
   return (
-    <div className="home-dash">
+    <div className={`home-dash${askOn ? ' has-ask' : ''}`}>
       <Header c={cond} />
       <div className="hd-grid">
         <HouseTile home={home} />
